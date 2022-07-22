@@ -1,0 +1,15 @@
+.text-field {
+    padding: 10px 20px;
+    // background-color: #fdfdfd;
+    border-radius: 8px;
+    box-shadow: 0 0 5px 1px #cacaca;
+    input {
+        width: 85%;
+        color: #333;
+        flex-grow: 1;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        height: 100%;
+    }
+}

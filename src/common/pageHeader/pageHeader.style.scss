@@ -1,0 +1,34 @@
+.page-header {
+  box-shadow: 0 0 5px 2px rgb(233, 233, 233);
+  padding: 20px 5%;
+  background-color: #fafafa;
+  .logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #00bffe;
+  }
+}
+
+.profile {
+  border-left: 1px solid #666;
+  gap: 10px;
+  align-items: center;
+  .register-btn , .login-btn {
+    width: 100px;
+    border: 1px solid #666;
+    color: #666;
+    background-color: transparent;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .login-btn {
+    width: 100px;
+    border: 1px solid #f8f8f8;
+    color: #f8f8f8;
+    background-color: #00bffe;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+}

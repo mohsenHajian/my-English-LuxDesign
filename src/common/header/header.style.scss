@@ -1,0 +1,98 @@
+.header {
+  width: 100%;
+  height: 100vh;
+  background: url("../../assets/62d52f6f09fd0.jpg") no-repeat;
+  background-size: cover;
+  .overlay {
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    padding: 0 5%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .top-header {
+      width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .header-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      .register-btn {
+        width: 100px;
+        border: 1px solid #f8f8f8;
+        color: white;
+        background-color: transparent;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .login-btn {
+        width: 100px;
+        border: 1px solid #f8f8f8;
+        color: #333333;
+        background-color: #f8f8f8;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    }
+    .header-content {
+      display: flex;
+      align-items: center;
+      p {
+        text-align: center;
+        padding: 0 50px;
+        color: #f8f8f8;
+        cursor: pointer;
+        margin: 0;
+      }
+      .border-right-left {
+        border-right: 1px solid #f8f8f8;
+        border-left: 1px solid #f8f8f8;
+      }
+    }
+    .logo {
+      width: 210px;
+      height: 100px;
+      background: url("../../assets/logo-removebg-preview.png") no-repeat;
+    }
+  }
+  .header-title {
+    color: #f8f8f8;
+    text-align: center;
+    margin-top: 17vh;
+    span {
+        font-family: 'IranSansLight';
+      font-size: 35px;
+        word-spacing: 10px;
+    }
+    h3 {
+        margin: 20px 0 15vh 0;
+        font-size: 50px;
+    }
+  }
+  .search-bar {
+      width: 55%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #f8f8f8;
+      box-shadow: 0 0 0px 8px #f8f8f825;
+      border-radius: 24px;
+      padding: 7px 30px;
+
+      input {
+          width: 80%;
+          height: 100%;
+          font-size: 16px;
+          border-radius: 0 24px 24px 0;
+          background-color: #f8f8f8;
+          border: none;
+          outline: none;
+      }
+  }
+}

@@ -1,0 +1,12 @@
+.all-shirts-container {
+    padding: 0 5%;
+    .path {
+        color: #808080;
+    }
+    .cards-container {
+        background-color: #fafafa;
+        flex-grow: 1;
+        border-radius: 8px;
+        box-shadow: 0 0 5px 2px rgb(224, 224, 224);
+    }
+}

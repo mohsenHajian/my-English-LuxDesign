@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'IranSans';
+    src: url(../../assets/IRANSans/IRANSans_Medium.ttf);
+}
+@font-face {
+    font-family: 'IranSansLight';
+    src: url(../../assets/IRANSans/WebFonts/fonts/ttf/IRANSansWeb_Light.ttf);
+}
+@font-face {
+    font-family: 'IranSansNum';
+    src: url('../../assets/IRANSans/Farsi_numerals/IRANSans\(FaNum\)_Medium.ttf');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    direction: rtl;
+    font-family: 'IranSans';
+
+}
+
+body {
+    background-color: #f8f8f8;
+}
+
+.fa-num {
+    font-family: 'IranSansNum';
+}
