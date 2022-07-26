@@ -4,8 +4,8 @@ import Main from "../../common/main";
 import Login from "../../common/login";
 import MainLayout from "../mainLayout";
 import Register from "../../common/register";
-import AllShirts from "../../common/allShirts";
 import SinglePage from "../../common/singlePage";
+import ShowAll from "../../common/showAll";
  
 const Layout = () => {
   return (
@@ -15,7 +15,8 @@ const Layout = () => {
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/shirts" element={<AllShirts />} />
+          <Route path="/shirts" element={<ShowAll />} />
+          <Route path="/pants" element={<ShowAll />} />
           <Route path="/single-page" element={<SinglePage />} />
         </Routes>
       </MainLayout>

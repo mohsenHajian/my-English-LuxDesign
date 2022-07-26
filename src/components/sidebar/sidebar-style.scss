@@ -1,17 +1,20 @@
 .aside {
-    min-width: 23%;
-    background-color: #fafafa;
-    border-radius: 8px;
-    box-shadow: 0 0 5px 2px rgb(224, 224, 224);
-    height: fit-content;
-    .select {
-        cursor: pointer;
-        background-color: transparent;
-        border: none;
-        padding: 20px 0;
-        border-bottom: 1px solid #c7c7c7;
-    }
-    .border-bottom {
-        border-bottom: 1px solid #c7c7c7 !important
-    }
+  min-width: 25%;
+  background-color: #fafafa;
+  border-radius: 8px;
+  height: fit-content;
+  .boxSh {
+      box-shadow: 0 0 5px 2px rgb(224, 224, 224);
+      border-radius: 8px;
+  }
+  .select {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 20px 0;
+    border-bottom: 1px solid #c7c7c7;
+  }
+  .border-bottom {
+    border-bottom: 1px solid #c7c7c7 !important;
+  }
 }

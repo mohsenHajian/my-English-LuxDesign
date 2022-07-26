@@ -1,22 +1,41 @@
 import { Icon } from "@iconify/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../../components/card";
 import CategoryIcon from "../../components/categoryIcon";
 import popularImg from "./popular.svg";
 import "./main.style.scss";
 import { useNavigate } from "react-router";
+import axios from "axios";
 
 const Main = () => {
-  const shirt =
-    "https://dkstatics-public.digikala.com/digikala-products/921998d221ed26d3329543add29cc45be09551f9_1652438360.jpg?x-oss-process=image/resize,m_lfit,h_600,w_600/quality,q_90";
-  const pants =
-    "https://dkstatics-public.digikala.com/digikala-products/77412d73c86d770f74732e9feb99f4a46d58ec42_1652863407.jpg?x-oss-process=image/resize,m_lfit,h_600,w_600/quality,q_90";
+  const navigate = useNavigate();
+  let [mainShirtSection, setMainShirtSection] = useState([]);
+  let [mainPantsSection, setMainPantsSection] = useState([]);
+  let [proposal, setProposal] = useState([]);
 
-  const navigate = useNavigate()
 
-  const showMoreHandler = () => {
-    navigate('/shirts')
-  }
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/shirts/")
+      .then(({ data }) =>
+        setMainShirtSection(data.products.reverse().slice(0, 4))
+      );
+    axios
+      .get("http://localhost:8000/pants/")
+      .then(({ data }) =>
+        setMainPantsSection(data.products.reverse().slice(0, 4))
+      );
+    axios
+      .get("http://localhost:8000/proposal/")
+      .then(({ data }) => setProposal(data.products.reverse().slice(0, 4)));
+  }, []);
+
+  const showMoreShirtsHandler = () => {
+    navigate("/shirts");
+  };
+  const showMorePantsHandler = () => {
+    navigate("/pants");
+  };
 
   return (
     <main className="home-main">
@@ -36,7 +55,7 @@ const Main = () => {
         className="carousel slide"
         data-bs-ride="carousel"
       >
-        <div class="carousel-indicators">
+        <div class="carousel-indicators carousel-indicators-slider">
           <button
             type="button"
             data-bs-target="#carouselExampleIndicators"
@@ -108,32 +127,30 @@ const Main = () => {
       <section className="shirt-section">
         <div className="shirt-section-header">
           <p className="shirt-section-title">پیراهن ها</p>
-          <div className="show-more" onClick={showMoreHandler}>
+          <div className="show-more" onClick={showMoreShirtsHandler}>
             <span>نمایش همه</span>
             <Icon icon="akar-icons:arrow-left" color="#00bffe" width="30" />
           </div>
         </div>
         <div className="card-container d-flex justify-content-center my-4 flex-wrap w-100">
-          <Card img={shirt} boxSh={true} />
-          <Card img={shirt} boxSh={true} />
-          <Card img={shirt} boxSh={true} />
-          <Card img={shirt} boxSh={true} />
+          {mainShirtSection?.map((card) => (
+            <Card card={card} boxSh={true} />
+          ))}
         </div>
       </section>
 
       <section className="pants-section">
         <div className="pants-section-header">
           <p className="pants-section-title">شلوار ها</p>
-          <div className="show-more" onClick={showMoreHandler}>
+          <div className="show-more" onClick={showMorePantsHandler}>
             <span>نمایش همه</span>
             <Icon icon="akar-icons:arrow-left" color="#00bffe" width="30" />
           </div>
         </div>
         <div className="card-container d-flex  justify-content-center my-4 flex-wrap w-100">
-          <Card img={pants} boxSh={true} />
-          <Card img={pants} boxSh={true} />
-          <Card img={pants} boxSh={true} />
-          <Card img={pants} boxSh={true} />
+          {mainPantsSection?.map((card) => (
+            <Card card={card} boxSh={true} />
+          ))}
         </div>
       </section>
 
@@ -141,17 +158,14 @@ const Main = () => {
         <div className="d-flex flex-column justify-content-center align-items-center popular-product-info">
           <p>پیشنهادی لوکس دیزاین</p>
           <img src={popularImg} alt="" className="popularImg" />
-          {/* <div className="popular-product-img">
-          </div> */}
         </div>
         <div className="flex-grow d-flex justify-content-center">
-          <Card img={shirt} boxSh={false} />
-          <Card img={pants} boxSh={false} />
-          <Card img={shirt} boxSh={false} />
-          <Card img={pants} boxSh={false} />
+          {proposal?.map((card) => (
+            <Card card={card} boxSh={false} />
+          ))}
         </div>
         <div className="popular-product-control d-flex justify-content-center align-items-center">
-          <Icon icon="ep:arrow-left" color="#333" width="35" />
+          <Icon icon="ep:arrow-left" color="#333" width="35" cursor='pointer' />
         </div>
       </section>
     </main>

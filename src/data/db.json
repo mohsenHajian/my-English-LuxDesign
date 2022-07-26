@@ -1,0 +1,539 @@
+{
+  "admin": [],
+  "users": [
+  ],
+  "shirts": {
+    "products": [
+      {
+        "id": 1,
+        "category": "shirt",
+        "title": "پیراهن آستین بلند مردانه جوتی ",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/921998d221ed26d3329543add29cc45be09551f9_1652438360.jpg?x-oss-process=image/resize,m_lfit,h_600,w_600/quality,q_90",
+        "price": "260,000",
+        "inventory": "10",
+        "star": "4.3",
+        "property": {
+          "material": "الیاف نخی",
+          "size": [
+            "xl"
+          ],
+          "sleeve": "بلند",
+          "height": "روی باسن"
+        }
+      },
+      {
+        "id": 2,
+        "category": "shirt",
+        "title": "پیراهن آستین کوتاه مردانه سرز مدل هاوایی",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/b29142b2b9c053510890544400b503fa6e7423f8_1651260926.jpg?x-oss-process=image/resize,m_lfit,h_600,w_600/quality,q_90",
+        "price": "260,000",
+        "inventory": "10",
+        "star": "3.9",
+        "property": {
+          "material": "الیاف نخی",
+          "size": [
+            "l"
+          ],
+          "sleeve": "کوتاه",
+          "height": "روی باسن"
+        }
+      },
+      {
+        "id": 3,
+        "category": "shirt",
+        "title": "پیراهن آستین بلند مردانه بادی اسپینر",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/bac9275b41076f4eaee7008af6c901b242393b75_1623648213.jpg?x-oss-process=image/resize,m_lfit,h_600,w_600/quality,q_90",
+        "price": "398,000",
+        "inventory": "10",
+        "star": "4.4",
+        "property": {
+          "material": "کتان",
+          "size": [
+            "l",
+            "m"
+          ],
+          "sleeve": "بلند",
+          "height": "روی باسن"
+        }
+      },
+      {
+        "id": 4,
+        "category": "shirt",
+        "title": "پیراهن آستین کوتاه مردانه مدل هاوایی",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/89a3582fa95637efc0f66e46f0c8b1e2dce6fe7a_1650969306.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "233,750",
+        "inventory": "10",
+        "star": "3.8",
+        "property": {
+          "material": "الیاف نخی",
+          "size": [
+            "l"
+          ],
+          "sleeve": "کوتاه",
+          "height": "روی کمر"
+        }
+      },
+      {
+        "id": 5,
+        "category": "shirt",
+        "title": "پیراهن آستین کوتاه مردانه وادین کوک مدل هاوایی",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/964cf1684f9d778d1e5452d6fe5551a11c00dba1_1650536423.jpg?x-oss-process=image/resize,m_lfit,h_600,w_600/quality,q_90",
+        "price": "1,200,000",
+        "inventory": "10",
+        "star": "4.5",
+        "property": {
+          "material": "الیاف نخی",
+          "size": [
+            "xxl",
+            "l",
+            "m"
+          ],
+          "sleeve": " کوتاه ",
+          "height": "روی باسن"
+        }
+      },
+      {
+        "id": 6,
+        "category": "shirt",
+        "title": "پیراهن آستین بلند مردانه بادی ",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/0c3ac57800850bcb793564974095449c844d82c8_1655029430.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "359,000",
+        "inventory": "10",
+        "star": "2",
+        "property": {
+          "material": "کتان",
+          "size": [
+            "s"
+          ],
+          "sleeve": "بلند",
+          "height": "زیر باسن"
+        }
+      },
+      {
+        "id": 7,
+        "category": "shirt",
+        "title": "پیراهن آستین بلند مردانه بادی",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/67f2069c982f1de865ef79326b0e2040f70a34e5_1637234342.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "1,098,000",
+        "inventory": "10",
+        "star": "3.5",
+        "property": {
+          "material": "کتان",
+          "size": [
+            "l",
+            "m"
+          ],
+          "sleeve": "بلند",
+          "height": "زیر باسن"
+        }
+      },
+      {
+        "id": 8,
+        "category": "shirt",
+        "title": "پیراهن آستین بلند مردانه بادی",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/dc4f64436f153b3771bc8da8419e74371bad6ddf_1654599487.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "629,000",
+        "inventory": "10",
+        "star": "3",
+        "property": {
+          "material": "کتان",
+          "size": [
+            "xxl"
+          ],
+          "sleeve": "بلند",
+          "height": "روی باسن"
+        }
+      },
+      {
+        "id": 9,
+        "category": "shirt",
+        "title": "پیراهن مردانه زی سا",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/36b3ae77560bcb3049744f03e06ef9a849b6d80e_1637734982.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "530,000",
+        "inventory": "10",
+        "star": "4.2",
+        "property": {
+          "material": "کتان",
+          "size": [
+            "l"
+          ],
+          "sleeve": "بلند",
+          "height": "روی باسن"
+        }
+      },
+      {
+        "id": 10,
+        "category": "shirt",
+        "title": "پیراهن مردانه ال سی من",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/906ae3b436d0f4445420eaf2f0c428e084ad7490_1637043604.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "780,000",
+        "inventory": "10",
+        "star": "4",
+        "property": {
+          "material": "الیاف نخی",
+          "size": [
+            "l"
+          ],
+          "sleeve": "بلند",
+          "height": "روی باسن"
+        }
+      },
+      {
+        "id": 11,
+        "category": "shirt",
+        "title": "پیراهن مردانه ایزی دو",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/6ef34e2c9b8a07b9b785441e5fce98e0f60bc559_1645006278.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "702,000",
+        "inventory": "10",
+        "star": "3.7",
+        "property": {
+          "material": "نخ",
+          "size": [
+            "xxl",
+            "xl",
+            "l",
+            "m"
+          ],
+          "sleeve": "بلند",
+          "height": "روی باسن"
+        }
+      }
+    ]
+  },
+  "pants": {
+    "products": [
+      {
+        "id": 1,
+        "category": "pants",
+        "title": "شلوار مردانه اکزاترس",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/ac95e3fc2e2fc3a408b92fa1594426d5c934f7d7_1643199362.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "696,000",
+        "inventory": "10",
+        "star": "3",
+        "property": {
+          "material": "کتان",
+          "size": [
+            "52",
+            "50",
+            "48",
+            "46",
+            "44",
+            "42"
+          ],
+          "style" : "جذب",
+          "crotch": "متوسط",
+          "HowToClose": "دکمه"
+        }
+      },
+      {
+        "id": 2,
+        "category": "pants",
+        "title": "شلوار مردانه ان سی نو مدل کتان 6جیب",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/35ec61cb7a812080ea2902bccb09d34544b3639b_1641379088.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "428,000",
+        "inventory": "10",
+        "star": "3",
+        "property": {
+          "material": "کتان",
+          "size": [
+            "48",
+            "46",
+            "40"
+          ],
+          "style" : "جذب",
+          "crotch": "متوسط",
+          "HowToClose": "کشی"
+        }
+      },
+      {
+        "id": 3,
+        "category": "pants",
+        "title": "شلوار مردانه رسمی ال سی من",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/bd50445819bf6fcf0df5084f5a1f0aac8822ad68_1651464773.jpg?x-oss-process=image/resize,m_lfit,h_600,w_600/quality,q_90",
+        "price": "1,180,000",
+        "inventory": "10",
+        "star": "4.2",
+        "property": {
+          "material": "کتان",
+          "size": [
+            "54",
+            "52",
+            "50",
+            "46",
+            "44",
+            "40"
+          ],
+          "style" : "جذب",
+          "crotch": "متوسط",
+          "HowToClose": "دکمه و زیپ"
+        }
+      },
+      {
+        "id": 4,
+        "category": "pants",
+        "title": "شلوار مردانه ال سی من",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/d0ab1e4915374fa66531175d50e7e4b02ab8b38a_1645000145.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "1,180,000",
+        "inventory": "10",
+        "star": "4",
+        "property": {
+          "material": "الیاف نخی",
+          "size": [
+            "48"
+          ],
+          "style" : "راسته",
+          "crotch": "متوسط",
+          "HowToClose": "دکمه و زیپ"
+        }
+      },
+      {
+        "id": 5,
+        "category": "pants",
+        "title": "شلوار مردانه دیان",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/d0ab1e4915374fa66531175d50e7e4b02ab8b38a_1645000145.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "345,000",
+        "inventory": "10",
+        "star": "4",
+        "property": {
+          "material": "نخ",
+          "size": [
+            "54",
+            "50",
+            "48",
+            "46",
+            "44",
+            "42"
+          ],
+          "style" : "جذب",
+          "crotch": "متوسط",
+          "HowToClose": "دکمه"
+        }
+      },
+      {
+        "id": 6,
+        "category": "pants",
+        "title": "شلوار مردانه پاتن جامه",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/56cfc3d9c6263f0a852fbac7562c3d5ce934571b_1655013448.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "420,000",
+        "inventory": "10",
+        "star": "3.8",
+        "property": {
+          "material": "پنبه",
+          "size": [
+            "42",
+            "38",
+            "36",
+            "34"
+          ],
+          "style" : "راسته",
+          "crotch": "متوسط",
+          "HowToClose": "کشی"
+        }
+      },
+      {
+        "id": 7,
+        "category": "pants",
+        "title": "شلوار مردانه پاتن جامه",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/8fb1f2eb6953a8c437d8e011738998987e45648d_1643702869.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "470,000",
+        "inventory": "10",
+        "star": "3",
+        "property": {
+          "material": "پنبه",
+          "size": [
+            "40",
+            "38",
+            "34",
+            "32"
+          ],
+          "style" : "جذب",
+          "crotch": "متوسط",
+          "HowToClose": "کشی"
+        }
+      },
+      {
+        "id": 8,
+        "category": "pants",
+        "title": "شلوار مردانه سیدونا",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/145e4e9a45d5c601436125be6cfca22ec07c3473_1646487665.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "275,000",
+        "inventory": "10",
+        "star": "5",
+        "property": {
+          "material": "الیاف نخی",
+          "size": [
+            "34"
+          ],
+          "style" : "راسته",
+          "crotch": "متوسط",
+          "HowToClose": "کشی"
+        }
+      },
+      {
+        "id": 9,
+        "category": "pants",
+        "title": "شلوار مردانه کیکی رایکی",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/1650940c628af883b79fbd62875df6cfd1dd0cca_1614406278.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "850,000",
+        "inventory": "10",
+        "star": "5",
+        "property": {
+          "material": "نخ",
+          "size": [
+            "34"
+          ],
+          "style" : "جذب",
+          "crotch": "متوسط",
+          "HowToClose": "دکمه"
+        }
+      },
+      {
+        "id": 10,
+        "category": "pants",
+        "title": "شلوار مردانه کیکی رایکی",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/16cb97794d8c7e8fde7a19d340ff97696956b603_1655870986.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "2,990,000",
+        "inventory": "10",
+        "star": "5",
+        "property": {
+          "material": "کتان",
+          "size": [
+            "52",
+            "50",
+            "48",
+            "46",
+            "44",
+            "42"
+          ],
+          "style" : "جذب",
+          "crotch": "متوسط",
+          "HowToClose": " دکمه و زیپ "
+        }
+      }
+    ]
+  },
+  "shoes": {
+    "products": [
+      {
+        "id": 1,
+        "category": "shoes",
+        "title": "کفش روزمره مردانه کروماکی",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/18578205c87ce90602416f5df8a90b00d152273f_1641904239.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "667,000",
+        "inventory": "10",
+        "star": "4",
+        "property": {
+          "material": " چرم مصنوعی ",
+          "size": [
+            "44",
+            "43",
+            "42",
+            "41"
+          ],
+          "soleFeatures": " انعطاف پذیر , کاهش فشار وارده ,مقاوم در برابر سایش",
+          "insole": "قابل تعویض "
+        }
+      },
+      {
+        "id": 2,
+        "category": "shoes",
+        "title": "کفش طبی مردانه ایران طب",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/e3bfe33b1a12836157ff38c7b82d39ae4071afa5_1626075100.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "1,150,000",
+        "inventory": "10",
+        "star": "4",
+        "property": {
+          "material": " چرم طبیعی ",
+          "size": [
+            "41",
+            "40"
+          ],
+          "soleFeatures": " کاهش فشار وارده ",
+          "insole": "طبی"
+        }
+      }
+    ]
+  },
+  "proposal": {
+    "products": [
+      {
+        "id": 1,
+        "category": "shoes",
+        "title": "کفش روزمره مردانه کروماکی",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/18578205c87ce90602416f5df8a90b00d152273f_1641904239.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "667,000",
+        "inventory": "10",
+        "star": "4",
+        "property": {
+          "material": " چرم مصنوعی ",
+          "size": [
+            "44",
+            "43",
+            "42",
+            "41"
+          ],
+          "soleFeatures": " انعطاف پذیر , کاهش فشار وارده ,مقاوم در برابر سایش",
+          "insole": "قابل تعویض "
+        }
+      },
+      {
+        "id": 2,
+        "category": "pants",
+        "title": "شلوار مردانه ان سی نو مدل کتان 6جیب",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/35ec61cb7a812080ea2902bccb09d34544b3639b_1641379088.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "428,000",
+        "inventory": "10",
+        "star": "3",
+        "property": {
+          "material": "کتان",
+          "size": [
+            "48",
+            "46",
+            "40"
+          ],
+          "crotch": "متوسط",
+          "HowToClose": "کشی"
+        }
+      },
+      {
+        "id": 3,
+        "category": "pants",
+        "title": "شلوار مردانه رسمی ال سی من",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/bd50445819bf6fcf0df5084f5a1f0aac8822ad68_1651464773.jpg?x-oss-process=image/resize,m_lfit,h_600,w_600/quality,q_90",
+        "price": "1,180,000",
+        "inventory": "10",
+        "star": "4.2",
+        "property": {
+          "material": "کتان",
+          "size": [
+            "54",
+            "52",
+            "50",
+            "46",
+            "44",
+            "40"
+          ],
+          "crotch": "متوسط",
+          "HowToClose": "دکمه و زیپ"
+        }
+      },
+      {
+        "id": 4,
+        "category": "shirt",
+        "title": "پیراهن آستین کوتاه مردانه مدل هاوایی",
+        "imgURL": "https://dkstatics-public.digikala.com/digikala-products/89a3582fa95637efc0f66e46f0c8b1e2dce6fe7a_1650969306.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+        "price": "233,750",
+        "inventory": "10",
+        "star": "3.8",
+        "property": {
+          "material": "الیاف نخی",
+          "size": [
+            "l"
+          ],
+          "sleeve": "کوتاه",
+          "height": "روی کمر"
+        }
+      }
+    ]
+  }
+}
