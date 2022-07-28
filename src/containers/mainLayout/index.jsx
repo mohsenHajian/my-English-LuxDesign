@@ -13,17 +13,19 @@ const MainLayout = ({ children }) => {
         return <Header />;
       }
       case "/shirts":
+      case "/pants":
       case "/single-page": {
         return <PageHeader />;
       }
 
-      // default : {null}
+      // default 
     }
   };
   const dynamicFooter = () => {
     switch (pathname) {
       case "/":
       case "/shirts":
+      case "/pants":
       case "/single-page": {
         return <Footer />;
       }
@@ -31,7 +33,7 @@ const MainLayout = ({ children }) => {
       case "/login": {
         return null;
       }
-      // default : {null}
+      // default
     }
   };
   return (

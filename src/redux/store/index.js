@@ -1,8 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
-import currentPath from '../slice/currentPathSlice'
+import searchValue from '../slice/searchValueSlice'
+import searchSubmit from '../slice/searchValueSlice'
+import dataRender from '../slice/dataToRenderSlice'
+import shirtData from '../slice/dataToRenderSlice'
+import pantsData from '../slice/dataToRenderSlice'
 
 export const store = configureStore({
     reducer : {
-        currentPath
+        searchValue,
+        searchSubmit,
+        dataRender,
+        shirtData,
+        pantsData
     }
 })

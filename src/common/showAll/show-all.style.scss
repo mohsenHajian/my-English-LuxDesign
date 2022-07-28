@@ -1,0 +1,35 @@
+.show-all-container {
+    padding: 0 5%;
+    .path {
+        color: #808080;
+    }
+    .cards-container {
+        background-color: #fafafa;
+        flex-grow: 1;
+        border-radius: 8px;
+        box-shadow: 0 0 5px 2px rgb(224, 224, 224);
+    }
+    .btn-sort {
+        background-color: #fdfdfd;
+        border: none;
+        box-shadow: 0 0 5px 2px rgb(211, 211, 211);
+        padding: 5px 10px;
+        border-radius: 8px;
+    }
+    .btn-sort:focus {
+        box-shadow: 0 0 5px 2px #00bffe;
+    }
+    .paginate-btn {
+        padding: 7px 10px;
+        border: none;
+        background-color: #fdfdfd;
+        box-shadow: 0 0 5px 2px #d8d8d8;
+        outline: none;
+    }
+    .paginate-num {
+        font-size: 20px;
+    }
+}
+
+
+

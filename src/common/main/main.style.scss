@@ -26,7 +26,7 @@
     border-radius: 100%;
   }
   position: relative;
-  .carousel-indicators {
+  .carousel-indicators-slider {
     width: fit-content;
     bottom: 40px;
     right: 45px;
@@ -135,4 +135,27 @@
 
 .show-more {
   cursor: pointer;
+}
+.show-more:hover {
+  svg{
+    animation: movingArrow 0.4s infinite;
+  }
+}
+
+@keyframes movingArrow {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(0px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }
