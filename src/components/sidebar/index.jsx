@@ -2,6 +2,7 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router";
 import { setDataRender } from "../../redux/slice/dataToRenderSlice";
+import PriceInput from "../inputPrice";
 import "./sidebar-style.scss";
 
 const Sidebar = () => {
@@ -137,7 +138,7 @@ const Sidebar = () => {
             فقط کالا های موجود
           </label>
         </div>
-        {/* <PriceInput /> */}
+        <PriceInput />
       </div>
     </aside>
   );

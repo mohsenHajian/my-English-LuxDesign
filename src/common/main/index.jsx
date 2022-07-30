@@ -44,7 +44,7 @@ const Main = () => {
     <main className="home-main">
       <section className="category-container">
         <p>دسته بندی محصولات</p>
-        <div className="category-items">
+        <div className="category-items d-flex flex-wrap">
           <CategoryIcon />
           <CategoryIcon />
           <CategoryIcon />
@@ -157,20 +157,20 @@ const Main = () => {
         </div>
       </section>
 
-      <section className="popular-product d-flex align-items-center">
+      {/* <section className="popular-product d-flex align-items-center">
         <div className="d-flex flex-column justify-content-center align-items-center popular-product-info">
           <p>پیشنهادی لوکس دیزاین</p>
           <img src={popularImg} alt="" className="popularImg" />
         </div>
-        <div className="flex-grow d-flex justify-content-center">
+        <div className="flex-grow d-flex justify-content-center proposal-cards px-5">
           {proposal?.map((card) => (
-            <Card card={card} boxSh={false} />
+            <Card card={card} width='200px' boxSh={false} />
           ))}
         </div>
         <div className="popular-product-control d-flex justify-content-center align-items-center">
           <Icon icon="ep:arrow-left" color="#333" width="35" cursor='pointer' />
         </div>
-      </section>
+      </section> */}
     </main>
   );
 };

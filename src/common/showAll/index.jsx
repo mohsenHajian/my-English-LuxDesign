@@ -112,11 +112,11 @@ const ShowAll = () => {
   return (
     <div className="show-all-container d-flex flex-column gap-3">
       <div className="show-all d-flex w-100 gap-4">
-        <div className="d-flex flex-column col-3 gap-3">
+        <div className="d-flex flex-column col-xl-3 col-lg-12 gap-3">
           <span className="path">{rootPath}</span>
           <Sidebar />
         </div>
-        <div className="d-flex flex-column col-9 gap-2">
+        <div className="d-flex flex-column col-xl-9 col-lg-12 gap-2">
           <div className="d-flex gap-3">
             <button className="btn-sort" onClick={cheapestList}>ارزان ترین</button>
             <button className="btn-sort" onClick={expensiveList}>گران ترین</button>

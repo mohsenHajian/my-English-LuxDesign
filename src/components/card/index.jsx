@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router";
 import "./card.style.scss";
 
-const Card = ({card , boxSh }) => {
+const Card = ({card , boxSh , width }) => {
   const navigate = useNavigate()
   const Dstyle = {
     boxShadow: '0 0 5px 2px #d6d6d6'

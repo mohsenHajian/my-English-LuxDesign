@@ -108,36 +108,38 @@
 
 .popular-product {
   margin: 100px 5%;
-  padding: 20px 70px;
-  background-color: #33CBFF;
+  padding: 20px 20px;
+  background-color: #33cbff;
   border-radius: 16px;
+  .proposal-cards {
+    overflow-x: scroll;
+  }
   .popular-product-info {
-      max-width: 12%;
-      p {
-          font-size: 32px;
-          color: #f0f0f0;
-          font-family: 'IranSansLight';
-          word-wrap: break-word;
-          text-align: center;
-      }
-      .popularImg {
-          width: 200px;
-      }
+    max-width: 12%;
+    p {
+      font-size: 32px;
+      color: #f0f0f0;
+      font-family: "IranSansLight";
+      word-wrap: break-word;
+      text-align: center;
+    }
+    .popularImg {
+      width: 200px;
+    }
   }
   .popular-product-control {
-      width: 60px;
-      background-color: #f8f8f8;
-      border-radius: 100%;
-      padding: 7px;
+    width: 60px;
+    background-color: #f8f8f8;
+    border-radius: 100%;
+    padding: 7px;
   }
-
 }
 
 .show-more {
   cursor: pointer;
 }
 .show-more:hover {
-  svg{
+  svg {
     animation: movingArrow 0.4s infinite;
   }
 }
@@ -157,5 +159,57 @@
   }
   100% {
     transform: translateX(0px);
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .popular-product {
+    .popular-product-info {
+      p {
+        font-size: 25px;
+      }
+      .popularImg {
+        width: 150px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 992px) {
+  .category-items {
+    gap: 30px;
+  }
+  .popular-product {
+    .popular-product-info {
+      p {
+        font-size: 20px;
+      }
+      .popularImg {
+        width: 120px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .carousel-arrow {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .carousel-indicators-slider {
+    bottom: 10px !important;
+    right: 25px !important;
+  }
+  .carousel-control {
+    right: 20px !important;
+    bottom: 35px !important;
+  }
+  .popular-product {
+    .popular-product-info {
+      p {
+        font-size: 20px;
+      }
+      .popularImg {
+        width: 100px;
+      }
+    }
   }
 }

@@ -17,6 +17,15 @@
       width: 100%;
     display: flex;
     justify-content: space-between;
+    .header-btns {
+      display: flex;
+      gap: 10px;
+      padding: 0 10px;
+    }
+    .cart-icon {
+      border-right: 1px solid #f8f8f8;
+      padding: 5px 15px ;
+    }
     .header-btn {
       display: flex;
       align-items: center;
@@ -50,22 +59,17 @@
         cursor: pointer;
         margin: 0;
       }
-      .border-right-left {
-        border-right: 1px solid #f8f8f8;
-        border-left: 1px solid #f8f8f8;
-      }
+
     }
     .logo {
-      width: 210px;
-      height: 100px;
-      background: url("../../assets/logo-removebg-preview.png") no-repeat;
+      direction: ltr;
     }
   }
   .header-title {
     color: #f8f8f8;
     text-align: center;
     margin-top: 17vh;
-    span {
+    p {
         font-family: 'IranSansLight';
       font-size: 35px;
         word-spacing: 10px;
@@ -76,7 +80,7 @@
     }
   }
   .search-bar {
-      width: 55%;
+      // width: 55%;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -94,5 +98,26 @@
           border: none;
           outline: none;
       }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .header-title {
+    p {
+      font-size: 25px !important;
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .header-title {
+    p {
+      font-size: 20px !important;
+    }
+  }
+  .logo {
+    img {
+      height: 80%;
+      width: 80%;
+    }
   }
 }

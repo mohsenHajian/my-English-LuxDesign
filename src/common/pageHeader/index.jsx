@@ -35,10 +35,10 @@ const PageHeader = () => {
 
   return (
     <div className="d-flex page-header justify-content-between align-items-center mb-4">
-      <div className="d-flex align-items-center w-50 gap-4">
-        <span className="logo" onClick={()=>navigate('/')}>LUX DESIGN</span>
+      <div className="d-flex align-items-center w-50 gap-4 flex-grow-1">
+        <span className="logo text-center" onClick={() => navigate('/')}>LUX DESIGN</span>
         <Input
-          className="w-75"
+          className="w-50"
           placeholder="جستجو"
           color="#808080"
           icon="carbon:search"
@@ -50,13 +50,16 @@ const PageHeader = () => {
         />
       </div>
       <div className="d-flex align-items-center gap-3">
-        <div className="profile d-flex px-4 gap-2">
+        <div className="profile d-flex px-4 gap-2 d-xl-flex d-lg-flex d-m-flex d-none">
           <button className="login-btn" onClick={loginHandle}>
             ورود
           </button>
           <button className="register-btn" onClick={registerHandle}>
             ثبت نام
           </button>
+        </div>
+        <div className="login-icon px-3 d-xl-none d-lg-none d-m-none d-flex">
+          <Icon icon="heroicons-solid:login" color="#666" width='25px' cursor='pointer' onClick={()=>navigate('/login')} />
         </div>
         <Icon icon="clarity:shopping-cart-line" color="#666" width="25" />
       </div>
