@@ -7,18 +7,11 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import UserProfile from "../../components/userProfile";
 
-const Header = () => {
+const Header = ({user}) => {
   const navigate = useNavigate()
   
   
-  const {usersList} = useSelector(state=>state.usersList)
-
-  const [user,setUser] = useState()
-
-  useEffect(()=>{
-    axios.get('http://localhost:8000/users').then(({data})=>setUser(data.filter(user=>`${user.username+user.id}` === localStorage.getItem('token'))))
-    console.log(user)
-  },[usersList])
+  const {userToken} = useSelector(state=>state.userToken)
 
 
 
@@ -35,7 +28,7 @@ const Header = () => {
         <div className="top-header">
           <div className="header-btn col-3">
             <div className="header-btns">
-              {user?.length>0 ? <UserProfile user={user} /> : <>
+              {userToken && user ? <UserProfile user={user} /> : <>
                 <button className="login-btn" onClick={loginHandle}>ورود</button>
                 <button className="register-btn" onClick={registerHandle}>ثبت نام</button>
               </>}

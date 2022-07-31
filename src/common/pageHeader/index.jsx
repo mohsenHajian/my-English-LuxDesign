@@ -11,20 +11,12 @@ import {
 } from "../../redux/slice/searchValueSlice";
 import "./pageHeader.style.scss";
 
-const PageHeader = () => {
+const PageHeader = ({user}) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { searchValue } = useSelector((state) => state.searchValue);
-
-
-  const {usersList} = useSelector(state=>state.usersList)
-
-  const [user,setUser] = useState()
-
-  useEffect(()=>{
-    axios.get('http://localhost:8000/users').then(({data})=>setUser(data.filter(user=>`${user.username+user.id}` === localStorage.getItem('token'))))
-  },[usersList])
+  const {userToken} = useSelector(state=>state.userToken)
 
 
   const loginHandle = () => {
@@ -67,7 +59,7 @@ const PageHeader = () => {
       </div>
       <div className="d-flex align-items-center gap-3">
         <div className="profile d-flex px-4 gap-2 d-xl-flex d-lg-flex d-m-flex d-none">
-        {user?.length>0 ? <UserProfile theme='dark' user={user} /> : <>
+        {userToken ? <UserProfile theme='dark' user={user} /> : <>
         <button className="login-btn" onClick={loginHandle}>
             ورود
           </button>

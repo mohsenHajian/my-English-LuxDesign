@@ -10,20 +10,25 @@ const MainLayout = ({ children }) => {
   let location = useLocation();
   const { pathname } = location;
 
+  
 
+  const {usersList} = useSelector(state=>state.usersList)
+  const [user,setUser] = useState()
 
-
+  useEffect(()=>{
+    axios.get('http://localhost:8000/users').then(({data})=>setUser(data.filter(user=>`${user.username+user.id}` === localStorage.getItem('token')? user : null)))
+  },[usersList])
 
 
   const dynamicHeader = () => {
     switch (pathname) {
       case "/": {
-        return <Header />;
+        return <Header user={user}/>;
       }
       case "/shirts":
       case "/pants":
       case "/single-page": {
-        return <PageHeader />;
+        return <PageHeader user={user}/>;
       }
 
       // default 

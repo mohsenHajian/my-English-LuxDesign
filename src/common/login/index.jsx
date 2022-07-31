@@ -5,8 +5,11 @@ import Input from "../../components/input";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { setUserToken } from "../../redux/slice/userTokenSlice";
 
 const Login = () => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
@@ -18,6 +21,7 @@ const Login = () => {
 
       if (user) {
         localStorage.setItem('token',`${user[0].username+user[0].id}`)
+        dispatch(setUserToken(`${user[0].username+user[0].id}`))
         navigate('/')
         toast.success("ورود موفقیت آمیز بود", {
           position: "top-right",
