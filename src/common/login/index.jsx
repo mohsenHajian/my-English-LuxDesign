@@ -1,9 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import loginSvg from "./login.svg";
 import "./login.style.scss";
 import Input from "../../components/input";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 const Login = () => {
+  const navigate = useNavigate()
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+  const [user,setUser] = useState()
+
+  const loginHandler = () => {
+    if (email && password) {
+      axios.get('http://localhost:8000/users').then(({ data }) => setUser(data.filter(user => user.email === email && user.password === password ? user : null)))
+
+      if (user) {
+        localStorage.setItem('token',`${user[0].username+user[0].id}`)
+        navigate('/')
+        toast.success("ورود موفقیت آمیز بود", {
+          position: "top-right",
+          closeOnClick: true,
+        });
+      }
+    }else {
+      toast.error("مشکلی پیش آمده.", {
+        position: "top-right",
+        closeOnClick: true,
+      });
+    }
+  }
+  // m.hajian3451@gmail.com
+
   return (
     <div className="login-page d-flex justify-content-center align-items-center">
       <div className="login-container">
@@ -22,6 +51,8 @@ const Login = () => {
             color="#808080"
             iconWidth="25px"
             className="w-100 my-2"
+            value={email}
+            onChangeFun={setEmail}
           />
           <Input
             placeholder="پسوورد"
@@ -30,6 +61,9 @@ const Login = () => {
             iconWidth="25px"
             width="w-100"
             className="w-100 my-2"
+            type='password'
+            value={password}
+            onChangeFun={setPassword}
           />
           <div className="d-flex checkBox-container flex-column">
             <div className="checkBox d-flex">
@@ -44,8 +78,8 @@ const Login = () => {
               </span>
             </div>
           </div>
-          <button className="login-btn">
-            ورود  
+          <button className="login-btn" onClick={loginHandler}>
+            ورود
           </button>
           <span className="blue-text my-3">رمز عبور را فراموش کرده ام</span>
         </div>

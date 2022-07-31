@@ -7,10 +7,13 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./register.style.scss";
 import { useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { setUsersList } from "../../redux/slice/usersListSlice";
 
 
 const Register = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   const [username, setUsername] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -23,19 +26,27 @@ const Register = () => {
 
   const registerHandler = () => {
     if (username && phoneNumber && email && password && password === confirmPassword) {
+      let data = Date.now()
       axios.post("http://localhost:8000/users", {
-        id: Date.now(),
+        id: data,
         username,
         phoneNumber,
         email,
-        password,
+        password
       });
-      toast.success("ورود موفقیت آمیز بود.", {
+      dispatch(setUsersList({
+        id: data,
+        username,
+        phoneNumber,
+        email,
+        password
+      }))
+      toast.success("ثبت نام موفقیت آمیز بود.", {
         position: "top-right",
         closeOnClick: true,
       });
-      // navigate("/");
-    }else {
+      navigate("/login");
+    } else {
       toast.error("مشکلی پیش آمده.", {
         position: "top-right",
         closeOnClick: true,
@@ -70,7 +81,7 @@ const Register = () => {
                 iconWidth="20px"
                 className="w-50 my-2"
                 value={username}
-                onChange={setUsername}
+                onChange={(e) => setUsername(e.target.value)}
               />
               <Input
                 placeholder="موبایل"
@@ -79,7 +90,7 @@ const Register = () => {
                 iconWidth="20px"
                 className="w-50 my-2"
                 value={phoneNumber}
-                onChange={setPhoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
               />
             </div>
             <Input
@@ -89,7 +100,7 @@ const Register = () => {
               iconWidth="20px"
               className="w-100 my-2"
               value={email}
-              onChange={setEmail}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <div className="d-flex gap-3">
               <Input
@@ -100,7 +111,7 @@ const Register = () => {
                 width="w-100"
                 className="w-50 my-2"
                 value={password}
-                onChange={setPassword}
+                onChange={(e) => setPassword(e.target.value)}
                 type="password"
               />
               <Input
@@ -111,7 +122,7 @@ const Register = () => {
                 width="w-100"
                 className="w-50 my-2"
                 value={confirmPassword}
-                onChange={setConfirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 type="password"
               />
             </div>

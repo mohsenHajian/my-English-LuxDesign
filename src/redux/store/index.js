@@ -4,6 +4,7 @@ import searchSubmit from '../slice/searchValueSlice'
 import dataRender from '../slice/dataToRenderSlice'
 import shirtData from '../slice/dataToRenderSlice'
 import pantsData from '../slice/dataToRenderSlice'
+import usersList from '../slice/usersListSlice'
 
 export const store = configureStore({
     reducer : {
@@ -11,6 +12,7 @@ export const store = configureStore({
         searchSubmit,
         dataRender,
         shirtData,
-        pantsData
+        pantsData,
+        usersList
     }
 })

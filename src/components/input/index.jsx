@@ -6,10 +6,11 @@ const Input = ({ className, icon, color, iconWidth, placeholder , bgColor , boxS
   const inputStyle = {
     backgroundColor : bgColor,
   }
+  // onKeyPress={(e)=>onKeypressFun(e.key)}
   return (
     <div style={inputStyle} className={`text-field d-flex align-items-center ${className}`}>
       <Icon icon={icon} color={color} width={iconWidth} />
-      <input value={value} type={`${type ? type : 'text'}`} className="input pe-2" placeholder={placeholder} onChange={(e)=>onChangeFun(e.target.value)} onKeyPress={(e)=>onKeypressFun(e.key)} {...props}/>
+      <input value={value} type={`${type ? type : 'text'}`} className="input pe-2" placeholder={placeholder} onChange={(e)=>onChangeFun(e.target.value)}  {...props}/>
     </div>
   );
 };
