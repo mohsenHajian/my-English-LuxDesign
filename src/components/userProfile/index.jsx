@@ -1,7 +1,7 @@
 import { Icon } from '@iconify/react';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setUserToken } from '../../redux/slice/userTokenSlice';
+import { setUserInfo, setUserToken } from '../../redux/slice/userTokenSlice';
 import './user-profile-style.scss'
 
 const UserProfile = ({ user, theme }) => {
@@ -15,6 +15,8 @@ const UserProfile = ({ user, theme }) => {
         return color;
     }
 
+    
+
     const profileImageStyle = {
         backgroundColor: `${getRandomColor()}`
     }
@@ -24,6 +26,7 @@ const UserProfile = ({ user, theme }) => {
     const logoutHandler = () => {
         localStorage.removeItem('token')
         dispatch(setUserToken(''))
+        dispatch(setUserInfo([]))
     }
 
 

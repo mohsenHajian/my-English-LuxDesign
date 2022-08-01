@@ -4,8 +4,10 @@ import searchSubmit from '../slice/searchValueSlice'
 import dataRender from '../slice/dataToRenderSlice'
 import shirtData from '../slice/dataToRenderSlice'
 import pantsData from '../slice/dataToRenderSlice'
+import singlePageData from '../slice/dataToRenderSlice'
 import usersList from '../slice/usersListSlice'
 import userToken from '../slice/userTokenSlice'
+import userInfo from '../slice/userTokenSlice'
 
 export const store = configureStore({
     reducer : {
@@ -15,6 +17,8 @@ export const store = configureStore({
         shirtData,
         pantsData,
         usersList,
-        userToken
+        userToken,
+        userInfo,
+        singlePageData
     }
 })

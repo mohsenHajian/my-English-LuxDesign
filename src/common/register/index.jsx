@@ -45,7 +45,7 @@ const Register = () => {
         position: "top-right",
         closeOnClick: true,
       });
-      navigate("/login");
+      navigate("/");
     } else {
       toast.error("مشکلی پیش آمده.", {
         position: "top-right",

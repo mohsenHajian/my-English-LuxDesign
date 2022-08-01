@@ -1,34 +1,41 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useLayoutEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router";
 import Footer from "../../common/footer";
 import Header from "../../common/header";
 import PageHeader from "../../common/pageHeader";
+import { setUserInfo, setUserToken } from "../../redux/slice/userTokenSlice";
 
 const MainLayout = ({ children }) => {
   let location = useLocation();
   const { pathname } = location;
+  const dispatch = useDispatch()
 
-  
 
-  const {usersList} = useSelector(state=>state.usersList)
-  const [user,setUser] = useState()
+  const [loaded, setLoaded] = useState(false)
+  const { usersList } = useSelector(state => state.usersList)
+  const { userToken } = useSelector(state => state.userToken)
 
-  useEffect(()=>{
-    axios.get('http://localhost:8000/users').then(({data})=>setUser(data.filter(user=>`${user.username+user.id}` === localStorage.getItem('token')? user : null)))
-  },[usersList])
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      dispatch(setUserToken(localStorage.getItem('token')))
+    }
+    axios.get('http://localhost:8000/users').then(({ data }) => 
+      dispatch(setUserInfo(data.filter(user => `${user.username + user.id}` === localStorage.getItem('token') ? user : null)))
+    )
+  }, [usersList, userToken])
 
 
   const dynamicHeader = () => {
     switch (pathname) {
       case "/": {
-        return <Header user={user}/>;
+        return <Header />;
       }
       case "/shirts":
       case "/pants":
       case "/single-page": {
-        return <PageHeader user={user}/>;
+        return <PageHeader />;
       }
 
       // default 
@@ -42,7 +49,7 @@ const MainLayout = ({ children }) => {
       case "/single-page": {
         return <Footer />;
       }
-      case "/register" :
+      case "/register":
       case "/login": {
         return null;
       }

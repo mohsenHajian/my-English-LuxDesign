@@ -6,6 +6,7 @@ export const dataToRenderSlice = createSlice({
         dataRender : [],
         shirtData : [],
         pantsData : [],
+        singlePageData : {}
     },
     reducers : {
         setDataRender : (state,{payload}) => {
@@ -16,9 +17,12 @@ export const dataToRenderSlice = createSlice({
         },
         setPantsData : (state,{payload}) => {
             state.pantsData = payload
+        },
+        setSinglePageData : (state,{payload}) => {
+            state.singlePageData = payload
         }
     }
 })
 
-export const {setDataRender , setPantsData , setShirtData} = dataToRenderSlice.actions
+export const {setDataRender , setPantsData , setShirtData , setSinglePageData} = dataToRenderSlice.actions
 export default dataToRenderSlice.reducer

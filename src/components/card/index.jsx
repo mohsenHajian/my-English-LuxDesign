@@ -1,14 +1,18 @@
 import { Icon } from "@iconify/react";
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import { setSinglePageData } from "../../redux/slice/dataToRenderSlice";
 import "./card.style.scss";
 
 const Card = ({card , boxSh , width }) => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const Dstyle = {
     boxShadow: '0 0 5px 2px #d6d6d6'
   }
   const eventCardHandler = () => {
+    dispatch(setSinglePageData(card))
     navigate('/single-page')
   }
   return (

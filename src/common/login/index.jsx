@@ -13,22 +13,28 @@ const Login = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
-  const [user,setUser] = useState()
+  const [user, setUser] = useState()
+  const [status, setStatus] = useState()
 
   const loginHandler = () => {
     if (email && password) {
-      axios.get('http://localhost:8000/users').then(({ data }) => setUser(data.filter(user => user.email === email && user.password === password ? user : null)))
-
-      if (user) {
-        localStorage.setItem('token',`${user[0].username+user[0].id}`)
-        dispatch(setUserToken(`${user[0].username+user[0].id}`))
+      axios.get('http://localhost:8000/users').then(( data ) => {setUser(data.data.filter(user => user.email === email && user.password === password ? user : null));setStatus(data.status)})
+      if (user?.length > 0) {
+        localStorage.setItem('token', `${user[0].username + user[0].id}`)
+        dispatch(setUserToken(`${user[0].username + user[0].id}`))
         navigate('/')
+        setUser(undefined)
         toast.success("ورود موفقیت آمیز بود", {
           position: "top-right",
           closeOnClick: true,
         });
+      } else if(status === 200 && user?.length === 0) {
+        toast.error("ایمیل یا پسوورد اشتباه است", {
+          position: "top-right",
+          closeOnClick: true,
+        });
       }
-    }else {
+    } else {
       toast.error("مشکلی پیش آمده.", {
         position: "top-right",
         closeOnClick: true,
