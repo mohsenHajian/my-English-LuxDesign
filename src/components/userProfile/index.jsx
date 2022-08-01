@@ -30,7 +30,6 @@ const UserProfile = ({ user, theme }) => {
     }
 
 
-    console.log(user)
 
 
 

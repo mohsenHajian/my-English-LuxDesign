@@ -1,0 +1,28 @@
+.cart {
+  padding: 20px 5% 50px;
+//   min-height: 70vh;
+  .order-list {
+    width: 71%;
+    background-color: white;
+    border-radius: 8px;
+  }
+  .total {
+    width: 27%;
+    background-color: white;
+    border-radius: 8px;
+    height: fit-content;
+    p{
+        font-size: 13px;
+        font-family: 'IranSansLight';
+    }
+    .cart-continuation {
+        background-color: #00bffe;
+        border: none;
+        border-radius: 8px;
+    }
+  }
+  .order-list,
+  .total {
+    box-shadow: 0 0 5px 2px rgb(224, 224, 224);
+  }
+}

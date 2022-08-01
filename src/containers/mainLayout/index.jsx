@@ -13,7 +13,6 @@ const MainLayout = ({ children }) => {
   const dispatch = useDispatch()
 
 
-  const [loaded, setLoaded] = useState(false)
   const { usersList } = useSelector(state => state.usersList)
   const { userToken } = useSelector(state => state.userToken)
 
@@ -34,6 +33,7 @@ const MainLayout = ({ children }) => {
       }
       case "/shirts":
       case "/pants":
+      case "/cart":
       case "/single-page": {
         return <PageHeader />;
       }
@@ -46,6 +46,7 @@ const MainLayout = ({ children }) => {
       case "/":
       case "/shirts":
       case "/pants":
+      case "/cart":
       case "/single-page": {
         return <Footer />;
       }

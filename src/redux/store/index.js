@@ -8,6 +8,7 @@ import singlePageData from '../slice/dataToRenderSlice'
 import usersList from '../slice/usersListSlice'
 import userToken from '../slice/userTokenSlice'
 import userInfo from '../slice/userTokenSlice'
+import cartList from '../slice/cartListSlice'
 
 export const store = configureStore({
     reducer : {
@@ -19,6 +20,7 @@ export const store = configureStore({
         usersList,
         userToken,
         userInfo,
-        singlePageData
+        singlePageData,
+        cartList
     }
 })

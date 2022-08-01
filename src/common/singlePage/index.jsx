@@ -1,14 +1,19 @@
 import { Icon } from "@iconify/react";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router";
 import Comment from "../../components/comment";
+import { setCartList } from "../../redux/slice/cartListSlice";
 import "./single-page.style.scss";
 
 const SinglePage = () => {
+  const dispatch = useDispatch()
   const { singlePageData } = useSelector(state => state.singlePageData)
 
 
+  const addToCart = () => {
+    dispatch(setCartList(singlePageData))
+  }
 
   return (
     <>
@@ -175,7 +180,7 @@ const SinglePage = () => {
               ) : null}
 
             </div>
-            <button className="buy mt-5 w-100 p-3">افزودن به سبد خرید</button>
+            <button className="buy mt-5 w-100 p-3" onClick={addToCart}>افزودن به سبد خرید</button>
           </div>
 
 

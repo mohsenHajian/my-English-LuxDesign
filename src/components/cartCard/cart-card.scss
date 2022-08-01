@@ -1,0 +1,25 @@
+.cart-card {
+    border-bottom: 1px solid rgb(212, 212, 212);
+    img {
+        width: 100%;
+        
+    }
+    .cart-card-details {
+        span {
+            font-size: 14px;
+            font-family: 'IranSansLight';
+        }
+        .circle {
+            width: 8px;
+            height: 8px;
+        }
+    }
+    .cart-btn-container {
+        width: fit-content;
+        border: 1px solid #00bffe;
+        border-radius: 8px;
+        span {
+            color :#00bffe;
+        }
+    }
+}

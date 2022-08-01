@@ -12,17 +12,13 @@ const Header = () => {
 
   const { userToken } = useSelector(state => state.userToken)
   const { userInfo } = useSelector(state => state.userInfo)
+  const { cartList } = useSelector(state => state.cartList)
+  const [userProfile, setUserProfile] = useState()
 
 
-  const [userProfile,setUserProfile] = useState()
-
-
-  console.log(userInfo)
-  console.log(userToken)
-
-  useEffect(()=>{
+  useEffect(() => {
     setUserProfile(userInfo)
-  },[userInfo,userToken])
+  }, [userInfo, userToken])
 
 
   const loginHandle = () => {
@@ -38,13 +34,18 @@ const Header = () => {
         <div className="top-header">
           <div className="header-btn col-3">
             <div className="header-btns">
-              {userToken && userProfile?.length>0 ? <UserProfile user={userProfile} /> : <>
+              {userToken && userProfile?.length > 0 ? <UserProfile user={userProfile} /> : <>
                 <button className="login-btn" onClick={loginHandle}>ورود</button>
                 <button className="register-btn" onClick={registerHandle}>ثبت نام</button>
               </>}
             </div>
             <div className="cart-icon">
-              <Icon icon="clarity:shopping-cart-line" color="#fdfdfd" width='30px' />
+              {cartList.length !== 0 ? (
+                <div className="cart-length">
+                  {cartList.length}
+                </div>
+              ) : null}
+              <Icon icon="clarity:shopping-cart-line" color="#f8f8f8" width="25" onClick={() => navigate('/cart')} cursor='pointer' />
             </div>
           </div>
           {/* <div className="header-content justify-content-center col-8">
