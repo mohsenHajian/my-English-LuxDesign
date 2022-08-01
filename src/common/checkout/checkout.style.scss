@@ -1,0 +1,42 @@
+.checkout {
+  padding: 25px 10%;
+  .checkout-header {
+    border: 1px solid rgb(180, 180, 180);
+    border-radius: 8px;
+    .checkout-title {
+      color: #00bffe;
+    }
+  }
+  .address-time {
+    width: 71%;
+    border: 1px solid rgb(180, 180, 180);
+    border-radius: 8px;
+  }
+  .payment {
+    width: 28%;
+    border: 1px solid rgb(180, 180, 180);
+    border-radius: 8px;
+    height: fit-content;
+    p {
+        font-size: 14px;
+        font-family: 'IranSansLight';
+        color: rgb(144, 144, 144);
+    }
+    .payment-btn {
+        width: 100%;
+        background-color: transparent;
+        border: 1px solid #009bcf;
+        border-radius: 8px;
+        color: #009bcf;
+    }
+  }
+}
+.opacity {
+  opacity: 0.5;
+}
+.active-color {
+  color: #00bffe;
+}
+.active-size {
+  font-size: 25px;
+}

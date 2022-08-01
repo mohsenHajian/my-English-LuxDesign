@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router';
 import CartCard from '../../components/cartCard';
 import './cart.style.scss'
 
 const Cart = () => {
+    const navigate = useNavigate()
+    const location = useLocation()
+    const {pathname} = location
     const { cartList } = useSelector(state => state.cartList)
     const [totalPrice,setTotalPrice] = useState(0)
 
@@ -12,6 +16,14 @@ const Cart = () => {
         cartList.forEach((a)=>total += Number(a.price))
         setTotalPrice(total)
     },[])
+
+    const continuation = () => {
+        if(localStorage.getItem('token')){
+            navigate(`${pathname}/checkout`)
+        }else {
+            navigate('/login')
+        }
+    }
 
 
     return (
@@ -29,7 +41,7 @@ const Cart = () => {
                     <span className='fa-num'>{totalPrice} تومان</span>
                 </div>
                 <p className='text-secondary my-3'>هزینه ارسال براساس آدرس، زمان تحویل، وزن و حجم مرسوله شما محاسبه می‌شود</p>
-                <button className="cart-continuation w-100 p-3 mt-4">
+                <button className="cart-continuation w-100 p-3 mt-4" onClick={continuation}>
                     ادامه
                 </button>
             </div>
