@@ -9,6 +9,7 @@ import usersList from '../slice/usersListSlice'
 import userToken from '../slice/userTokenSlice'
 import userInfo from '../slice/userTokenSlice'
 import cartList from '../slice/cartListSlice'
+import uniqueArr from '../slice/cartListSlice'
 
 export const store = configureStore({
     reducer : {
@@ -21,6 +22,7 @@ export const store = configureStore({
         userToken,
         userInfo,
         singlePageData,
-        cartList
+        cartList,
+        uniqueArr
     }
 })

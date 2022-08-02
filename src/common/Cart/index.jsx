@@ -1,26 +1,43 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router';
 import CartCard from '../../components/cartCard';
+import { setUniqueArr } from '../../redux/slice/cartListSlice';
 import './cart.style.scss'
 
 const Cart = () => {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const location = useLocation()
-    const {pathname} = location
+    const { pathname } = location
     const { cartList } = useSelector(state => state.cartList)
-    const [totalPrice,setTotalPrice] = useState(0)
+    const {uniqueArr} = useSelector(state=>state.uniqueArr)
+    const [totalPrice, setTotalPrice] = useState(0)
+
+    useEffect(() => {
+        let uniqueList = []
+        const cartListCopy = [...cartList]
+        cartListCopy.forEach(el => {
+            if (!uniqueList.includes(el)) {
+                uniqueList.push(el)
+            }
+        })
+        dispatch(setUniqueArr(uniqueList))
+    }, [])
+
 
     useEffect(()=>{
         let total = 0
-        cartList.forEach((a)=>total += Number(a.price))
+        uniqueArr.forEach((a) => total += Number(a.price))
         setTotalPrice(total)
-    },[])
+    },[uniqueArr])
+
+
 
     const continuation = () => {
-        if(localStorage.getItem('token')){
+        if (localStorage.getItem('token')) {
             navigate(`${pathname}/checkout`)
-        }else {
+        } else {
             navigate('/login')
         }
     }
@@ -29,12 +46,12 @@ const Cart = () => {
     return (
         <div className="cart d-flex justify-content-between">
             <div className="order-list">
-                {cartList.map(card => <CartCard key={card.id} card={card} />)}
+                {uniqueArr.map(card => <CartCard key={card.id} card={card} />)}
             </div>
             <div className="total p-3 px-4">
                 <div className="d-flex justify-content-between my-3">
                     <span className='text-secondary'>تعداد کالا ها</span>
-                    <span className='text-secondary fa-num'>{cartList.length} عدد</span>
+                    <span className='text-secondary fa-num'>{uniqueArr.length} عدد</span>
                 </div>
                 <div className="d-flex justify-content-between my-3">
                     <span>جمع سبد خرید</span>

@@ -1,18 +1,46 @@
 import { Icon } from "@iconify/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router";
 import Comment from "../../components/comment";
 import { setCartList } from "../../redux/slice/cartListSlice";
+import Card from '../../components/card'
+import axios from "axios";
 import "./single-page.style.scss";
 
 const SinglePage = () => {
   const dispatch = useDispatch()
   const { singlePageData } = useSelector(state => state.singlePageData)
+  const { shirtData } = useSelector(state => state.shirtData)
+  const { pantsData } = useSelector(state => state.pantsData)
+  const [recomendedList, setRecomendedList] = useState()
+  const [comment, setComment] = useState()
 
+  useEffect(() => {
+    if (singlePageData.category === 'pants') {
+      setRecomendedList(pantsData)
+    }
+    if (singlePageData.category === 'shirt') {
+      setRecomendedList(shirtData)
+    }
+  }, [])
 
   const addToCart = () => {
     dispatch(setCartList(singlePageData))
+  }
+
+  const addCommentHandler = () => {
+    const comments = [{
+      date: Date.now(),
+      text: comment,
+      arthor: localStorage.getItem('token')
+    }]
+    if (singlePageData.category === 'pants') {
+      axios.put(`http://localhost:8000/pants/${singlePageData.id}`,comments)
+    }
+    if (singlePageData.category === 'shirt') {
+      axios.put(`http://localhost:8000/shirts/${singlePageData.id}`,comments)
+    }
   }
 
   return (
@@ -224,9 +252,21 @@ const SinglePage = () => {
           </div>
         </div>
         <div className="comments p-4 px-5 d-flex flex-column gap-4">
-            <h4>نظرات کاربران</h4>
-            {singlePageData.comments.map(comment=><Comment comment={comment}/>)}
-            
+          <h4>نظرات کاربران</h4>
+          {singlePageData.comments.map(comment => <Comment comment={comment} />)}
+
+        </div>
+      </div>
+      <div className="d-flex py-3 container-add-comments justify-content-between">
+        <div className="add-comment d-flex flex-column p-3">
+          <div className="d-flex justify-content-between mb-3">
+            <span className="fs-5">ثبت نظر</span>
+            <button className="add-comment-btn p-1 px-3" onClick={addCommentHandler}>ثبت</button>
+          </div>
+          <textarea className="p-2" placeholder="نظر خود را تایپ کنید..." value={comment} onChange={(e) => setComment(e.target.value)} />
+        </div>
+        <div className="recomended d-flex">
+          {recomendedList?.slice(0, 4).map(card => <Card card={card} />)}
         </div>
       </div>
     </>

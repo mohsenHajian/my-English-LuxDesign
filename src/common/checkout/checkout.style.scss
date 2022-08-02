@@ -11,6 +11,19 @@
     width: 71%;
     border: 1px solid rgb(180, 180, 180);
     border-radius: 8px;
+    .payment-method-btn {
+      border-radius: 8px;
+      border: none;
+      border: 1px solid #00bffe;
+      background-color: #e9faff;
+      transition: 0.4s;
+    }
+    .payment-method-btn:hover {
+      background-color: #29cdff;
+    }
+    .payment-method-btn:focus {
+      background-color: #29cdff;
+    }
   }
   .payment {
     width: 28%;

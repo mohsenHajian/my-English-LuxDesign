@@ -1,8 +1,19 @@
 import { Icon } from '@iconify/react';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCartList, setUniqueArr } from '../../redux/slice/cartListSlice';
 import './cart-card.scss'
 
 const CartCard = ({ card }) => {
+    const dispatch = useDispatch()
+
+    const {uniqueArr} = useSelector(state=>state.uniqueArr)
+
+    const removeCardHandler = () =>{
+        let removedArr = uniqueArr.filter(el=>el.id !== card.id)
+        dispatch(setUniqueArr(removedArr))
+    }
+
     return (
         <div className='cart-card'>
             <div className="d-flex py-4">
@@ -30,16 +41,24 @@ const CartCard = ({ card }) => {
                     </div>
                 </div>
                 <div className="col-1 d-flex justify-content-center">
-                    <Icon icon="akar-icons:more-vertical" color="#666" width="20" />
+                    <div class="dropdown">
+                        <div type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <Icon icon="akar-icons:more-vertical" color="#666" width="20" />
+                        </div>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#" onClick={removeCardHandler}>حذف</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div className="d-flex mb-4">
                 <div className="col-3 px-5 d-flex justify-content-center">
-                    <div className=" d-flex cart-btn-container justify-content-between align-items-center p-2 px-3 gap-4">
+                    {/* <div className=" d-flex cart-btn-container justify-content-between align-items-center p-2 px-3 gap-4">
                         <Icon icon="carbon:add" color="#00bffe" width="25" cursor='pointer' />
                         <span>1</span>
                         <Icon icon="bi:trash" color="#00bffe" width="22" cursor='pointer' />
-                    </div>
+                    </div> */}
+                    <span className='fs-4'>قیمت: </span>
                 </div>
                 <div className="col-9">
                     <span className='fs-4 fa-num'>{card.price} تومان</span>
