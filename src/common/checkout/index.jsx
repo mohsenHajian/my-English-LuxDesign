@@ -53,7 +53,7 @@ const Checkout = () => {
         <div className="d-flex flex-column checkout">
             <div className="checkout-header d-flex align-items-center p-3 flex-column mb-3">
                 <span className='fs-2 checkout-title'>LUX DISIGN</span>
-                <div className="d-flex justify-content-between w-75 my-4">
+                <div className="checkout-header-text d-flex justify-content-between w-100 my-4">
                     <div className="d-flex align-items-center opacity active-color befor-borde position-relative gap-1">
                         <Icon icon="clarity:shopping-cart-line" color="#00bffe" width="25" />
                         <span>سبد خرید</span>
@@ -68,7 +68,7 @@ const Checkout = () => {
                     </div>
                 </div>
             </div>
-            <div className="d-flex justify-content-between">
+            <div className="checkout-details d-flex justify-content-between">
                 <div className="address-time p-3 py-4">
                     <div className="d-flex align-items-center gap-1">
                         <Icon icon="ep:location" color="#666" width="25" />
@@ -76,15 +76,15 @@ const Checkout = () => {
                     </div>
                     <Input placeholder="آدرس خود را درج کنید" className='my-2' value={address} onChangeFun={setAddress} />
 
-                    <div className="d-flex w-100 gap-3 align-items-center">
-                        <div className="w-50">
+                    <div className="details-row d-flex w-100 gap-3 align-items-center">
+                        <div className="w-50 w-res-100">
                             <div className="d-flex align-items-center gap-1">
                                 <Icon icon="teenyicons:discount-outline" color="#666" width="25" />
                                 <span className='text-secondary'>کد تخفیف</span>
                             </div>
                             <Input placeholder=" کد تخفیف خود را درج کنید" className='my-2 w-100' value={discount} onChangeFun={setDiscount} />
                         </div>
-                        <div className="w-50">
+                        <div className="w-50 w-res-100">
                             <div className="d-flex align-items-center gap-1">
                                 <Icon icon="ion:time-outline" color="#666" width="25" />
                                 <span className='text-secondary'>انتخاب زمان ارسال</span>
@@ -92,15 +92,15 @@ const Checkout = () => {
                             <Input placeholder="زمان تحویل کالا را درج کنید" className='my-2 w-100' value={deliveryTime} onChangeFun={setDeliveryTime} />
                         </div>
                     </div>
-                    <div className="d-flex w-100 gap-3 align-items-center">
-                        <div className="w-50">
+                    <div className="details-row d-flex w-100 gap-3 align-items-center">
+                        <div className="w-50 w-res-100">
                             <div className="d-flex align-items-center gap-1">
                                 <Icon icon="carbon:phone" color="#666" width="25" />
                                 <span className='text-secondary'>شماره تلفت تحویل گیرنده</span>
                             </div>
                             <Input placeholder=" شماره تلفت تحویل گیرنده خود را درج کنید" className='my-2 w-100' value={deliveryPhoneNumber} onChangeFun={setDeliveryPhoneNumber} />
                         </div>
-                        <div className="w-50">
+                        <div className="w-50 w-res-100">
                             <div className="d-flex align-items-center gap-1">
                                 <Icon icon="fluent:payment-28-regular" color="#666" width="25" />
                                 <span className='text-secondary'>روش پرداخت</span>

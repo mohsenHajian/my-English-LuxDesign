@@ -16,6 +16,12 @@ const SinglePage = () => {
   const [recomendedList, setRecomendedList] = useState()
   const [comment, setComment] = useState()
 
+
+  const progressStyle = {
+    width : `${(Number(singlePageData.star)/5)*100}%`
+  }
+
+
   useEffect(() => {
     if (singlePageData.category === 'pants') {
       setRecomendedList(pantsData)
@@ -30,26 +36,27 @@ const SinglePage = () => {
   }
 
   const addCommentHandler = () => {
-    const comments = [{
+    const comments = [...singlePageData.comments, {
+      id: Date.now(),
       date: Date.now(),
       text: comment,
       arthor: localStorage.getItem('token')
     }]
     if (singlePageData.category === 'pants') {
-      axios.put(`http://localhost:8000/pants/${singlePageData.id}`,comments)
+      axios.put(`http://localhost:8000/pants/${singlePageData.id}`,{...singlePageData,comments})
     }
     if (singlePageData.category === 'shirt') {
-      axios.put(`http://localhost:8000/shirts/${singlePageData.id}`,comments)
+      axios.put(`http://localhost:8000/shirts/${singlePageData.id}`,{...singlePageData,comments})
     }
   }
 
   return (
     <>
       <div className="d-flex flex-column single-page-container">
-        <div className="d-flex w-100">
+        <div className="single-page-product d-flex w-100">
           <div
             id="carouselExampleIndicators"
-            class="carousel slide w-50"
+            class="carousel slide w-50 carousel-product"
             data-bs-ride="carousel"
           >
             <div class="carousel-indicators">
@@ -223,31 +230,31 @@ const SinglePage = () => {
           <div className="score-progress d-flex flex-column my-2 gap-1">
             <span>کیفیت موارد به کار رفته</span>
             <div className="progress-container">
-              <div className="progress"></div>
+              <div className="progress" style={progressStyle}></div>
             </div>
           </div>
           <div className="score-progress d-flex flex-column my-2 gap-1">
             <span>کیفیت دوخت</span>
             <div className="progress-container">
-              <div className="progress"></div>
+              <div className="progress" style={progressStyle}></div>
             </div>
           </div>
           <div className="score-progress d-flex flex-column my-2 gap-1">
             <span>طراحی</span>
             <div className="progress-container">
-              <div className="progress"></div>
+              <div className="progress" style={progressStyle}></div>
             </div>
           </div>
           <div className="score-progress d-flex flex-column my-2 gap-1">
             <span>فرم لباس روی بدن</span>
             <div className="progress-container">
-              <div className="progress"></div>
+              <div className="progress" style={progressStyle}></div>
             </div>
           </div>
           <div className="score-progress d-flex flex-column my-2 gap-1">
             <span>ارزش خرید نسبت به قیمت</span>
             <div className="progress-container">
-              <div className="progress"></div>
+              <div className="progress" style={progressStyle}></div>
             </div>
           </div>
         </div>

@@ -29,9 +29,9 @@ const ShowAll = () => {
         {
           setRootPath("فروشگاه لباس لوکس دیزاین / پیراهن ها");
           axios.get("http://localhost:8000/shirts/").then(({ data }) => {
-            setListOfCards(data.products);
-            dispatch(setDataRender(data.products));
-            dispatch(setShirtData(data.products));
+            setListOfCards(data);
+            dispatch(setDataRender(data));
+            dispatch(setShirtData(data));
           });
         }
         break;
@@ -39,9 +39,9 @@ const ShowAll = () => {
         {
           setRootPath("فروشگاه لباس لوکس دیزاین / شلوار ها");
           axios.get("http://localhost:8000/pants/").then(({ data }) => {
-            setListOfCards(data.products);
-            dispatch(setDataRender(data.products));
-            dispatch(setPantsData(data.products));
+            setListOfCards(data);
+            dispatch(setDataRender(data));
+            dispatch(setPantsData(data));
           });
         }
         break;

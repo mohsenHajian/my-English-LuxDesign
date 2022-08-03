@@ -13,6 +13,7 @@ const Cart = () => {
     const { cartList } = useSelector(state => state.cartList)
     const {uniqueArr} = useSelector(state=>state.uniqueArr)
     const [totalPrice, setTotalPrice] = useState(0)
+    const [totalProduct, settotalProduct] = useState(0)
 
     useEffect(() => {
         let uniqueList = []
@@ -22,14 +23,22 @@ const Cart = () => {
                 uniqueList.push(el)
             }
         })
-        dispatch(setUniqueArr(uniqueList))
+        let shppingList = uniqueList.map(card => {
+            return { ...card, stock: 1 }
+        })
+        dispatch(setUniqueArr(shppingList))
     }, [])
+
+
 
 
     useEffect(()=>{
         let total = 0
-        uniqueArr.forEach((a) => total += Number(a.price))
+        uniqueArr.forEach((a) => total += Number(a.price)*a.stock)
         setTotalPrice(total)
+        let products = 0
+        uniqueArr.forEach((a) => products += Number(a.stock))
+        settotalProduct(products)
     },[uniqueArr])
 
 
@@ -51,7 +60,7 @@ const Cart = () => {
             <div className="total p-3 px-4">
                 <div className="d-flex justify-content-between my-3">
                     <span className='text-secondary'>تعداد کالا ها</span>
-                    <span className='text-secondary fa-num'>{uniqueArr.length} عدد</span>
+                    <span className='text-secondary fa-num'>{totalProduct} عدد</span>
                 </div>
                 <div className="d-flex justify-content-between my-3">
                     <span>جمع سبد خرید</span>

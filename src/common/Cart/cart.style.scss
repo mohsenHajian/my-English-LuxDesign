@@ -1,6 +1,6 @@
 .cart {
   padding: 20px 5% 50px;
-//   min-height: 70vh;
+  //   min-height: 70vh;
   .order-list {
     width: 71%;
     background-color: white;
@@ -11,18 +11,31 @@
     background-color: white;
     border-radius: 8px;
     height: fit-content;
-    p{
-        font-size: 13px;
-        font-family: 'IranSansLight';
+    p {
+      font-size: 13px;
+      font-family: "IranSansLight";
     }
     .cart-continuation {
-        background-color: #00bffe;
-        border: none;
-        border-radius: 8px;
+      background-color: #00bffe;
+      border: none;
+      border-radius: 8px;
     }
   }
   .order-list,
   .total {
     box-shadow: 0 0 5px 2px rgb(224, 224, 224);
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .cart {
+    flex-direction: column;
+    gap: 30px;
+    .order-list {
+      width: 100%;
+    }
+    .total {
+      width: 100%;
+    }
   }
 }

@@ -1,22 +1,36 @@
 import { Icon } from '@iconify/react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCartList, setUniqueArr } from '../../redux/slice/cartListSlice';
+import { resetCartList, setCartList, setUniqueArr } from '../../redux/slice/cartListSlice';
 import './cart-card.scss'
 
 const CartCard = ({ card }) => {
     const dispatch = useDispatch()
 
-    const {uniqueArr} = useSelector(state=>state.uniqueArr)
+    const { uniqueArr } = useSelector(state => state.uniqueArr)
 
-    const removeCardHandler = () =>{
-        let removedArr = uniqueArr.filter(el=>el.id !== card.id)
+
+
+    const removeCardHandler = () => {
+        let removedArr = uniqueArr.filter(el => el.id !== card.id)
         dispatch(setUniqueArr(removedArr))
+        dispatch(resetCartList(removedArr))
     }
 
+    const incraceProductHandler = (id) => {
+        let incraceArr = uniqueArr.map(card => card.id === id ? { ...card, stock: card.stock + 1 } : { ...card })
+        dispatch(setUniqueArr(incraceArr))
+    }
+
+    const decreaseProductHandler = (id) => {
+        let incraceArr = uniqueArr.map(card => card.id === id ? { ...card, stock: card.stock - 1 } : { ...card })
+        dispatch(setUniqueArr(incraceArr))
+    }
+
+
     return (
-        <div className='cart-card'>
-            <div className="d-flex py-4">
+        <div className='cart-card w-100'>
+            <div className="cart-card-container d-flex py-4">
                 <div className="col-3">
                     <img src={card.imgURL} alt="" />
                 </div>
@@ -51,16 +65,21 @@ const CartCard = ({ card }) => {
                     </div>
                 </div>
             </div>
-            <div className="d-flex mb-4">
-                <div className="col-3 px-5 d-flex justify-content-center">
-                    {/* <div className=" d-flex cart-btn-container justify-content-between align-items-center p-2 px-3 gap-4">
-                        <Icon icon="carbon:add" color="#00bffe" width="25" cursor='pointer' />
-                        <span>1</span>
-                        <Icon icon="bi:trash" color="#00bffe" width="22" cursor='pointer' />
-                    </div> */}
-                    <span className='fs-4'>قیمت: </span>
+            <div className="cart-card-footer d-flex mb-4">
+                <div className="cart-card-footer-btn col-3 px-5 d-flex justify-content-center">
+                    <div className=" d-flex cart-btn-container justify-content-between align-items-center p-2 px-3 gap-4">
+
+                        <Icon icon="carbon:add" color="#00bffe" width="25" cursor='pointer' onClick={() => incraceProductHandler(card.id)} />
+                        <span>{card.stock}</span>
+                        {card.stock === 1 ? <Icon icon="bi:trash" color="#00bffe" width="22" cursor='pointer' onClick={removeCardHandler} /> :
+                            <Icon icon="ic:round-remove" color="#00bffe" width="25" cursor='pointer' onClick={() => decreaseProductHandler(card.id)} />
+                        }
+
+
+                    </div>
+                    {/* <span className='fs-4'>قیمت: </span> */}
                 </div>
-                <div className="col-9">
+                <div className="col-3 cart-card-footer-price">
                     <span className='fs-4 fa-num'>{card.price} تومان</span>
                 </div>
             </div>

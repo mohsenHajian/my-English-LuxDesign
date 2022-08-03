@@ -19,6 +19,7 @@ const PageHeader = ({ user }) => {
   const { userToken } = useSelector(state => state.userToken)
   const { userInfo } = useSelector(state => state.userInfo)
   const { cartList } = useSelector(state => state.cartList)
+  const {uniqueArr} = useSelector(state=>state.uniqueArr)
   const [userProfile, setUserProfile] = useState()
 
 

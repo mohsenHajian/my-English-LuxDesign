@@ -3,6 +3,9 @@
   .checkout-header {
     border: 1px solid rgb(180, 180, 180);
     border-radius: 8px;
+    .checkout-header-text {
+      padding: 0 10%;
+    }
     .checkout-title {
       color: #00bffe;
     }
@@ -31,16 +34,16 @@
     border-radius: 8px;
     height: fit-content;
     p {
-        font-size: 14px;
-        font-family: 'IranSansLight';
-        color: rgb(144, 144, 144);
+      font-size: 14px;
+      font-family: "IranSansLight";
+      color: rgb(144, 144, 144);
     }
     .payment-btn {
-        width: 100%;
-        background-color: transparent;
-        border: 1px solid #009bcf;
-        border-radius: 8px;
-        color: #009bcf;
+      width: 100%;
+      background-color: transparent;
+      border: 1px solid #009bcf;
+      border-radius: 8px;
+      color: #009bcf;
     }
   }
 }
@@ -52,4 +55,34 @@
 }
 .active-size {
   font-size: 25px;
+}
+
+@media only screen and (max-width: 1300px) {
+  .checkout {
+    padding: 5%;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .checkout-details {
+    flex-direction: column;
+    gap: 30px;
+    .address-time {
+      width: 100%;
+    }
+    .payment {
+      width: 100%;
+    }
+  }
+}
+@media only screen and (max-width: 850px) {
+  .checkout-header-text {
+    padding: 0 !important;
+  }
+  .details-row {
+    flex-direction: column;
+    gap: 50px;
+    .w-res-100 {
+      width: 100% !important;
+    }
+  }
 }

@@ -10,8 +10,7 @@
     // width: 60px;
     border-radius: 0px;
     img {
-        border-radius: 0px;
-
+      border-radius: 0px;
     }
   }
   .single-page-details {
@@ -24,7 +23,7 @@
     }
   }
   .size-box {
-    border : 1px solid #242424;
+    border: 1px solid #242424;
     background-color: white;
     border-radius: 8px;
   }
@@ -40,7 +39,6 @@
 }
 .comments-container {
   padding: 20px 5%;
-
 }
 .card-score {
   width: 28%;
@@ -57,7 +55,6 @@
       border-radius: 8px;
       height: 13px;
       .progress {
-        width: 70%;
         height: 100%;
         background: #505050;
         background-position: right;
@@ -110,5 +107,55 @@
     box-shadow: 0 0 5px 2px #e0e0e0;
     border-radius: 8px;
     background-color: #fdfdfd;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .single-page-product {
+    flex-direction: column;
+    .carousel-product {
+      width: 100% !important;
+    }
+    .single-page-details {
+      width: 100% !important;
+      max-height: fit-content !important;
+    }
+  }
+  .container-add-comments {
+    flex-direction: column;
+    gap: 30px;
+    .add-comment {
+      width: 100%;
+    }
+    .recomended {
+      width: 100%;
+    }
+  }
+}
+@media only screen and (max-width: 992px) {
+  .comments-container {
+    flex-direction: column;
+    gap: 30px;
+    .card-score {
+      width: 100%;
+    }
+    .comments {
+      width: 100%;
+    }
+  }
+  .recomended {
+    flex-wrap: wrap;
+    justify-content: center;
+    .card-item {
+      width: 43%;
+    }
+  }
+}
+@media only screen and (max-width: 576px) {
+  .recomended {
+    flex-wrap: wrap;
+    justify-content: center;
+    .card-item {
+      width: 100%;
+    }
   }
 }
