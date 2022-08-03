@@ -12,6 +12,7 @@
   }
   .address-time {
     width: 71%;
+    height: fit-content;
     border: 1px solid rgb(180, 180, 180);
     border-radius: 8px;
     .payment-method-btn {
@@ -26,6 +27,21 @@
     }
     .payment-method-btn:focus {
       background-color: #29cdff;
+    }
+    .discount-btn {
+      font-size: 14px;
+      border: none;
+      border: 1px solid #009bcf;
+      background-color: transparent;
+      outline: none;
+      color: #009bcf;
+      border-radius: 8px;
+      padding: 3px 8px;
+      transition: 0.4s;
+    }
+    .discount-btn:hover {
+      background-color: #009bcf;
+      color: white;
     }
   }
   .payment {
@@ -44,6 +60,17 @@
       border: 1px solid #009bcf;
       border-radius: 8px;
       color: #009bcf;
+      transition: 0.4s;
+    }
+    .payment-btn:hover {
+      background-color: #009bcf;
+      color: white;
+    }
+    .discount-text {
+      font-size: 13px;
+      span {
+        color: rgb(27, 226, 60);
+      }
     }
   }
 }

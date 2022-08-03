@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Input from "../../components/input";
 import registerSvg from "./register.svg";
 import axios from "axios";
@@ -15,13 +15,21 @@ const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch()
 
-  const [username, setUsername] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [username, setUsername] = useState();
+  const [phoneNumber, setPhoneNumber] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [confirmPassword, setConfirmPassword] = useState();
   // const [loading, setLoading] = useState(false);
 
+  // useEffect(()=>{
+  //   if(phoneNumber === '') {
+  //     return 'لطفا فیلد شماره تلفن را پر کنید'
+  //   }else if(phoneNumber.match(/\D/g) !== null){
+  //     return 'لطفا فیلد شماره تلفن را پر کنید'
+  //   }
+  //   // (phoneNumber === '' || phoneNumber.match(/\D/g) !== null)?'لطفا فیلد شماره تلفن را پر کنید' : null
+  // },[phoneNumber])
 
 
   const registerHandler = () => {
@@ -79,8 +87,9 @@ const Register = () => {
                 icon="bi:person-fill"
                 color="#808080"
                 iconWidth="20px"
-                className="w-50 my-2"
+                className="w-50"
                 value={username}
+                validation={username === ''?'لطفا فیلد نام کاربری را پر کنید' : null}
                 onChange={(e) => setUsername(e.target.value)}
               />
               <Input
@@ -88,8 +97,9 @@ const Register = () => {
                 icon="carbon:phone-filled"
                 color="#808080"
                 iconWidth="20px"
-                className="w-50 my-2"
+                className="w-50"
                 value={phoneNumber}
+                validation={phoneNumber === '' ?'لطفا فیلد شماره تلفن را پر کنید' : null}
                 onChange={(e) => setPhoneNumber(e.target.value)}
               />
             </div>
@@ -98,8 +108,9 @@ const Register = () => {
               icon="dashicons:email-alt"
               color="#808080"
               iconWidth="20px"
-              className="w-100 my-2"
+              className="w-100"
               value={email}
+              validation={email === '' ?'لطفا فیلد ایمیل را پر کنید' : null}
               onChange={(e) => setEmail(e.target.value)}
             />
             <div className="d-flex gap-3">
@@ -109,8 +120,9 @@ const Register = () => {
                 color="#808080"
                 iconWidth="20px"
                 width="w-100"
-                className="w-50 my-2"
+                className="w-50"
                 value={password}
+                validation={password === '' ?'لطفا فیلد رمز عبور را پر کنید' : null}
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
               />
@@ -120,8 +132,9 @@ const Register = () => {
                 color="#808080"
                 iconWidth="20px"
                 width="w-100"
-                className="w-50 my-2"
+                className="w-50"
                 value={confirmPassword}
+                validation={password === '' ?'لطفا رمز عبور را تکرار کنید' : null}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 type="password"
               />

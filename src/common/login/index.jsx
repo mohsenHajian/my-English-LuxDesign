@@ -41,7 +41,6 @@ const Login = () => {
       });
     }
   }
-  // m.hajian3451@gmail.com
 
   return (
     <div className="login-page d-flex justify-content-center align-items-center">
@@ -60,8 +59,9 @@ const Login = () => {
             icon="dashicons:email-alt"
             color="#808080"
             iconWidth="25px"
-            className="w-100 my-2"
+            className="w-100"
             value={email}
+            validation={email === ''?'لطفا فیلد ایمیل را پر کنید' : null}
             onChangeFun={setEmail}
           />
           <Input
@@ -70,9 +70,10 @@ const Login = () => {
             color="#808080"
             iconWidth="25px"
             width="w-100"
-            className="w-100 my-2"
+            className="w-100"
             type='password'
             value={password}
+            validation={password === ''?'لطفا فیلد رمز عبور را پر کنید' : null}
             onChangeFun={setPassword}
           />
           <div className="d-flex checkBox-container flex-column">

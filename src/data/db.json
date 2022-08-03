@@ -1020,69 +1020,20 @@
       "deliveryTime": "",
       "deliveryPhoneNumber": "",
       "paymentMethod": ""
+    }
+  ],
+  "discountCodes" : [
+    {
+      "name" : "GOLD",
+      "discount" : 40
     },
     {
-      "id": 1659521830938,
-      "date": 1659521830938,
-      "token": "mohsen1659255022298",
-      "cart": [
-        {
-          "id": 4,
-          "category": "shirt",
-          "title": "پیراهن آستین کوتاه مردانه مدل هاوایی",
-          "imgURL": "https://dkstatics-public.digikala.com/digikala-products/89a3582fa95637efc0f66e46f0c8b1e2dce6fe7a_1650969306.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
-          "price": "233750",
-          "inventory": "10",
-          "star": "4.1",
-          "property": {
-            "material": "الیاف نخی",
-            "size": [
-              "l"
-            ],
-            "sleeve": "کوتاه",
-            "height": "روی کمر",
-            "brand": "زیسا"
-          },
-          "comments": [
-            {
-              "arthor": "mohsen",
-              "date": 1600000000,
-              "text": "این کامنت از طرف محسن حاجیان است",
-              "id": "1600000000"
-            },
-            {
-              "arthor": "mohsen",
-              "date": 1600000000,
-              "text": "این کامنت از طرف محسن حاجیان است",
-              "id": "1600000000"
-            },
-            {
-              "arthor": "mohsen",
-              "date": 1600000000,
-              "text": "این کامنت از طرف محسن حاجیان است",
-              "id": "1600000000"
-            },
-            {
-              "id": 1659512782698,
-              "date": 1659512782698,
-              "text": "ffffffffffffff",
-              "arthor": "mohsen1659255022298"
-            },
-            {
-              "id": 1659514516956,
-              "date": 1659514516956,
-              "text": "hoooooo",
-              "arthor": null
-            }
-          ],
-          "stock": 1
-        }
-      ],
-      "address": "",
-      "discount": "",
-      "deliveryTime": "",
-      "deliveryPhoneNumber": "",
-      "paymentMethod": ""
+      "name" : "SILVER",
+      "discount" : 20
+    },
+    {
+      "name" : "BRONZE",
+      "discount" : 10
     }
   ]
 }
