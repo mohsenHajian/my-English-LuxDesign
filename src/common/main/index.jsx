@@ -18,16 +18,16 @@ const Main = () => {
     axios
       .get("http://localhost:8000/shirts/")
       .then(({ data }) =>
-        setMainShirtSection(data.products.reverse().slice(0, 4))
+        setMainShirtSection(data.reverse().slice(0, 4))
       );
     axios
       .get("http://localhost:8000/pants/")
       .then(({ data }) =>
-        setMainPantsSection(data.products.reverse().slice(0, 4))
+        setMainPantsSection(data.reverse().slice(0, 4))
       );
     axios
       .get("http://localhost:8000/proposal/")
-      .then(({ data }) => setProposal(data.products.reverse().slice(0, 4)));
+      .then(({ data }) => setProposal(data.reverse().slice(0, 4)));
   }, []);
 
   const showMoreShirtsHandler = () => {

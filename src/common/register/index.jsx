@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Input from "../../components/input";
 import registerSvg from "./register.svg";
 import axios from "axios";
@@ -7,35 +7,54 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./register.style.scss";
 import { useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { setUsersList } from "../../redux/slice/usersListSlice";
 
 
 const Register = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
-  const [username, setUsername] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [username, setUsername] = useState();
+  const [phoneNumber, setPhoneNumber] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [confirmPassword, setConfirmPassword] = useState();
   // const [loading, setLoading] = useState(false);
 
+  // useEffect(()=>{
+  //   if(phoneNumber === '') {
+  //     return 'لطفا فیلد شماره تلفن را پر کنید'
+  //   }else if(phoneNumber.match(/\D/g) !== null){
+  //     return 'لطفا فیلد شماره تلفن را پر کنید'
+  //   }
+  //   // (phoneNumber === '' || phoneNumber.match(/\D/g) !== null)?'لطفا فیلد شماره تلفن را پر کنید' : null
+  // },[phoneNumber])
 
 
   const registerHandler = () => {
     if (username && phoneNumber && email && password && password === confirmPassword) {
+      let data = Date.now()
       axios.post("http://localhost:8000/users", {
-        id: Date.now(),
+        id: data,
         username,
         phoneNumber,
         email,
-        password,
+        password
       });
-      toast.success("ورود موفقیت آمیز بود.", {
+      dispatch(setUsersList({
+        id: data,
+        username,
+        phoneNumber,
+        email,
+        password
+      }))
+      toast.success("ثبت نام موفقیت آمیز بود.", {
         position: "top-right",
         closeOnClick: true,
       });
-      // navigate("/");
-    }else {
+      navigate("/");
+    } else {
       toast.error("مشکلی پیش آمده.", {
         position: "top-right",
         closeOnClick: true,
@@ -68,18 +87,20 @@ const Register = () => {
                 icon="bi:person-fill"
                 color="#808080"
                 iconWidth="20px"
-                className="w-50 my-2"
+                className="w-50"
                 value={username}
-                onChange={setUsername}
+                validation={username === ''?'لطفا فیلد نام کاربری را پر کنید' : null}
+                onChange={(e) => setUsername(e.target.value)}
               />
               <Input
                 placeholder="موبایل"
                 icon="carbon:phone-filled"
                 color="#808080"
                 iconWidth="20px"
-                className="w-50 my-2"
+                className="w-50"
                 value={phoneNumber}
-                onChange={setPhoneNumber}
+                validation={phoneNumber === '' ?'لطفا فیلد شماره تلفن را پر کنید' : null}
+                onChange={(e) => setPhoneNumber(e.target.value)}
               />
             </div>
             <Input
@@ -87,9 +108,10 @@ const Register = () => {
               icon="dashicons:email-alt"
               color="#808080"
               iconWidth="20px"
-              className="w-100 my-2"
+              className="w-100"
               value={email}
-              onChange={setEmail}
+              validation={email === '' ?'لطفا فیلد ایمیل را پر کنید' : null}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <div className="d-flex gap-3">
               <Input
@@ -98,9 +120,10 @@ const Register = () => {
                 color="#808080"
                 iconWidth="20px"
                 width="w-100"
-                className="w-50 my-2"
+                className="w-50"
                 value={password}
-                onChange={setPassword}
+                validation={password === '' ?'لطفا فیلد رمز عبور را پر کنید' : null}
+                onChange={(e) => setPassword(e.target.value)}
                 type="password"
               />
               <Input
@@ -109,9 +132,10 @@ const Register = () => {
                 color="#808080"
                 iconWidth="20px"
                 width="w-100"
-                className="w-50 my-2"
+                className="w-50"
                 value={confirmPassword}
-                onChange={setConfirmPassword}
+                validation={password === '' ?'لطفا رمز عبور را تکرار کنید' : null}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 type="password"
               />
             </div>

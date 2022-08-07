@@ -138,7 +138,7 @@ const Sidebar = () => {
             فقط کالا های موجود
           </label>
         </div>
-        <PriceInput />
+        {/* <PriceInput /> */}
       </div>
     </aside>
   );

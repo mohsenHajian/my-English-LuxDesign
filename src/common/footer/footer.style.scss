@@ -11,3 +11,10 @@ footer {
     border-bottom: 1px solid #f8f8f8;
     padding: 0 30px 50px;
 }
+
+@media only screen and (max-width: 992px) {
+    .footer {
+      flex-direction: column;
+      gap: 50px;
+    }
+  }

@@ -1,0 +1,38 @@
+.cart-card {
+  border-bottom: 1px solid rgb(212, 212, 212);
+  img {
+    width: 100%;
+  }
+  .dropdown-item {
+    text-align: start !important;
+  }
+  .cart-card-details {
+    span {
+      font-size: 14px;
+      font-family: "IranSansLight";
+    }
+    .circle {
+      width: 8px;
+      height: 8px;
+    }
+  }
+  .cart-btn-container {
+    width: fit-content;
+    border: 1px solid #00bffe;
+    border-radius: 8px;
+    span {
+      color: #00bffe;
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .cart-card-footer {
+    justify-content: center;
+    .cart-card-footer-btn {
+      width: 50%;
+    }
+    .cart-card-footer-price {
+      width: 50%;
+    }
+  }
+}
