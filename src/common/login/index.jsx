@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import loginSvg from "./login.svg";
 import "./login.style.scss";
 import Input from "../../components/input";
@@ -14,26 +14,35 @@ const Login = () => {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
   const [user, setUser] = useState()
-  const [status, setStatus] = useState()
+  const [admins, setAdmins] = useState()
+
+  useEffect(()=>{
+    axios.get('http://localhost:8000/users').then(( data ) => setUser(data.data))
+    axios.get('http://localhost:8000/admins').then(( data ) => setAdmins(data.data))
+  },[])
+
 
   const loginHandler = () => {
-    if (email && password) {
-      axios.get('http://localhost:8000/users').then(( data ) => {setUser(data.data.filter(user => user.email === email && user.password === password ? user : null));setStatus(data.status)})
-      if (user?.length > 0) {
-        localStorage.setItem('token', `${user[0].username + user[0].id}`)
-        dispatch(setUserToken(`${user[0].username + user[0].id}`))
+    if (email && password && user) {
+      let User = user.filter(user => user.email === email && user.password === password ? user : null)
+      let Admin = admins.filter(user => user.email === email && user.password === password ? user : null)
+      if(Admin.length>0) {
+        localStorage.setItem('token', `${Admin[0].username + Admin[0].id}`)
+        dispatch(setUserToken(`${Admin[0].username + Admin[0].id}`))
+        navigate('/admin')
+        setAdmins(undefined)
+      }
+      if(User.length>0) {
+        localStorage.setItem('token', `${User[0].username + User[0].id}`)
+        dispatch(setUserToken(`${User[0].username + User[0].id}`))
         navigate('/')
         setUser(undefined)
-        toast.success("ورود موفقیت آمیز بود", {
-          position: "top-right",
-          closeOnClick: true,
-        });
-      } else if(status === 200 && user?.length === 0) {
-        toast.error("ایمیل یا پسوورد اشتباه است", {
-          position: "top-right",
-          closeOnClick: true,
-        });
       }
+
+      toast.success("ورود موفقیت آمیز بود", {
+        position: "top-right",
+        closeOnClick: true,
+      });
     } else {
       toast.error("مشکلی پیش آمده.", {
         position: "top-right",

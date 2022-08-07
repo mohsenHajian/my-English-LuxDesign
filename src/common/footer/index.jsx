@@ -6,7 +6,7 @@ import { Icon } from "@iconify/react";
 const Footer = () => {
   return (
     <footer className="d-flex w-100 flex-column">
-      <div className="d-flex justify-content-between w-100 footer-header">
+      <div className="footer d-flex justify-content-between w-100 footer-header">
         <div className="d-flex flex-column gap-2">
           <span>مشاوره و رفع مشکل آنلاین</span>
           <span>درخواست همکاری با لوکس دیزاین</span>

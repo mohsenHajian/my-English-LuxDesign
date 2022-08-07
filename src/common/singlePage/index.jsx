@@ -7,6 +7,7 @@ import { setCartList } from "../../redux/slice/cartListSlice";
 import Card from '../../components/card'
 import axios from "axios";
 import "./single-page.style.scss";
+import { toast } from "react-toastify";
 
 const SinglePage = () => {
   const dispatch = useDispatch()
@@ -36,17 +37,29 @@ const SinglePage = () => {
   }
 
   const addCommentHandler = () => {
-    const comments = [...singlePageData.comments, {
-      id: Date.now(),
-      date: Date.now(),
-      text: comment,
-      arthor: localStorage.getItem('token')
-    }]
-    if (singlePageData.category === 'pants') {
-      axios.put(`http://localhost:8000/pants/${singlePageData.id}`,{...singlePageData,comments})
-    }
-    if (singlePageData.category === 'shirt') {
-      axios.put(`http://localhost:8000/shirts/${singlePageData.id}`,{...singlePageData,comments})
+    if(comment){
+      const comments = [...singlePageData.comments, {
+        id: Date.now(),
+        date: Date.now(),
+        text: comment,
+        arthor: localStorage.getItem('token')
+      }]
+      if (singlePageData.category === 'pants') {
+        axios.put(`http://localhost:8000/pants/${singlePageData.id}`,{...singlePageData,comments})
+      }
+      if (singlePageData.category === 'shirt') {
+        axios.put(`http://localhost:8000/shirts/${singlePageData.id}`,{...singlePageData,comments})
+      }
+      toast.success("نظر شما با موفقیت ثبت شد", {
+        position: "top-right",
+        closeOnClick: true,
+    });
+      setComment('')
+    }else {
+      toast.error("مشکلی پیش آمده.", {
+        position: "top-right",
+        closeOnClick: true,
+    });
     }
   }
 

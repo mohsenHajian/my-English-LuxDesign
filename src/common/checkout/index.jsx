@@ -25,7 +25,7 @@ const Checkout = () => {
 
     useEffect(() => {
         let total = 0
-        uniqueArr.forEach((a) => total += Number(a.price))
+        uniqueArr.forEach((a) => total += Number(a.price)*a.stock)
         setTotalPrice(total)
     }, [uniqueArr])
     useEffect(() => {
@@ -42,7 +42,7 @@ const Checkout = () => {
 
 
     const peymentHandler = () => {
-        if (address && deliveryPhoneNumber && deliveryTime & paymentMethod) {
+        if (address && deliveryPhoneNumber && deliveryTime && paymentMethod) {
             let order = {
                 id: Date.now(),
                 date: Date.now(),

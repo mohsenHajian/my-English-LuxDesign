@@ -1,0 +1,47 @@
+.admin {
+  min-height: 100vh;
+  .product-border-bootom {
+      border-bottom: 1px solid #666;
+  }
+  .admin-header {
+    background-color: #666;
+    padding: 0 5%;
+    span {
+      color: #dbdbdb;
+    }
+  }
+  aside {
+    width: 30%;
+    padding: 0 4%;
+    height: calc(100vh - 73px);
+    background-color: #666;
+    span {
+      color: #dbdbdb;
+    }
+    .aside-item {
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid #eee;
+      transition: 0.4s;
+    }
+    .aside-item:focus {
+      border-bottom: 2px solid rgb(0, 180, 0);
+    }
+  }
+  .ProductList {
+    padding: 0 5%;
+    .ProductList-title {
+        background-color: rgba(0, 183, 255, 0.452);
+        box-shadow: 0 0 5px rgb(180, 180, 180);
+    }
+    .add-product {
+        background-color: blue;
+        border: 0;
+        outline: none;
+        height: fit-content;
+        span {
+            color: #f8f8f8;
+        }
+    }
+  }
+}
