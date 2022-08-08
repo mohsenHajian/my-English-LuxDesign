@@ -22,6 +22,12 @@
 .paginate-btn:focus {
     background-color: rgb(132, 250, 250);
 }
+.select-add-product {
+    background-color: transparent;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 0 5px rgb(194, 194, 194);
+}
 
 @keyframes ProductCardAnimation {
     from {

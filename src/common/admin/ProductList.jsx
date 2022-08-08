@@ -42,9 +42,21 @@ const ProductList = () => {
                 <div class="modal-dialog border-0">
                     <div class="modal-content border-0">
                         <h5 className='p-3 border-bottom'>اضافه کردن محصول</h5>
-                        <div className="d-flex p-3 gap-3">
-                            <Input placeholder="عنوان محصول" className='w-50' icon='material-symbols:title-rounded' iconWidth='20' color='#666' />    
-                            <Input placeholder="قیمت محصول" className='w-50' icon='bi:coin' iconWidth='20' color='#666' />    
+                        <div className="d-flex px-3 gap-3 pt-3">
+                            <Input placeholder="عنوان محصول" className='w-50' icon='material-symbols:title-rounded' iconWidth='20' color='#666' />
+                            <Input placeholder="قیمت محصول" className='w-50' icon='bi:coin' iconWidth='20' color='#666' />
+                        </div>
+                        <div className="d-flex px-3 gap-3">
+                            <Input placeholder="موجودی" className='w-50' icon='ic:outline-inventory-2' type='number' iconWidth='20' color='#666' />
+                            <Input placeholder="قیمت محصول" className='w-50' icon='bi:coin' iconWidth='20' color='#666' />
+                        </div>
+                        <div className="d-flex px-3 gap-3">
+
+                            <Input placeholder="لینک عکس" className='w-50' icon='bi:card-image' iconWidth='20' color='#666' />
+                            <select className="h-100 w-50 select-add-product">
+                                <option selected>شلوار</option>
+                                <option value="1">پیراهن</option>
+                            </select>
                         </div>
                         <div class="modal-footer d-flex justify-content-between border-0">
                             <button type="button" class="btn btn-primary">ذخیره</button>
