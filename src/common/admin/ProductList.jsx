@@ -1,6 +1,7 @@
 import { Icon } from '@iconify/react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import Input from '../../components/input';
 import ProductAdminCard from '../../components/productAdminCard';
 
@@ -9,9 +10,24 @@ const ProductList = () => {
     const [pageNum, setPageNum] = useState(1)
     const [searchValue, setSearchValue] = useState('')
     const [productData, setProductData] = useState()
+    const [title, setTitle] = useState()
+    const [price, setPrice] = useState()
+    const [inventory, setInventory] = useState()
+    const [brand, setBrand] = useState()
+    const [imgURL, setImgURL] = useState()
+    const [category, setCategory] = useState('shirt')
+    const [material, setMaterial] = useState()
+    const [size, setSize] = useState()
+    const [sleeve, setSleeve] = useState()
+    const [height, setHeight] = useState()
+    const [crotch, setCrotch] = useState()
+    const [style, setStyle] = useState()
+    const [selectedProduct , setSelectedProduct] = useState()
+
+
     useEffect(() => {
         axios.get('http://localhost:8000/allProducts').then(({ data }) => { setProductList(data); setProductData(data) })
-    }, [])
+    }, [selectedProduct])
 
     const cheapestList = () => {
         let data = [...productData]
@@ -36,6 +52,107 @@ const ProductList = () => {
     }
 
 
+    const resetState = (value) => {
+        setTitle(value)
+        setPrice(value)
+        setBrand(value)
+        setCategory(value)
+        setCrotch(value)
+        setHeight(value)
+        setInventory(value)
+        setImgURL(value)
+        setMaterial(value)
+        setSize(value)
+        setStyle(value)
+        setSleeve(value)
+    }
+
+
+
+    const addProductHandler = () => {
+        if (title && price && brand && category && inventory && imgURL && material && size) {
+
+            if (category === 'shirt') {
+                let product = {
+                    id: Date.now(),
+                    category,
+                    title,
+                    imgURL,
+                    price,
+                    inventory,
+                    star: '3',
+                    property: {
+                        material,
+                        size: size.split('-'),
+                        sleeve,
+                        height,
+                        brand
+                    },
+                    comments: [
+                        {
+                          arthor: "mohsen",
+                          date: 1600000000,
+                          text: "این کامنت از طرف محسن حاجیان است",
+                          id: "1600000000"
+                        },
+                        {
+                          arthor: "mohsen",
+                          date: 1600000000,
+                          text: "این کامنت از طرف محسن حاجیان است",
+                          id: "1600000000"
+                        },
+                        {
+                          arthor: "mohsen",
+                          date: 1600000000,
+                          text: "این کامنت از طرف محسن حاجیان است",
+                          id: "1600000000"
+                        }
+                      ]
+                }
+                axios.post('http://localhost:8000/allProducts', product)
+                axios.post('http://localhost:8000/shirts', product)
+                toast.success("محصول با موفقیت ثبت شد", {
+                    position: "top-right",
+                    closeOnClick: true,
+                });
+                setSelectedProduct(product)
+                resetState('')
+            }
+            if (category === 'pants') {
+                let product = {
+                    id: Date.now(),
+                    category,
+                    title,
+                    imgURL,
+                    price,
+                    inventory,
+                    star: '3',
+                    property: {
+                        material,
+                        size: size.split('-'),
+                        crotch,
+                        style,
+                        brand
+                    },
+                }
+                axios.post('http://localhost:8000/allProducts', product)
+                axios.post('http://localhost:8000/pants', product)
+                toast.success("محصول با موفقیت ثبت شد", {
+                    position: "top-right",
+                    closeOnClick: true,
+                });
+                setSelectedProduct(product)
+                resetState('')
+            }
+        } else {
+            toast.error("مشکلی پیش آمده.", {
+                position: "top-right",
+                closeOnClick: true,
+            });
+        }
+    }
+
+
     return (
         <>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -43,23 +160,38 @@ const ProductList = () => {
                     <div class="modal-content border-0">
                         <h5 className='p-3 border-bottom'>اضافه کردن محصول</h5>
                         <div className="d-flex px-3 gap-3 pt-3">
-                            <Input placeholder="عنوان محصول" className='w-50' icon='material-symbols:title-rounded' iconWidth='20' color='#666' />
-                            <Input placeholder="قیمت محصول" className='w-50' icon='bi:coin' iconWidth='20' color='#666' />
+                            <Input placeholder="عنوان محصول" className='w-50' validation={title === '' ? 'لطفا فیلد را پر کنید' : null} value={title} onChangeFun={setTitle} icon='material-symbols:title-rounded' iconWidth='20' color='#666' />
+                            <Input placeholder="قیمت محصول" className='w-50' validation={price === '' ? 'لطفا فیلد را پر کنید' : null} value={price} onChangeFun={setPrice} icon='bi:coin' iconWidth='20' color='#666' />
                         </div>
                         <div className="d-flex px-3 gap-3">
-                            <Input placeholder="موجودی" className='w-50' icon='ic:outline-inventory-2' type='number' iconWidth='20' color='#666' />
-                            <Input placeholder="قیمت محصول" className='w-50' icon='bi:coin' iconWidth='20' color='#666' />
+                            <Input placeholder="موجودی" className='w-50' validation={inventory === '' ? 'لطفا فیلد را پر کنید' : null} value={inventory} onChangeFun={setInventory} icon='ic:outline-inventory-2' type='number' iconWidth='20' color='#666' />
+                            <Input placeholder="برند محصول" className='w-50' validation={brand === '' ? 'لطفا فیلد را پر کنید' : null} value={brand} onChangeFun={setBrand} icon='icon-park-outline:engineering-brand' iconWidth='20' color='#666' />
                         </div>
                         <div className="d-flex px-3 gap-3">
-
-                            <Input placeholder="لینک عکس" className='w-50' icon='bi:card-image' iconWidth='20' color='#666' />
-                            <select className="h-100 w-50 select-add-product">
-                                <option selected>شلوار</option>
-                                <option value="1">پیراهن</option>
+                            <Input placeholder="لینک عکس" className='w-50' validation={imgURL === '' ? 'لطفا فیلد را پر کنید' : null} value={imgURL} onChangeFun={setImgURL} icon='bi:card-image' iconWidth='20' color='#666' />
+                            <select className="h-100 w-50 select-add-product" validation={category === '' ? 'لطفا فیلد را پر کنید' : null} value={category} onChange={(e) => setCategory(e.target.value)}>
+                                <option selected value='shirt'>پیراهن</option>
+                                <option value="pants">شلوار</option>
                             </select>
                         </div>
+                        <div className="d-flex px-3 gap-3">
+                            <Input placeholder="جنس محصول" className='w-50' validation={material === '' ? 'لطفا فیلد را پر کنید' : null} value={material} onChangeFun={setMaterial} icon='icon-park-outline:material-three' iconWidth='20' color='#666' />
+                            <Input placeholder="سایز محصول (xl-m-s...46-42-40)" className='w-50' validation={size === '' ? 'لطفا فیلد را پر کنید' : null} value={size} onChangeFun={setSize} icon='cil:resize-both' iconWidth='20' color='#666' />
+                        </div>
+                        {category === 'shirt' ? (
+                            <div className="d-flex px-3 gap-3">
+                                <Input placeholder="آستین محصول" className='w-50' validation={sleeve === '' ? 'لطفا فیلد را پر کنید' : null} value={sleeve} onChangeFun={setSleeve} icon='icon-park-outline:clothes-short-sleeve' iconWidth='20' color='#666' />
+                                <Input placeholder="قد پیراهن" className='w-50' validation={height === '' ? 'لطفا فیلد را پر کنید' : null} value={height} onChangeFun={setHeight} icon='cil:resize-both' iconWidth='20' color='#666' />
+                            </div>
+                        ) : null}
+                        {category === 'pants' ? (
+                            <div className="d-flex px-3 gap-3">
+                                <Input placeholder="استایل شلوار" className='w-50' validation={style === '' ? 'لطفا فیلد را پر کنید' : null} value={style} onChangeFun={setStyle} icon='iconoir:pants-alt' iconWidth='20' color='#666' />
+                                <Input placeholder="فاق شلوار" className='w-50' validation={crotch === '' ? 'لطفا فیلد را پر کنید' : null} value={crotch} onChangeFun={setCrotch} icon='iconoir:pants-alt' iconWidth='20' color='#666' />
+                            </div>
+                        ) : null}
                         <div class="modal-footer d-flex justify-content-between border-0">
-                            <button type="button" class="btn btn-primary">ذخیره</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={addProductHandler}>ذخیره</button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">بستن</button>
                         </div>
                     </div>
@@ -91,10 +223,10 @@ const ProductList = () => {
                         <div className="col-1">حذف</div>
                     </div>
                     <div className="product-border-bootom py-2">
-                        {paginate(productList, 5, pageNum)?.map(card => <ProductAdminCard card={card} />)}
+                        {paginate(productList, 5, pageNum)?.map(card => <ProductAdminCard key={card.id} card={card} />)}
                     </div>
                     <div className="d-flex justify-content-center pt-3 gap-3 align-items-center">
-                        <Icon icon="ant-design:arrow-right-outlined" color="#666" width="25" cursor='pointer' onClick={() => (productList?.length / 5).toFixed(0) > pageNum ? setPageNum(pageNum + 1) : null} />
+                        <Icon icon="ant-design:arrow-right-outlined" color="#666" width="25" cursor='pointer' onClick={() => Math.ceil(productList?.length / 5) > pageNum ? setPageNum(pageNum + 1) : null} />
                         <button className='paginate-btn border-0 p-1 px-3 rounded-3'>{pageNum}</button>
                         <Icon icon="ant-design:arrow-left-outlined" color="#666" width="25" cursor='pointer' onClick={() => pageNum !== 1 ? setPageNum(pageNum - 1) : null} />
                     </div>
