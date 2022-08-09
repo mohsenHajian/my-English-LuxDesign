@@ -1,7 +1,7 @@
 import React from 'react';
 import './product-admin-style.scss'
 
-const ProductAdminCard = ({card,editProductHandler,setEditProduct}) => {
+const ProductAdminCard = ({card,editProductHandler,setEditProduct,setShowProduct}) => {
 
 
     return (
@@ -20,8 +20,13 @@ const ProductAdminCard = ({card,editProductHandler,setEditProduct}) => {
                 </button>
             </div>
             <div className="col-1">
-                <button className="delete-product p-2 bg-danger text-white border-0 rounded-3">
+                <button className="delete-product p-2 bg-danger text-white border-0 rounded-3" data-bs-toggle="modal" data-bs-target="#exampleModalDelete" onClick={(e)=>setEditProduct(card)}>
                     حذف
+                </button>    
+            </div>
+            <div className="col-1">
+                <button className="delete-product p-2 bg-info text-white border-0 rounded-3" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={(e)=>{setShowProduct(card);editProductHandler(card,e)}}>
+                    نمایش
                 </button>    
             </div>
         </div>

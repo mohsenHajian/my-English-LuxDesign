@@ -24,6 +24,7 @@ const ProductList = () => {
     const [style, setStyle] = useState()
     const [selectedProduct, setSelectedProduct] = useState()
     const [editProduct, setEditProduct] = useState()
+    const [showProduct, setShowProduct] = useState()
 
 
     useEffect(() => {
@@ -41,6 +42,7 @@ const ProductList = () => {
         let sortArr = data.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
         setProductList(sortArr);
     }
+    
     useEffect(() => {
         let data = productData ? [...productData] : null
         let sortArr = data?.filter(card => card.title.includes(searchValue) ? card : null);
@@ -262,6 +264,17 @@ const ProductList = () => {
     }
 
 
+    const deleteHandler = (card) => {
+        axios.delete(`http://localhost:8000/allProducts/${editProduct.id}`)
+        if (card.category === 'shirt') axios.delete(`http://localhost:8000/shirts/${editProduct.id}`)
+        if (card.category === 'pants') axios.delete(`http://localhost:8000/pants/${editProduct.id}`)
+        let productList = productData.filter(item => item.card !== card.id ? item : null)
+        setSelectedProduct(productList)
+        toast.success("محصول با موفقیت حذف شد", {
+            position: "top-right",
+            closeOnClick: true,
+        });
+    }
 
 
 
@@ -303,8 +316,19 @@ const ProductList = () => {
                             </div>
                         ) : null}
                         <div class="modal-footer d-flex justify-content-between border-0">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={editProduct ? submitEditHandler :addProductHandler}>ذخیره</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>resetState(undefined)}>بستن</button>
+                            {editProduct ? <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={editProduct ? submitEditHandler : addProductHandler}>ذخیره</button> : null }
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={() => resetState(undefined)}>بستن</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModalDelete" tabindex="-1" aria-labelledby="exampleModalLabelDelete" aria-hidden="true" >
+                <div class="modal-dialog modal-dialog-delete border-0">
+                    <div class="modal-content border-0">
+                        <h5 className='p-3'>آیا از حذف این محصول اطمینان دارید؟</h5>
+                        <div class="modal-footer d-flex justify-content-between border-0">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onClick={deleteHandler}>حذف</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={() => resetState(undefined)}>بستن</button>
                         </div>
                     </div>
                 </div>
@@ -333,9 +357,10 @@ const ProductList = () => {
                         <div className="col-1"><span>موجودی</span></div>
                         <div className="col-1">ویرایش</div>
                         <div className="col-1">حذف</div>
+                        <div className="col-1">نمایش</div>
                     </div>
                     <div className="product-border-bootom py-2">
-                        {paginate(productList, 5, pageNum)?.map(card => <ProductAdminCard key={card.id} card={card} editProductHandler={editProductHandler} setEditProduct={setEditProduct} />)}
+                        {paginate(productList, 5, pageNum)?.map(card => <ProductAdminCard key={card.id} card={card} editProductHandler={editProductHandler} setEditProduct={setEditProduct} setShowProduct={setShowProduct} />)}
                     </div>
                     <div className="d-flex justify-content-center pt-3 gap-3 align-items-center">
                         <Icon icon="ant-design:arrow-right-outlined" color="#666" width="25" cursor='pointer' onClick={() => Math.ceil(productList?.length / 5) > pageNum ? setPageNum(pageNum + 1) : null} />
