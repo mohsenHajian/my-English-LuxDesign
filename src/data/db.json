@@ -23,36 +23,18 @@
       "category": "shirt",
       "title": "پیراهن آستین بلند مردانه جوتی ",
       "imgURL": "https://dkstatics-public.digikala.com/digikala-products/921998d221ed26d3329543add29cc45be09551f9_1652438360.jpg?x-oss-process=image/resize,m_lfit,h_600,w_600/quality,q_90",
-      "price": "260000",
-      "inventory": "10",
-      "star": "4.3",
+      "price": "250000",
+      "inventory": "4",
+      "star": "3",
       "property": {
         "material": "الیاف نخی",
-        "size": ["xl"],
+        "size": [
+          "xl"
+        ],
         "sleeve": "بلند",
         "height": "روی باسن",
         "brand": "ایران لباس"
-      },
-      "comments": [
-        {
-          "arthor": "mohsen",
-          "date": 1659251064150,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1659251064150"
-        },
-        {
-          "arthor": "mohsen",
-          "date": 1659251062150,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1659251062150"
-        },
-        {
-          "arthor": "mohsen",
-          "date": 1657251062150,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1657251062150"
-        }
-      ]
+      }
     },
     {
       "id": 3,
@@ -64,7 +46,10 @@
       "star": "4.4",
       "property": {
         "material": "کتان",
-        "size": ["l", "m"],
+        "size": [
+          "l",
+          "m"
+        ],
         "sleeve": "بلند",
         "height": "روی باسن",
         "brand": "ال سی من"
@@ -100,7 +85,9 @@
       "star": "4.1",
       "property": {
         "material": "الیاف نخی",
-        "size": ["l"],
+        "size": [
+          "l"
+        ],
         "sleeve": "کوتاه",
         "height": "روی کمر",
         "brand": "زیسا"
@@ -148,7 +135,11 @@
       "star": "4.5",
       "property": {
         "material": "الیاف نخی",
-        "size": ["xxl", "l", "m"],
+        "size": [
+          "xxl",
+          "l",
+          "m"
+        ],
         "sleeve": " کوتاه ",
         "height": "روی باسن",
         "brand": "ایران لباس"
@@ -184,7 +175,9 @@
       "star": "2",
       "property": {
         "material": "کتان",
-        "size": ["s"],
+        "size": [
+          "s"
+        ],
         "sleeve": "بلند",
         "height": "زیر باسن",
         "brand": "ال سی من"
@@ -220,7 +213,10 @@
       "star": "3.5",
       "property": {
         "material": "کتان",
-        "size": ["l", "m"],
+        "size": [
+          "l",
+          "m"
+        ],
         "sleeve": "بلند",
         "height": "زیر باسن",
         "brand": "ایران لباس"
@@ -256,7 +252,9 @@
       "star": "3",
       "property": {
         "material": "کتان",
-        "size": ["xxl"],
+        "size": [
+          "xxl"
+        ],
         "sleeve": "بلند",
         "height": "روی باسن",
         "brand": "ال سی من"
@@ -292,7 +290,9 @@
       "star": "4.2",
       "property": {
         "material": "کتان",
-        "size": ["l"],
+        "size": [
+          "l"
+        ],
         "sleeve": "بلند",
         "height": "روی باسن",
         "brand": "زیسا"
@@ -328,7 +328,9 @@
       "star": "4",
       "property": {
         "material": "الیاف نخی",
-        "size": ["l"],
+        "size": [
+          "l"
+        ],
         "sleeve": "بلند",
         "height": "روی باسن",
         "brand": "ایران لباس"
@@ -364,7 +366,12 @@
       "star": "3.7",
       "property": {
         "material": "نخ",
-        "size": ["xxl", "xl", "l", "m"],
+        "size": [
+          "xxl",
+          "xl",
+          "l",
+          "m"
+        ],
         "sleeve": "بلند",
         "height": "روی باسن",
         "brand": "ال سی من"
@@ -400,7 +407,14 @@
       "star": "3",
       "property": {
         "material": "کتان",
-        "size": ["52", "50", "48", "46", "44", "42"],
+        "size": [
+          "52",
+          "50",
+          "48",
+          "46",
+          "44",
+          "42"
+        ],
         "style": "جذب",
         "crotch": "متوسط",
         "HowToClose": "دکمه",
@@ -437,7 +451,11 @@
       "star": "3",
       "property": {
         "material": "کتان",
-        "size": ["48", "46", "40"],
+        "size": [
+          "48",
+          "46",
+          "40"
+        ],
         "style": "جذب",
         "crotch": "متوسط",
         "HowToClose": "کشی",
@@ -474,7 +492,14 @@
       "star": "4.2",
       "property": {
         "material": "کتان",
-        "size": ["54", "52", "50", "46", "44", "40"],
+        "size": [
+          "54",
+          "52",
+          "50",
+          "46",
+          "44",
+          "40"
+        ],
         "style": "جذب",
         "crotch": "متوسط",
         "HowToClose": "دکمه و زیپ",
@@ -511,7 +536,9 @@
       "star": "4",
       "property": {
         "material": "الیاف نخی",
-        "size": ["48"],
+        "size": [
+          "48"
+        ],
         "style": "راسته",
         "crotch": "متوسط",
         "HowToClose": "دکمه و زیپ",
@@ -548,7 +575,14 @@
       "star": "4",
       "property": {
         "material": "نخ",
-        "size": ["54", "50", "48", "46", "44", "42"],
+        "size": [
+          "54",
+          "50",
+          "48",
+          "46",
+          "44",
+          "42"
+        ],
         "style": "جذب",
         "crotch": "متوسط",
         "HowToClose": "دکمه",
@@ -585,7 +619,12 @@
       "star": "3.8",
       "property": {
         "material": "پنبه",
-        "size": ["42", "38", "36", "34"],
+        "size": [
+          "42",
+          "38",
+          "36",
+          "34"
+        ],
         "style": "راسته",
         "crotch": "متوسط",
         "HowToClose": "کشی",
@@ -622,7 +661,12 @@
       "star": "3",
       "property": {
         "material": "پنبه",
-        "size": ["40", "38", "34", "32"],
+        "size": [
+          "40",
+          "38",
+          "34",
+          "32"
+        ],
         "style": "جذب",
         "crotch": "متوسط",
         "HowToClose": "کشی",
@@ -659,7 +703,9 @@
       "star": "5",
       "property": {
         "material": "الیاف نخی",
-        "size": ["34"],
+        "size": [
+          "34"
+        ],
         "style": "راسته",
         "crotch": "متوسط",
         "HowToClose": "کشی",
@@ -696,7 +742,9 @@
       "star": "5",
       "property": {
         "material": "نخ",
-        "size": ["34"],
+        "size": [
+          "34"
+        ],
         "style": "جذب",
         "crotch": "متوسط",
         "HowToClose": "دکمه",
@@ -733,7 +781,14 @@
       "star": "5",
       "property": {
         "material": "کتان",
-        "size": ["52", "50", "48", "46", "44", "42"],
+        "size": [
+          "52",
+          "50",
+          "48",
+          "46",
+          "44",
+          "42"
+        ],
         "style": "جذب",
         "crotch": "متوسط",
         "HowToClose": " دکمه و زیپ ",
@@ -770,7 +825,13 @@
       "star": "3",
       "property": {
         "material": "کتان",
-        "size": ["xxl", "xl", "l", "m", "s"],
+        "size": [
+          "xxl",
+          "xl",
+          "l",
+          "m",
+          "s"
+        ],
         "sleeve": "کوتاه",
         "height": " زیر باسن",
         "brand": "اسپینر "
@@ -803,36 +864,18 @@
       "category": "shirt",
       "title": "پیراهن آستین بلند مردانه جوتی ",
       "imgURL": "https://dkstatics-public.digikala.com/digikala-products/921998d221ed26d3329543add29cc45be09551f9_1652438360.jpg?x-oss-process=image/resize,m_lfit,h_600,w_600/quality,q_90",
-      "price": "260000",
-      "inventory": "10",
-      "star": "4.3",
+      "price": "250000",
+      "inventory": "4",
+      "star": "3",
       "property": {
         "material": "الیاف نخی",
-        "size": ["xl"],
+        "size": [
+          "xl"
+        ],
         "sleeve": "بلند",
         "height": "روی باسن",
         "brand": "ایران لباس"
-      },
-      "comments": [
-        {
-          "arthor": "mohsen",
-          "date": 1659251064150,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1659251064150"
-        },
-        {
-          "arthor": "mohsen",
-          "date": 1659251062150,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1659251062150"
-        },
-        {
-          "arthor": "mohsen",
-          "date": 1657251062150,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1657251062150"
-        }
-      ]
+      }
     },
     {
       "id": 3,
@@ -844,7 +887,10 @@
       "star": "4.4",
       "property": {
         "material": "کتان",
-        "size": ["l", "m"],
+        "size": [
+          "l",
+          "m"
+        ],
         "sleeve": "بلند",
         "height": "روی باسن",
         "brand": "ال سی من"
@@ -880,7 +926,9 @@
       "star": "4.1",
       "property": {
         "material": "الیاف نخی",
-        "size": ["l"],
+        "size": [
+          "l"
+        ],
         "sleeve": "کوتاه",
         "height": "روی کمر",
         "brand": "زیسا"
@@ -928,7 +976,11 @@
       "star": "4.5",
       "property": {
         "material": "الیاف نخی",
-        "size": ["xxl", "l", "m"],
+        "size": [
+          "xxl",
+          "l",
+          "m"
+        ],
         "sleeve": " کوتاه ",
         "height": "روی باسن",
         "brand": "ایران لباس"
@@ -964,7 +1016,9 @@
       "star": "2",
       "property": {
         "material": "کتان",
-        "size": ["s"],
+        "size": [
+          "s"
+        ],
         "sleeve": "بلند",
         "height": "زیر باسن",
         "brand": "ال سی من"
@@ -1000,7 +1054,10 @@
       "star": "3.5",
       "property": {
         "material": "کتان",
-        "size": ["l", "m"],
+        "size": [
+          "l",
+          "m"
+        ],
         "sleeve": "بلند",
         "height": "زیر باسن",
         "brand": "ایران لباس"
@@ -1036,7 +1093,9 @@
       "star": "3",
       "property": {
         "material": "کتان",
-        "size": ["xxl"],
+        "size": [
+          "xxl"
+        ],
         "sleeve": "بلند",
         "height": "روی باسن",
         "brand": "ال سی من"
@@ -1072,7 +1131,9 @@
       "star": "4.2",
       "property": {
         "material": "کتان",
-        "size": ["l"],
+        "size": [
+          "l"
+        ],
         "sleeve": "بلند",
         "height": "روی باسن",
         "brand": "زیسا"
@@ -1108,7 +1169,9 @@
       "star": "4",
       "property": {
         "material": "الیاف نخی",
-        "size": ["l"],
+        "size": [
+          "l"
+        ],
         "sleeve": "بلند",
         "height": "روی باسن",
         "brand": "ایران لباس"
@@ -1144,7 +1207,12 @@
       "star": "3.7",
       "property": {
         "material": "نخ",
-        "size": ["xxl", "xl", "l", "m"],
+        "size": [
+          "xxl",
+          "xl",
+          "l",
+          "m"
+        ],
         "sleeve": "بلند",
         "height": "روی باسن",
         "brand": "ال سی من"
@@ -1180,7 +1248,13 @@
       "star": "3",
       "property": {
         "material": "کتان",
-        "size": ["xxl", "xl", "l", "m", "s"],
+        "size": [
+          "xxl",
+          "xl",
+          "l",
+          "m",
+          "s"
+        ],
         "sleeve": "کوتاه",
         "height": " زیر باسن",
         "brand": "اسپینر "
@@ -1218,7 +1292,14 @@
       "star": "3",
       "property": {
         "material": "کتان",
-        "size": ["52", "50", "48", "46", "44", "42"],
+        "size": [
+          "52",
+          "50",
+          "48",
+          "46",
+          "44",
+          "42"
+        ],
         "style": "جذب",
         "crotch": "متوسط",
         "HowToClose": "دکمه",
@@ -1255,7 +1336,11 @@
       "star": "3",
       "property": {
         "material": "کتان",
-        "size": ["48", "46", "40"],
+        "size": [
+          "48",
+          "46",
+          "40"
+        ],
         "style": "جذب",
         "crotch": "متوسط",
         "HowToClose": "کشی",
@@ -1292,7 +1377,14 @@
       "star": "4.2",
       "property": {
         "material": "کتان",
-        "size": ["54", "52", "50", "46", "44", "40"],
+        "size": [
+          "54",
+          "52",
+          "50",
+          "46",
+          "44",
+          "40"
+        ],
         "style": "جذب",
         "crotch": "متوسط",
         "HowToClose": "دکمه و زیپ",
@@ -1329,7 +1421,9 @@
       "star": "4",
       "property": {
         "material": "الیاف نخی",
-        "size": ["48"],
+        "size": [
+          "48"
+        ],
         "style": "راسته",
         "crotch": "متوسط",
         "HowToClose": "دکمه و زیپ",
@@ -1366,7 +1460,14 @@
       "star": "4",
       "property": {
         "material": "نخ",
-        "size": ["54", "50", "48", "46", "44", "42"],
+        "size": [
+          "54",
+          "50",
+          "48",
+          "46",
+          "44",
+          "42"
+        ],
         "style": "جذب",
         "crotch": "متوسط",
         "HowToClose": "دکمه",
@@ -1403,7 +1504,12 @@
       "star": "3.8",
       "property": {
         "material": "پنبه",
-        "size": ["42", "38", "36", "34"],
+        "size": [
+          "42",
+          "38",
+          "36",
+          "34"
+        ],
         "style": "راسته",
         "crotch": "متوسط",
         "HowToClose": "کشی",
@@ -1440,7 +1546,12 @@
       "star": "3",
       "property": {
         "material": "پنبه",
-        "size": ["40", "38", "34", "32"],
+        "size": [
+          "40",
+          "38",
+          "34",
+          "32"
+        ],
         "style": "جذب",
         "crotch": "متوسط",
         "HowToClose": "کشی",
@@ -1477,7 +1588,9 @@
       "star": "5",
       "property": {
         "material": "الیاف نخی",
-        "size": ["34"],
+        "size": [
+          "34"
+        ],
         "style": "راسته",
         "crotch": "متوسط",
         "HowToClose": "کشی",
@@ -1514,7 +1627,9 @@
       "star": "5",
       "property": {
         "material": "نخ",
-        "size": ["34"],
+        "size": [
+          "34"
+        ],
         "style": "جذب",
         "crotch": "متوسط",
         "HowToClose": "دکمه",
@@ -1551,7 +1666,14 @@
       "star": "5",
       "property": {
         "material": "کتان",
-        "size": ["52", "50", "48", "46", "44", "42"],
+        "size": [
+          "52",
+          "50",
+          "48",
+          "46",
+          "44",
+          "42"
+        ],
         "style": "جذب",
         "crotch": "متوسط",
         "HowToClose": " دکمه و زیپ ",
@@ -1590,7 +1712,12 @@
       "star": "4",
       "property": {
         "material": " چرم مصنوعی ",
-        "size": ["44", "43", "42", "41"],
+        "size": [
+          "44",
+          "43",
+          "42",
+          "41"
+        ],
         "soleFeatures": " انعطاف پذیر , کاهش فشار وارده ,مقاوم در برابر سایش",
         "insole": "قابل تعویض "
       }
@@ -1605,7 +1732,10 @@
       "star": "4",
       "property": {
         "material": " چرم طبیعی ",
-        "size": ["41", "40"],
+        "size": [
+          "41",
+          "40"
+        ],
         "soleFeatures": " کاهش فشار وارده ",
         "insole": "طبی"
       }
@@ -1622,7 +1752,12 @@
       "star": "4",
       "property": {
         "material": " چرم مصنوعی ",
-        "size": ["44", "43", "42", "41"],
+        "size": [
+          "44",
+          "43",
+          "42",
+          "41"
+        ],
         "soleFeatures": " انعطاف پذیر , کاهش فشار وارده ,مقاوم در برابر سایش",
         "insole": "قابل تعویض "
       }
@@ -1637,7 +1772,11 @@
       "star": "3",
       "property": {
         "material": "کتان",
-        "size": ["48", "46", "40"],
+        "size": [
+          "48",
+          "46",
+          "40"
+        ],
         "crotch": "متوسط",
         "HowToClose": "کشی"
       }
@@ -1652,7 +1791,14 @@
       "star": "4.2",
       "property": {
         "material": "کتان",
-        "size": ["54", "52", "50", "46", "44", "40"],
+        "size": [
+          "54",
+          "52",
+          "50",
+          "46",
+          "44",
+          "40"
+        ],
         "crotch": "متوسط",
         "HowToClose": "دکمه و زیپ"
       }
@@ -1667,7 +1813,9 @@
       "star": "3.8",
       "property": {
         "material": "الیاف نخی",
-        "size": ["l"],
+        "size": [
+          "l"
+        ],
         "sleeve": "کوتاه",
         "height": "روی کمر"
       }
@@ -1689,7 +1837,9 @@
           "star": "4.1",
           "property": {
             "material": "الیاف نخی",
-            "size": ["l"],
+            "size": [
+              "l"
+            ],
             "sleeve": "کوتاه",
             "height": "روی کمر",
             "brand": "زیسا"

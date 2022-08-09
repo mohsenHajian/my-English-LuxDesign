@@ -22,7 +22,8 @@ const ProductList = () => {
     const [height, setHeight] = useState()
     const [crotch, setCrotch] = useState()
     const [style, setStyle] = useState()
-    const [selectedProduct , setSelectedProduct] = useState()
+    const [selectedProduct, setSelectedProduct] = useState()
+    const [editProduct, setEditProduct] = useState()
 
 
     useEffect(() => {
@@ -65,6 +66,8 @@ const ProductList = () => {
         setSize(value)
         setStyle(value)
         setSleeve(value)
+        setEditProduct(value)
+
     }
 
 
@@ -90,24 +93,24 @@ const ProductList = () => {
                     },
                     comments: [
                         {
-                          arthor: "mohsen",
-                          date: 1600000000,
-                          text: "این کامنت از طرف محسن حاجیان است",
-                          id: "1600000000"
+                            arthor: "mohsen",
+                            date: 1600000000,
+                            text: "این کامنت از طرف محسن حاجیان است",
+                            id: "1600000000"
                         },
                         {
-                          arthor: "mohsen",
-                          date: 1600000000,
-                          text: "این کامنت از طرف محسن حاجیان است",
-                          id: "1600000000"
+                            arthor: "mohsen",
+                            date: 1600000000,
+                            text: "این کامنت از طرف محسن حاجیان است",
+                            id: "1600000000"
                         },
                         {
-                          arthor: "mohsen",
-                          date: 1600000000,
-                          text: "این کامنت از طرف محسن حاجیان است",
-                          id: "1600000000"
+                            arthor: "mohsen",
+                            date: 1600000000,
+                            text: "این کامنت از طرف محسن حاجیان است",
+                            id: "1600000000"
                         }
-                      ]
+                    ]
                 }
                 axios.post('http://localhost:8000/allProducts', product)
                 axios.post('http://localhost:8000/shirts', product)
@@ -116,7 +119,7 @@ const ProductList = () => {
                     closeOnClick: true,
                 });
                 setSelectedProduct(product)
-                resetState('')
+                resetState(undefined)
             }
             if (category === 'pants') {
                 let product = {
@@ -134,6 +137,26 @@ const ProductList = () => {
                         style,
                         brand
                     },
+                    comments: [
+                        {
+                            arthor: "mohsen",
+                            date: 1600000000,
+                            text: "این کامنت از طرف محسن حاجیان است",
+                            id: "1600000000"
+                        },
+                        {
+                            arthor: "mohsen",
+                            date: 1600000000,
+                            text: "این کامنت از طرف محسن حاجیان است",
+                            id: "1600000000"
+                        },
+                        {
+                            arthor: "mohsen",
+                            date: 1600000000,
+                            text: "این کامنت از طرف محسن حاجیان است",
+                            id: "1600000000"
+                        }
+                    ]
                 }
                 axios.post('http://localhost:8000/allProducts', product)
                 axios.post('http://localhost:8000/pants', product)
@@ -142,7 +165,7 @@ const ProductList = () => {
                     closeOnClick: true,
                 });
                 setSelectedProduct(product)
-                resetState('')
+                resetState(undefined)
             }
         } else {
             toast.error("مشکلی پیش آمده.", {
@@ -153,46 +176,135 @@ const ProductList = () => {
     }
 
 
+
+    const editProductHandler = (card, e) => {
+        e.stopPropagation();
+        e.nativeEvent.stopImmediatePropagation();
+        setTitle(card.title)
+        setPrice(card.price)
+        setInventory(card.inventory)
+        setImgURL(card.imgURL)
+        setCategory(card.category)
+        setBrand(card.property.brand)
+        setMaterial(card.property.material)
+        setSize(card.property.size.join('-'))
+        if (card.category === 'shirt') {
+            setSleeve(card.property.sleeve)
+            setHeight(card.property.height)
+        }
+        if (card.category === 'pants') {
+            setStyle(card.property.style)
+            setCrotch(card.property.crotch)
+        }
+    }
+
+    const submitEditHandler = () => {
+        if (title && price && brand && category && inventory && imgURL && material && size) {
+
+            if (category === 'shirt') {
+                let product = {
+                    id: editProduct.id,
+                    category,
+                    title,
+                    imgURL,
+                    price,
+                    inventory,
+                    star: '3',
+                    property: {
+                        material,
+                        size: size.split('-'),
+                        sleeve,
+                        height,
+                        brand
+                    }
+                }
+                axios.put(`http://localhost:8000/allProducts/${editProduct.id}`, product)
+                axios.put(`http://localhost:8000/shirts/${editProduct.id}`, product)
+                toast.success("محصول با موفقیت ثبت شد", {
+                    position: "top-right",
+                    closeOnClick: true,
+                });
+                setSelectedProduct(product)
+                resetState(undefined)
+            }
+            if (category === 'pants') {
+                let product = {
+                    id: editProduct.id,
+                    category,
+                    title,
+                    imgURL,
+                    price,
+                    inventory,
+                    star: '3',
+                    property: {
+                        material,
+                        size: size.split('-'),
+                        crotch,
+                        style,
+                        brand
+                    }
+                }
+                axios.put(`http://localhost:8000/allProducts/${editProduct.id}`, product)
+                axios.put(`http://localhost:8000/pants/${editProduct.id}`, product)
+                toast.success("محصول با موفقیت ثبت شد", {
+                    position: "top-right",
+                    closeOnClick: true,
+                });
+                setSelectedProduct(product)
+                resetState(undefined)
+            }
+        } else {
+            toast.error("مشکلی پیش آمده.", {
+                position: "top-right",
+                closeOnClick: true,
+            });
+        }
+    }
+
+
+
+
+
     return (
         <>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
                 <div class="modal-dialog border-0">
                     <div class="modal-content border-0">
-                        <h5 className='p-3 border-bottom'>اضافه کردن محصول</h5>
+                        <h5 className='p-3 border-bottom' onClick={() => console.log(title)}>{editProduct ? 'ویرایش محصول' : 'اضافه کردن محصول'}</h5>
                         <div className="d-flex px-3 gap-3 pt-3">
-                            <Input placeholder="عنوان محصول" className='w-50' validation={title === '' ? 'لطفا فیلد را پر کنید' : null} value={title} onChangeFun={setTitle} icon='material-symbols:title-rounded' iconWidth='20' color='#666' />
-                            <Input placeholder="قیمت محصول" className='w-50' validation={price === '' ? 'لطفا فیلد را پر کنید' : null} value={price} onChangeFun={setPrice} icon='bi:coin' iconWidth='20' color='#666' />
+                            <Input placeholder="عنوان محصول" className='w-50' validation={title === '' ? 'لطفا فیلد را پر کنید' : null} value={!title ? '' : title} onChangeFun={setTitle} icon='material-symbols:title-rounded' iconWidth='20' color='#666' />
+                            <Input placeholder="قیمت محصول" className='w-50' validation={price === '' ? 'لطفا فیلد را پر کنید' : null} value={!price ? '' : price} onChangeFun={setPrice} icon='bi:coin' iconWidth='20' color='#666' />
                         </div>
                         <div className="d-flex px-3 gap-3">
-                            <Input placeholder="موجودی" className='w-50' validation={inventory === '' ? 'لطفا فیلد را پر کنید' : null} value={inventory} onChangeFun={setInventory} icon='ic:outline-inventory-2' type='number' iconWidth='20' color='#666' />
-                            <Input placeholder="برند محصول" className='w-50' validation={brand === '' ? 'لطفا فیلد را پر کنید' : null} value={brand} onChangeFun={setBrand} icon='icon-park-outline:engineering-brand' iconWidth='20' color='#666' />
+                            <Input placeholder="موجودی" className='w-50' validation={inventory === '' ? 'لطفا فیلد را پر کنید' : null} value={!inventory ? '' : inventory} onChangeFun={setInventory} icon='ic:outline-inventory-2' type='number' iconWidth='20' color='#666' />
+                            <Input placeholder="برند محصول" className='w-50' validation={brand === '' ? 'لطفا فیلد را پر کنید' : null} value={!brand ? '' : brand} onChangeFun={setBrand} icon='icon-park-outline:engineering-brand' iconWidth='20' color='#666' />
                         </div>
                         <div className="d-flex px-3 gap-3">
-                            <Input placeholder="لینک عکس" className='w-50' validation={imgURL === '' ? 'لطفا فیلد را پر کنید' : null} value={imgURL} onChangeFun={setImgURL} icon='bi:card-image' iconWidth='20' color='#666' />
-                            <select className="h-100 w-50 select-add-product" validation={category === '' ? 'لطفا فیلد را پر کنید' : null} value={category} onChange={(e) => setCategory(e.target.value)}>
-                                <option selected value='shirt'>پیراهن</option>
+                            <Input placeholder="لینک عکس" className='w-50' validation={imgURL === '' ? 'لطفا فیلد را پر کنید' : null} value={!imgURL ? '' : imgURL} onChangeFun={setImgURL} icon='bi:card-image' iconWidth='20' color='#666' />
+                            <select className="h-100 w-50 select-add-product" validation={category === '' ? 'لطفا فیلد را پر کنید' : null} value={!category ? '' : category} onChange={(e) => setCategory(e.target.value)}>
+                                <option value='shirt'>پیراهن</option>
                                 <option value="pants">شلوار</option>
                             </select>
                         </div>
                         <div className="d-flex px-3 gap-3">
-                            <Input placeholder="جنس محصول" className='w-50' validation={material === '' ? 'لطفا فیلد را پر کنید' : null} value={material} onChangeFun={setMaterial} icon='icon-park-outline:material-three' iconWidth='20' color='#666' />
-                            <Input placeholder="سایز محصول (xl-m-s...46-42-40)" className='w-50' validation={size === '' ? 'لطفا فیلد را پر کنید' : null} value={size} onChangeFun={setSize} icon='cil:resize-both' iconWidth='20' color='#666' />
+                            <Input placeholder="جنس محصول" className='w-50' validation={material === '' ? 'لطفا فیلد را پر کنید' : null} value={!material ? '' : material} onChangeFun={setMaterial} icon='icon-park-outline:material-three' iconWidth='20' color='#666' />
+                            <Input placeholder="سایز محصول (xl-m-s...46-42-40)" className='w-50' validation={size === '' ? 'لطفا فیلد را پر کنید' : null} value={!size ? '' : size} onChangeFun={setSize} icon='cil:resize-both' iconWidth='20' color='#666' />
                         </div>
                         {category === 'shirt' ? (
                             <div className="d-flex px-3 gap-3">
-                                <Input placeholder="آستین محصول" className='w-50' validation={sleeve === '' ? 'لطفا فیلد را پر کنید' : null} value={sleeve} onChangeFun={setSleeve} icon='icon-park-outline:clothes-short-sleeve' iconWidth='20' color='#666' />
-                                <Input placeholder="قد پیراهن" className='w-50' validation={height === '' ? 'لطفا فیلد را پر کنید' : null} value={height} onChangeFun={setHeight} icon='cil:resize-both' iconWidth='20' color='#666' />
+                                <Input placeholder="آستین محصول" className='w-50' validation={sleeve === '' ? 'لطفا فیلد را پر کنید' : null} value={!sleeve ? '' : sleeve} onChangeFun={setSleeve} icon='icon-park-outline:clothes-short-sleeve' iconWidth='20' color='#666' />
+                                <Input placeholder="قد پیراهن" className='w-50' validation={height === '' ? 'لطفا فیلد را پر کنید' : null} value={!height ? '' : height} onChangeFun={setHeight} icon='cil:resize-both' iconWidth='20' color='#666' />
                             </div>
                         ) : null}
                         {category === 'pants' ? (
                             <div className="d-flex px-3 gap-3">
-                                <Input placeholder="استایل شلوار" className='w-50' validation={style === '' ? 'لطفا فیلد را پر کنید' : null} value={style} onChangeFun={setStyle} icon='iconoir:pants-alt' iconWidth='20' color='#666' />
-                                <Input placeholder="فاق شلوار" className='w-50' validation={crotch === '' ? 'لطفا فیلد را پر کنید' : null} value={crotch} onChangeFun={setCrotch} icon='iconoir:pants-alt' iconWidth='20' color='#666' />
+                                <Input placeholder="استایل شلوار" className='w-50' validation={style === '' ? 'لطفا فیلد را پر کنید' : null} value={!style ? '' : style} onChangeFun={setStyle} icon='iconoir:pants-alt' iconWidth='20' color='#666' />
+                                <Input placeholder="فاق شلوار" className='w-50' validation={crotch === '' ? 'لطفا فیلد را پر کنید' : null} value={!crotch ? '' : crotch} onChangeFun={setCrotch} icon='iconoir:pants-alt' iconWidth='20' color='#666' />
                             </div>
                         ) : null}
                         <div class="modal-footer d-flex justify-content-between border-0">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={addProductHandler}>ذخیره</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">بستن</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={editProduct ? submitEditHandler :addProductHandler}>ذخیره</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>resetState(undefined)}>بستن</button>
                         </div>
                     </div>
                 </div>
@@ -223,7 +335,7 @@ const ProductList = () => {
                         <div className="col-1">حذف</div>
                     </div>
                     <div className="product-border-bootom py-2">
-                        {paginate(productList, 5, pageNum)?.map(card => <ProductAdminCard key={card.id} card={card} />)}
+                        {paginate(productList, 5, pageNum)?.map(card => <ProductAdminCard key={card.id} card={card} editProductHandler={editProductHandler} setEditProduct={setEditProduct} />)}
                     </div>
                     <div className="d-flex justify-content-center pt-3 gap-3 align-items-center">
                         <Icon icon="ant-design:arrow-right-outlined" color="#666" width="25" cursor='pointer' onClick={() => Math.ceil(productList?.length / 5) > pageNum ? setPageNum(pageNum + 1) : null} />
