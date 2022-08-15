@@ -15,6 +15,13 @@
       "phoneNumber": "09334208189",
       "email": "d.hajian4779@gmail.com",
       "password": "12344321"
+    },
+    {
+      "id": 1660561688538,
+      "username": "علی",
+      "phoneNumber": "09022711560",
+      "email": "ali222@gmail.com",
+      "password": "34513451"
     }
   ],
   "allProducts": [
@@ -42,7 +49,7 @@
       "title": "پیراهن آستین بلند مردانه بادی اسپینر",
       "imgURL": "https://dkstatics-public.digikala.com/digikala-products/bac9275b41076f4eaee7008af6c901b242393b75_1623648213.jpg?x-oss-process=image/resize,m_lfit,h_600,w_600/quality,q_90",
       "price": "398000",
-      "inventory": "7",
+      "inventory": "10",
       "star": "3",
       "property": {
         "material": "کتان",
@@ -61,7 +68,7 @@
       "title": "پیراهن آستین کوتاه مردانه مدل هاوایی",
       "imgURL": "https://dkstatics-public.digikala.com/digikala-products/89a3582fa95637efc0f66e46f0c8b1e2dce6fe7a_1650969306.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
       "price": "233750",
-      "inventory": "6",
+      "inventory": "4",
       "star": "3",
       "property": {
         "material": "الیاف نخی",
@@ -79,8 +86,8 @@
       "title": "پیراهن آستین کوتاه مردانه وادین کوک مدل هاوایی",
       "imgURL": "https://dkstatics-public.digikala.com/digikala-products/964cf1684f9d778d1e5452d6fe5551a11c00dba1_1650536423.jpg?x-oss-process=image/resize,m_lfit,h_600,w_600/quality,q_90",
       "price": "1200000",
-      "inventory": "10",
-      "star": "4.5",
+      "inventory": "7",
+      "star": "3",
       "property": {
         "material": "الیاف نخی",
         "size": [
@@ -91,27 +98,7 @@
         "sleeve": " کوتاه ",
         "height": "روی باسن",
         "brand": "ایران لباس"
-      },
-      "comments": [
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        },
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        },
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        }
-      ]
+      }
     },
     {
       "id": 6,
@@ -250,8 +237,8 @@
       "title": "پیراهن مردانه ایزی دو",
       "imgURL": "https://dkstatics-public.digikala.com/digikala-products/6ef34e2c9b8a07b9b785441e5fce98e0f60bc559_1645006278.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
       "price": "702000",
-      "inventory": "10",
-      "star": "3.7",
+      "inventory": "8",
+      "star": "3",
       "property": {
         "material": "نخ",
         "size": [
@@ -263,34 +250,14 @@
         "sleeve": "بلند",
         "height": "روی باسن",
         "brand": "ال سی من"
-      },
-      "comments": [
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        },
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        },
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        }
-      ]
+      }
     },
     {
       "id": 12,
       "category": "pants",
       "title": "شلوار مردانه اکزاترس",
       "imgURL": "https://dkstatics-public.digikala.com/digikala-products/ac95e3fc2e2fc3a408b92fa1594426d5c934f7d7_1643199362.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
-      "price": "696000",
+      "price": "695000",
       "inventory": "10",
       "star": "3",
       "property": {
@@ -303,31 +270,10 @@
           "44",
           "42"
         ],
-        "style": "جذب",
         "crotch": "متوسط",
-        "HowToClose": "دکمه",
+        "style": "جذب",
         "brand": "اکزاترس"
-      },
-      "comments": [
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        },
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        },
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        }
-      ]
+      }
     },
     {
       "id": 13,
@@ -666,7 +612,7 @@
       "category": "shirt",
       "title": "پیراهن آستین کوتاه مردانه بادی اسپینر",
       "imgURL": "https://dkstatics-public.digikala.com/digikala-products/9ef6cf9ea1a19c6c7ed6c7ff7753ca62e4e0566a_1655618526.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
-      "price": "798000",
+      "price": "788000",
       "inventory": "3",
       "star": "3",
       "property": {
@@ -681,27 +627,7 @@
         "sleeve": "کوتاه",
         "height": " زیر باسن",
         "brand": "اسپینر "
-      },
-      "comments": [
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        },
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        },
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        }
-      ]
+      }
     }
   ],
   "shirts": [
@@ -729,7 +655,7 @@
       "title": "پیراهن آستین بلند مردانه بادی اسپینر",
       "imgURL": "https://dkstatics-public.digikala.com/digikala-products/bac9275b41076f4eaee7008af6c901b242393b75_1623648213.jpg?x-oss-process=image/resize,m_lfit,h_600,w_600/quality,q_90",
       "price": "398000",
-      "inventory": "7",
+      "inventory": "10",
       "star": "3",
       "property": {
         "material": "کتان",
@@ -748,7 +674,7 @@
       "title": "پیراهن آستین کوتاه مردانه مدل هاوایی",
       "imgURL": "https://dkstatics-public.digikala.com/digikala-products/89a3582fa95637efc0f66e46f0c8b1e2dce6fe7a_1650969306.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
       "price": "233750",
-      "inventory": "6",
+      "inventory": "4",
       "star": "3",
       "property": {
         "material": "الیاف نخی",
@@ -766,8 +692,8 @@
       "title": "پیراهن آستین کوتاه مردانه وادین کوک مدل هاوایی",
       "imgURL": "https://dkstatics-public.digikala.com/digikala-products/964cf1684f9d778d1e5452d6fe5551a11c00dba1_1650536423.jpg?x-oss-process=image/resize,m_lfit,h_600,w_600/quality,q_90",
       "price": "1200000",
-      "inventory": "10",
-      "star": "4.5",
+      "inventory": "7",
+      "star": "3",
       "property": {
         "material": "الیاف نخی",
         "size": [
@@ -778,27 +704,7 @@
         "sleeve": " کوتاه ",
         "height": "روی باسن",
         "brand": "ایران لباس"
-      },
-      "comments": [
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        },
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        },
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        }
-      ]
+      }
     },
     {
       "id": 6,
@@ -937,8 +843,8 @@
       "title": "پیراهن مردانه ایزی دو",
       "imgURL": "https://dkstatics-public.digikala.com/digikala-products/6ef34e2c9b8a07b9b785441e5fce98e0f60bc559_1645006278.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
       "price": "702000",
-      "inventory": "10",
-      "star": "3.7",
+      "inventory": "8",
+      "star": "3",
       "property": {
         "material": "نخ",
         "size": [
@@ -950,34 +856,14 @@
         "sleeve": "بلند",
         "height": "روی باسن",
         "brand": "ال سی من"
-      },
-      "comments": [
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        },
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        },
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        }
-      ]
+      }
     },
     {
       "id": 1659964570706,
       "category": "shirt",
       "title": "پیراهن آستین کوتاه مردانه بادی اسپینر",
       "imgURL": "https://dkstatics-public.digikala.com/digikala-products/9ef6cf9ea1a19c6c7ed6c7ff7753ca62e4e0566a_1655618526.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
-      "price": "798000",
+      "price": "788000",
       "inventory": "3",
       "star": "3",
       "property": {
@@ -992,27 +878,7 @@
         "sleeve": "کوتاه",
         "height": " زیر باسن",
         "brand": "اسپینر "
-      },
-      "comments": [
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        },
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        },
-        {
-          "arthor": "mohsen",
-          "date": 1600000000,
-          "text": "این کامنت از طرف محسن حاجیان است",
-          "id": "1600000000"
-        }
-      ]
+      }
     }
   ],
   "pants": [
@@ -1557,25 +1423,141 @@
   ],
   "orderList": [
     {
-      "id": 1659514640533,
-      "date": 1659514640533,
-      "token": "mohsen1659255022298",
+      "id": 1659964570705,
+      "date": 1659964570705,
+      "token": "davood1659266367538",
+      "numAllProducts" : 5 ,
+      "status": "delivered",
+      "userInfo": [
+        {
+          "id": 1659266367538,
+          "username": "davood",
+          "phoneNumber": "09334208189",
+          "email": "d.hajian4779@gmail.com",
+          "password": "12344321"
+        }
+      ],
       "cart": [
         {
-          "id": 4,
-          "category": "shirt",
-          "title": "پیراهن آستین کوتاه مردانه مدل هاوایی",
-          "imgURL": "https://dkstatics-public.digikala.com/digikala-products/89a3582fa95637efc0f66e46f0c8b1e2dce6fe7a_1650969306.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
-          "price": "233750",
+          "id": 8,
+          "category": "pants",
+          "title": "شلوار مردانه سیدونا",
+          "imgURL": "https://dkstatics-public.digikala.com/digikala-products/145e4e9a45d5c601436125be6cfca22ec07c3473_1646487665.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+          "price": "275000",
           "inventory": "10",
-          "star": "4.1",
+          "star": "5",
           "property": {
             "material": "الیاف نخی",
             "size": [
+              "34"
+            ],
+            "style": "راسته",
+            "crotch": "متوسط",
+            "HowToClose": "کشی",
+            "brand": "سیدونا"
+          },
+          "comments": [
+            {
+              "arthor": "mohsen",
+              "date": 1600000000,
+              "text": "این کامنت از طرف محسن حاجیان است",
+              "id": "1600000000"
+            },
+            {
+              "arthor": "mohsen",
+              "date": 1600000000,
+              "text": "این کامنت از طرف محسن حاجیان است",
+              "id": "1600000000"
+            },
+            {
+              "arthor": "mohsen",
+              "date": 1600000000,
+              "text": "این کامنت از طرف محسن حاجیان است",
+              "id": "1600000000"
+            }
+          ],
+          "stock": 2
+        },
+        {
+          "id": 11,
+          "category": "shirt",
+          "title": "پیراهن مردانه ایزی دو",
+          "imgURL": "https://dkstatics-public.digikala.com/digikala-products/6ef34e2c9b8a07b9b785441e5fce98e0f60bc559_1645006278.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+          "price": "702000",
+          "inventory": "10",
+          "star": "3.7",
+          "property": {
+            "material": "نخ",
+            "size": [
+              "xxl",
+              "xl",
+              "l",
+              "m"
+            ],
+            "sleeve": "بلند",
+            "height": "روی باسن",
+            "brand": "ال سی من"
+          },
+          "comments": [
+            {
+              "arthor": "mohsen",
+              "date": 1600000000,
+              "text": "این کامنت از طرف محسن حاجیان است",
+              "id": "1600000000"
+            },
+            {
+              "arthor": "mohsen",
+              "date": 1600000000,
+              "text": "این کامنت از طرف محسن حاجیان است",
+              "id": "1600000000"
+            },
+            {
+              "arthor": "mohsen",
+              "date": 1600000000,
+              "text": "این کامنت از طرف محسن حاجیان است",
+              "id": "1600000000"
+            }
+          ],
+          "stock": 3
+        }
+      ],
+      "address": "مرکزی اراک داوران",
+      "discount": "GOLD",
+      "deliveryTime": "16:00",
+      "deliveryPhoneNumber": "09012713451",
+      "paymentMethod": "cash"
+    },
+    {
+      "id": 1660561894524,
+      "date": 1660561894524,
+      "status": "notDelivered",
+      "token": "علی1660561688538",
+      "numAllProducts" : 3 ,
+      "userInfo": [
+        {
+          "id": 1660561688538,
+          "username": "علی",
+          "phoneNumber": "09022711560",
+          "email": "ali222@gmail.com",
+          "password": "34513451"
+        }
+      ],
+      "cart": [
+        {
+          "id": 9,
+          "category": "shirt",
+          "title": "پیراهن مردانه زی سا",
+          "imgURL": "https://dkstatics-public.digikala.com/digikala-products/36b3ae77560bcb3049744f03e06ef9a849b6d80e_1637734982.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+          "price": "530000",
+          "inventory": "10",
+          "star": "4.2",
+          "property": {
+            "material": "کتان",
+            "size": [
               "l"
             ],
-            "sleeve": "کوتاه",
-            "height": "روی کمر",
+            "sleeve": "بلند",
+            "height": "روی باسن",
             "brand": "زیسا"
           },
           "comments": [
@@ -1596,28 +1578,79 @@
               "date": 1600000000,
               "text": "این کامنت از طرف محسن حاجیان است",
               "id": "1600000000"
+            }
+          ],
+          "stock": 1
+        },
+        {
+          "id": 1659964570706,
+          "category": "shirt",
+          "title": "پیراهن آستین کوتاه مردانه بادی اسپینر",
+          "imgURL": "https://dkstatics-public.digikala.com/digikala-products/9ef6cf9ea1a19c6c7ed6c7ff7753ca62e4e0566a_1655618526.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+          "price": "788000",
+          "inventory": "3",
+          "star": "3",
+          "property": {
+            "material": "کتان",
+            "size": [
+              "xxl",
+              "xl",
+              "l",
+              "m",
+              "s"
+            ],
+            "sleeve": "کوتاه",
+            "height": " زیر باسن",
+            "brand": "اسپینر "
+          },
+          "stock": 1
+        },
+        {
+          "id": 8,
+          "category": "pants",
+          "title": "شلوار مردانه سیدونا",
+          "imgURL": "https://dkstatics-public.digikala.com/digikala-products/145e4e9a45d5c601436125be6cfca22ec07c3473_1646487665.jpg?x-oss-process=image/resize,w_1600/quality,q_80",
+          "price": "275000",
+          "inventory": "10",
+          "star": "5",
+          "property": {
+            "material": "الیاف نخی",
+            "size": [
+              "34"
+            ],
+            "style": "راسته",
+            "crotch": "متوسط",
+            "HowToClose": "کشی",
+            "brand": "سیدونا"
+          },
+          "comments": [
+            {
+              "arthor": "mohsen",
+              "date": 1600000000,
+              "text": "این کامنت از طرف محسن حاجیان است",
+              "id": "1600000000"
             },
             {
-              "id": 1659512782698,
-              "date": 1659512782698,
-              "text": "ffffffffffffff",
-              "arthor": "mohsen1659255022298"
+              "arthor": "mohsen",
+              "date": 1600000000,
+              "text": "این کامنت از طرف محسن حاجیان است",
+              "id": "1600000000"
             },
             {
-              "id": 1659514516956,
-              "date": 1659514516956,
-              "text": "hoooooo",
-              "arthor": null
+              "arthor": "mohsen",
+              "date": 1600000000,
+              "text": "این کامنت از طرف محسن حاجیان است",
+              "id": "1600000000"
             }
           ],
           "stock": 1
         }
       ],
-      "address": "",
+      "address": "تهران میدان آزادی",
       "discount": "",
-      "deliveryTime": "",
-      "deliveryPhoneNumber": "",
-      "paymentMethod": ""
+      "deliveryTime": "12:00",
+      "deliveryPhoneNumber": "09022711560",
+      "paymentMethod": "internet"
     }
   ],
   "discountCodes": [

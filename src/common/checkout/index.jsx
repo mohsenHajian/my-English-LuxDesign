@@ -13,6 +13,7 @@ const Checkout = () => {
     const dispatch = useDispatch()
     const { uniqueArr } = useSelector(state => state.uniqueArr)
     const { userToken } = useSelector(state => state.userToken)
+    const { userInfo } = useSelector(state => state.userInfo)
     const [totalPrice, setTotalPrice] = useState(0)
     const [address, setAddress] = useState()
     const [allDiscount, setAllDiscount] = useState([])
@@ -43,10 +44,14 @@ const Checkout = () => {
 
     const peymentHandler = () => {
         if (address && deliveryPhoneNumber && deliveryTime && paymentMethod) {
+            let numAllProducts = uniqueArr.reduce((prev,current)=>prev+current.stock,0)
             let order = {
                 id: Date.now(),
                 date: Date.now(),
+                status : 'notDelivered',
                 token: userToken,
+                numAllProducts,
+                userInfo,
                 cart: uniqueArr,
                 address,
                 discount,
@@ -164,7 +169,7 @@ const Checkout = () => {
                     </div>
                     <div className="d-flex justify-content-between align-items-center py-3">
                         <span>قابل پرداخت</span>
-                        <span>{totalPrice + 25000} تومان</span>
+                        <span>{validDiscount ? Number(totalPrice) - Number(totalPrice) * validDiscount[0].discount / 100 + 25000 :totalPrice + 25000} تومان</span>
                     </div>
                     <button className="payment-btn p-3 my-3 mb-4" onClick={peymentHandler}>
                         پرداخت

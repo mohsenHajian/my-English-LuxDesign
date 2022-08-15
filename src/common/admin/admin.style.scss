@@ -1,7 +1,7 @@
 .admin {
   min-height: 100vh;
   .product-border-bootom {
-      border-bottom: 1px solid #666;
+    border-bottom: 1px solid #666;
   }
   .admin-header {
     background-color: #666;
@@ -31,17 +31,24 @@
   .ProductList {
     padding: 0 5%;
     .ProductList-title {
-        background-color: rgba(0, 183, 255, 0.452);
-        box-shadow: 0 0 5px rgb(180, 180, 180);
+      background-color: rgba(0, 183, 255, 0.452);
+      box-shadow: 0 0 5px rgb(180, 180, 180);
     }
     .add-product {
-        background-color: blue;
-        border: 0;
-        outline: none;
-        height: fit-content;
-        span {
-            color: #f8f8f8;
-        }
+      background-color: blue;
+      border: 0;
+      outline: none;
+      height: fit-content;
+      span {
+        color: #f8f8f8;
+      }
+    }
+  }
+  .OrderList {
+    padding: 0 5%;
+    .OrderList-title {
+      background-color: rgba(0, 183, 255, 0.452);
+      box-shadow: 0 0 5px rgb(180, 180, 180);
     }
   }
 }

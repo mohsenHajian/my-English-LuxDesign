@@ -1,8 +1,7 @@
 import { Icon } from '@iconify/react';
 import React from 'react';
-import { useNavigate } from 'react-router';
+import { Outlet, useNavigate } from 'react-router';
 import './admin.style.scss'
-import ProductList from './ProductList';
 
 
 const Admin = ({ children }) => {
@@ -19,13 +18,13 @@ const Admin = ({ children }) => {
             </header>
             <div className="d-flex">
                 <aside className='d-flex flex-column gap-3'>
-                    <button className="d-flex gap-2 py-3 aside-item">
+                    <button className="d-flex gap-2 py-3 aside-item" onClick={()=>navigate('/admin/products')}>
                         <Icon icon="icon-park-outline:clothes-sweater" color="#dbdbdb" width="25" />
                         <span>محصولات</span>
                     </button>
-                    <button className="d-flex gap-2 py-3 aside-item">
+                    <button className="d-flex gap-2 py-3 aside-item" onClick={()=>navigate('/admin/orders')}>
                         <Icon icon="icon-park-outline:clothes-sweater" color="#dbdbdb" width="25" />
-                        <span>محصولات</span>
+                        <span>سفارشات</span>
                     </button>
                     <button className="d-flex gap-2 py-3 aside-item">
                         <Icon icon="icon-park-outline:clothes-sweater" color="#dbdbdb" width="25" />
@@ -41,7 +40,7 @@ const Admin = ({ children }) => {
                     </button>
                 </aside>
 
-                <ProductList />
+                <Outlet />
 
             </div>
         </div>
