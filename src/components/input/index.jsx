@@ -2,18 +2,18 @@ import { Icon } from "@iconify/react";
 import React from "react";
 import './input.style.scss'
 
-const Input = ({ className, icon, color, iconWidth, placeholder, bgColor, boxSh, value, type, onChangeFun, onKeypressFun,validation, ...props }) => {
+const Input = ({ className, icon, color, iconWidth, placeholder, bgColor, boxSh, value, type, onChangeFun, onKeypressFun,validation,noValidation, ...props }) => {
   const inputStyle = {
     backgroundColor: bgColor,
   }
-  // onKeyPress={(e)=>onKeypressFun(e.key)}
   return (
     <div className={`d-flex flex-column ${className}`}>
       <div style={inputStyle} className={`text-field w-100 d-flex align-items-center`}>
         <Icon icon={icon} color={color} width={iconWidth} />
-        <input value={value} type={`${type ? type : 'text'}`} className="input pe-2" placeholder={placeholder} onChange={(e) => onChangeFun(e.target.value)}  {...props} />
+        <input value={value} type={`${type ? type : 'text'}`} className="input pe-2" placeholder={placeholder} onChange={(e) => onChangeFun(e.target.value)} onKeyPress={(e)=>onKeypressFun(e.key)}  {...props} />
       </div>
-      <span className="validation-text">{validation?validation:''}</span>
+      {!noValidation?<span className="validation-text">{validation?validation:''}</span>:null}
+      
     </div>
   );
 };

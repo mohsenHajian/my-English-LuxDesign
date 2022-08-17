@@ -1,5 +1,13 @@
 .admin {
   min-height: 100vh;
+  .mini-menu-bg {
+    background-color: rgba(0, 0, 0, 0.185);
+    position: absolute;
+    width: 100%;    
+  }
+  .mini-menu {
+    animation: menu 1s;
+  }
   .product-border-bootom {
     border-bottom: 1px solid #666;
   }
@@ -8,6 +16,9 @@
     padding: 0 5%;
     span {
       color: #dbdbdb;
+    }
+    .admin-header-title-icon {
+      display: none;
     }
   }
   aside {
@@ -50,5 +61,31 @@
       background-color: rgba(0, 183, 255, 0.452);
       box-shadow: 0 0 5px rgb(180, 180, 180);
     }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .admin {
+    .admin-aside {
+      display: none !important;
+    }
+    .admin-header {
+      .admin-header-title-icon {
+        display: flex;
+      }
+    }
+  }
+}
+
+
+
+@keyframes menu {
+  from {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

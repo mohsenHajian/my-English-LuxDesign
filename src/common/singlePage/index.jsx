@@ -160,7 +160,7 @@ const SinglePage = () => {
           <div className="single-page-details d-flex flex-column w-50 p-5">
             <div className="d-flex justify-content-between w-100">
               <div className="d-flex gap-2">
-                <span className="fa-num">{singlePageData.comments.length}</span>
+                <span className="fa-num">{singlePageData?.comments.length}</span>
                 <Icon icon="bi:chat" color="#333" width="25px" />
                 <span className="fa-num me-4">{singlePageData.star}</span>
                 <Icon icon="bi:star" color="#333" width="25px" />
