@@ -8,7 +8,10 @@ import SinglePage from "../../common/singlePage";
 import ShowAll from "../../common/showAll";
 import Cart from "../../common/Cart";
 import Checkout from "../../common/checkout";
-import Admin from "../../common/admin";
+import Admin from "../../common/admin/Admin";
+import ProductList from '../../common/admin/ProductList'
+import OrderList from '../../common/admin/OrderList'
+
  
 const Layout = () => {
   return (
@@ -23,7 +26,10 @@ const Layout = () => {
           <Route path="/single-page" element={<SinglePage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/cart/checkout" element={<Checkout />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route path="admin" element={<Admin />}>
+            <Route path="products" element={<ProductList />} />
+            <Route path="orders" element={<OrderList />} />
+          </Route>
         </Routes>
       </MainLayout>
     </>

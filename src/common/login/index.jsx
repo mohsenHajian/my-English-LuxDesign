@@ -16,33 +16,40 @@ const Login = () => {
   const [user, setUser] = useState()
   const [admins, setAdmins] = useState()
 
-  useEffect(()=>{
-    axios.get('http://localhost:8000/users').then(( data ) => setUser(data.data))
-    axios.get('http://localhost:8000/admins').then(( data ) => setAdmins(data.data))
-  },[])
+  useEffect(() => {
+    axios.get('http://localhost:8000/users').then((data) => setUser(data.data))
+    axios.get('http://localhost:8000/admins').then((data) => setAdmins(data.data))
+  }, [])
 
 
   const loginHandler = () => {
     if (email && password && user) {
       let User = user.filter(user => user.email === email && user.password === password ? user : null)
       let Admin = admins.filter(user => user.email === email && user.password === password ? user : null)
-      if(Admin.length>0) {
+      if (Admin.length > 0) {
         localStorage.setItem('token', `${Admin[0].username + Admin[0].id}`)
         dispatch(setUserToken(`${Admin[0].username + Admin[0].id}`))
         navigate('/admin')
         setAdmins(undefined)
-      }
-      if(User.length>0) {
+        toast.success("ورود موفقیت آمیز بود", {
+          position: "top-right",
+          closeOnClick: true,
+        });
+      } else if (User.length > 0) {
         localStorage.setItem('token', `${User[0].username + User[0].id}`)
         dispatch(setUserToken(`${User[0].username + User[0].id}`))
         navigate('/')
         setUser(undefined)
+        toast.success("ورود موفقیت آمیز بود", {
+          position: "top-right",
+          closeOnClick: true,
+        });
+      } else {
+        toast.error("مشکلی پیش آمده.", {
+          position: "top-right",
+          closeOnClick: true,
+        });
       }
-
-      toast.success("ورود موفقیت آمیز بود", {
-        position: "top-right",
-        closeOnClick: true,
-      });
     } else {
       toast.error("مشکلی پیش آمده.", {
         position: "top-right",
@@ -70,7 +77,7 @@ const Login = () => {
             iconWidth="25px"
             className="w-100"
             value={email}
-            validation={email === ''?'لطفا فیلد ایمیل را پر کنید' : null}
+            validation={email === '' ? 'لطفا فیلد ایمیل را پر کنید' : null}
             onChangeFun={setEmail}
           />
           <Input
@@ -82,7 +89,7 @@ const Login = () => {
             className="w-100"
             type='password'
             value={password}
-            validation={password === ''?'لطفا فیلد رمز عبور را پر کنید' : null}
+            validation={password === '' ? 'لطفا فیلد رمز عبور را پر کنید' : null}
             onChangeFun={setPassword}
           />
           <div className="d-flex checkBox-container flex-column">

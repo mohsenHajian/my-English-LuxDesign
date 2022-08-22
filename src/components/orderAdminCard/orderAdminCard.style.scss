@@ -1,0 +1,15 @@
+
+
+.order-card {
+    animation: OrderCardAnimation 1s;
+}
+
+
+@keyframes OrderCardAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

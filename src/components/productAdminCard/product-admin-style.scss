@@ -1,6 +1,9 @@
 .modal-dialog {
     max-width: 60%;
 }
+.modal-dialog-delete {
+    max-width: 30%;
+}
 
 .show-product {
   a {
@@ -21,6 +24,13 @@
 }
 .paginate-btn:focus {
     background-color: rgb(132, 250, 250);
+}
+.select-add-product {
+    background-color: transparent;
+    border-radius: 8px;
+    border: none;
+    padding: 10px;
+    box-shadow: 0 0 5px rgb(194, 194, 194);
 }
 
 @keyframes ProductCardAnimation {

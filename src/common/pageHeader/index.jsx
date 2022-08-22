@@ -66,6 +66,7 @@ const PageHeader = ({ user }) => {
           value={searchValue}
           onChangeFun={searchHandler}
           onKeypressFun={searchSubmit}
+          noValidation='true'
         />
       </div>
       <div className="d-flex align-items-center gap-3">

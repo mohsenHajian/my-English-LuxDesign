@@ -1,7 +1,8 @@
 import React from 'react';
 import './product-admin-style.scss'
 
-const ProductAdminCard = ({card}) => {
+const ProductAdminCard = ({card,editProductHandler,setEditProduct,setShowProduct}) => {
+
 
     return (
         <div className="ProductAdminCard d-flex justify-content-between py-3 border-bootom">
@@ -14,13 +15,18 @@ const ProductAdminCard = ({card}) => {
             <div className="col-2"><span className='fa-num price-product'>{card.price}تومان</span></div>
             <div className="col-1"><span className='fa-num'>{card.inventory}</span></div>
             <div className="col-1">
-                <button className="edit-product p-2 bg-warning text-white border-0 rounded-3">
+                <button className="edit-product p-2 bg-warning text-white border-0 rounded-3" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={(e)=>{setEditProduct(card);editProductHandler(card,e)}}>
                     ویرایش
                 </button>
             </div>
             <div className="col-1">
-                <button className="delete-product p-2 bg-danger text-white border-0 rounded-3">
+                <button className="delete-product p-2 bg-danger text-white border-0 rounded-3" data-bs-toggle="modal" data-bs-target="#exampleModalDelete" onClick={(e)=>setEditProduct(card)}>
                     حذف
+                </button>    
+            </div>
+            <div className="col-1">
+                <button className="delete-product p-2 bg-info text-white border-0 rounded-3" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={(e)=>{setShowProduct(card);editProductHandler(card,e)}}>
+                    نمایش
                 </button>    
             </div>
         </div>

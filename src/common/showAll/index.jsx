@@ -7,6 +7,7 @@ import "./show-all.style.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { setDataRender, setPantsData, setShirtData } from "../../redux/slice/dataToRenderSlice";
 import { Icon } from "@iconify/react";
+import { BaceUrl, configAccess } from "../../servises/Urlservises";
 
 const ShowAll = () => {
   let location = useLocation();
@@ -28,20 +29,20 @@ const ShowAll = () => {
       case "/shirts":
         {
           setRootPath("فروشگاه لباس لوکس دیزاین / پیراهن ها");
-          axios.get("http://localhost:8000/shirts/").then(({ data }) => {
-            setListOfCards(data);
-            dispatch(setDataRender(data));
-            dispatch(setShirtData(data));
+          axios.get(`${BaceUrl}63035e0ae13e6063dc86ccaf`,configAccess).then(({ data }) => {
+            setListOfCards(data.record.shirts);
+            dispatch(setDataRender(data.record.shirts));
+            dispatch(setShirtData(data.record.shirts));
           });
         }
         break;
       case "/pants":
         {
           setRootPath("فروشگاه لباس لوکس دیزاین / شلوار ها");
-          axios.get("http://localhost:8000/pants/").then(({ data }) => {
-            setListOfCards(data);
-            dispatch(setDataRender(data));
-            dispatch(setPantsData(data));
+          axios.get(`${BaceUrl}63035e0ae13e6063dc86ccaf`,configAccess).then(({ data }) => {
+            setListOfCards(data.record.pants);
+            dispatch(setDataRender(data.record.pants));
+            dispatch(setPantsData(data.record.pants));
           });
         }
         break;
@@ -94,8 +95,7 @@ const ShowAll = () => {
 
 
   function paginate(array, page_size, page_number) {
-    // human-readable page numbers usually start with 1, so we reduce 1 in the first argument
-    return array.slice((page_number - 1) * page_size, page_number * page_size);
+    return array?.slice((page_number - 1) * page_size, page_number * page_size);
   }
 
 
