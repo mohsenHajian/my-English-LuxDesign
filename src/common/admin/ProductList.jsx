@@ -18,12 +18,14 @@ const ProductList = () => {
     const [category, setCategory] = useState('shirt')
     const [material, setMaterial] = useState()
     const [size, setSize] = useState()
+    const [comments, setComments] = useState()
     const [sleeve, setSleeve] = useState()
     const [height, setHeight] = useState()
     const [crotch, setCrotch] = useState()
     const [style, setStyle] = useState()
     const [selectedProduct, setSelectedProduct] = useState()
     const [editProduct, setEditProduct] = useState()
+    const [addProductModal,setAddProductModal] = useState(false)
     const [showProduct, setShowProduct] = useState()
 
 
@@ -137,7 +139,8 @@ const ProductList = () => {
                         size: size.split('-'),
                         crotch,
                         style,
-                        brand
+                        brand,
+                        HowToClose : 'دکمه و زیپ'
                     },
                     comments: [
                         {
@@ -175,6 +178,7 @@ const ProductList = () => {
                 closeOnClick: true,
             });
         }
+        setAddProductModal(false)
     }
 
 
@@ -190,6 +194,7 @@ const ProductList = () => {
         setBrand(card.property.brand)
         setMaterial(card.property.material)
         setSize(card.property.size.join('-'))
+        setComments(card.comments)
         if (card.category === 'shirt') {
             setSleeve(card.property.sleeve)
             setHeight(card.property.height)
@@ -218,7 +223,8 @@ const ProductList = () => {
                         sleeve,
                         height,
                         brand
-                    }
+                    },
+                    comments
                 }
                 axios.put(`http://localhost:8000/allProducts/${editProduct.id}`, product)
                 axios.put(`http://localhost:8000/shirts/${editProduct.id}`, product)
@@ -243,8 +249,10 @@ const ProductList = () => {
                         size: size.split('-'),
                         crotch,
                         style,
-                        brand
-                    }
+                        brand,
+                        HowToClose : 'دکمه و زیپ'
+                    },
+                    comments
                 }
                 axios.put(`http://localhost:8000/allProducts/${editProduct.id}`, product)
                 axios.put(`http://localhost:8000/pants/${editProduct.id}`, product)
@@ -316,7 +324,7 @@ const ProductList = () => {
                             </div>
                         ) : null}
                         <div class="modal-footer d-flex justify-content-between border-0">
-                            {editProduct ? <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={editProduct ? submitEditHandler : addProductHandler}>ذخیره</button> : null }
+                            {editProduct || addProductModal ? <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={editProduct ? submitEditHandler : addProductHandler}>ذخیره</button> : null }
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={() => resetState(undefined)}>بستن</button>
                         </div>
                     </div>
@@ -336,7 +344,7 @@ const ProductList = () => {
             <div className="d-flex flex-column ProductList py-3 w-100">
                 <p className='ProductList-title text-center py-3 rounded-3 text-white'>لیست محصولات</p>
                 <div className="d-flex gap-5">
-                    <button className="add-product p-2 px-3 d-flex align-items-center gap-2 rounded-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button className="add-product p-2 px-3 d-flex align-items-center gap-2 rounded-3" onClick={()=>setAddProductModal(true)} data-bs-toggle="modal" data-bs-target="#exampleModal" >
                         <Icon icon="carbon:add-alt" color="#dbdbdb" width="25" />
                         <span>اضافه کردن محصول جدید</span>
                     </button>

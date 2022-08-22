@@ -6,6 +6,7 @@ import popularImg from "./popular.svg";
 import "./main.style.scss";
 import { useNavigate } from "react-router";
 import axios from "axios";
+import { BaceUrl, configAccess } from "../../servises/Urlservises";
 
 const Main = () => {
   const navigate = useNavigate();
@@ -15,20 +16,24 @@ const Main = () => {
 
 
   useEffect(() => {
+
     axios
-      .get("http://localhost:8000/shirts/")
+      .get(`${BaceUrl}63035e0ae13e6063dc86ccaf`,configAccess)
       .then(({ data }) =>
-        setMainShirtSection(data.reverse().slice(0, 4))
+        setMainShirtSection(data.record.shirts.reverse().slice(0, 4))
       );
     axios
-      .get("http://localhost:8000/pants/")
+      .get(`${BaceUrl}63035e31a1610e638609ec2c`,configAccess)
       .then(({ data }) =>
-        setMainPantsSection(data.reverse().slice(0, 4))
+        setMainPantsSection(data.record.pants.reverse().slice(0, 4))
       );
     axios
-      .get("http://localhost:8000/proposal/")
-      .then(({ data }) => setProposal(data.reverse().slice(0, 4)));
+      .get(`${BaceUrl}63035e735c146d63ca7a4347`,configAccess)
+      .then(({ data }) => setProposal(data.record.proposal.reverse().slice(0, 4)));
   }, []);
+
+
+
 
   const showMoreShirtsHandler = () => {
     navigate("/shirts");
@@ -39,7 +44,7 @@ const Main = () => {
 
 
 
-  
+
   return (
     <main className="home-main">
       <section className="category-container">
@@ -157,7 +162,7 @@ const Main = () => {
         </div>
       </section>
 
-      {/* <section className="popular-product d-flex align-items-center">
+      <section className="popular-product d-flex align-items-center">
         <div className="d-flex flex-column justify-content-center align-items-center popular-product-info">
           <p>پیشنهادی لوکس دیزاین</p>
           <img src={popularImg} alt="" className="popularImg" />
@@ -170,7 +175,7 @@ const Main = () => {
         <div className="popular-product-control d-flex justify-content-center align-items-center">
           <Icon icon="ep:arrow-left" color="#333" width="35" cursor='pointer' />
         </div>
-      </section> */}
+      </section>
     </main>
   );
 };

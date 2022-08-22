@@ -9,39 +9,40 @@ import "./register.style.scss";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { setUsersList } from "../../redux/slice/usersListSlice";
+import { BaceUrl, configAccess, configMaster } from "../../servises/Urlservises";
 
 
 const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch()
 
+  const [allUsers, setAllUsers] = useState()
+
   const [username, setUsername] = useState();
   const [phoneNumber, setPhoneNumber] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
-  // const [loading, setLoading] = useState(false);
 
-  // useEffect(()=>{
-  //   if(phoneNumber === '') {
-  //     return 'لطفا فیلد شماره تلفن را پر کنید'
-  //   }else if(phoneNumber.match(/\D/g) !== null){
-  //     return 'لطفا فیلد شماره تلفن را پر کنید'
-  //   }
-  //   // (phoneNumber === '' || phoneNumber.match(/\D/g) !== null)?'لطفا فیلد شماره تلفن را پر کنید' : null
-  // },[phoneNumber])
+  useEffect(() => {
+    axios.get(`${BaceUrl}63035cd5a1610e638609ea9f`, configAccess).then(({ data }) => setAllUsers(data.record.users))
+  }, [])
 
 
   const registerHandler = () => {
     if (username && phoneNumber && email && password && password === confirmPassword) {
       let data = Date.now()
-      axios.post("http://localhost:8000/users", {
-        id: data,
-        username,
-        phoneNumber,
-        email,
-        password
-      });
+      console.log(allUsers);
+      const users = [
+        ...allUsers, {
+          id: data,
+          username,
+          phoneNumber,
+          email,
+          password
+        }
+      ]
+      axios.put(`${BaceUrl}63035cd5a1610e638609ea9f`, configMaster, users);
       dispatch(setUsersList({
         id: data,
         username,
@@ -69,7 +70,6 @@ const Register = () => {
 
   return (
     <div className="w-100">
-      <ToastContainer />
       <div className="register-page d-flex justify-content-center align-items-center">
         <div className="register-container">
           <div className="rotate-box"></div>
@@ -89,7 +89,7 @@ const Register = () => {
                 iconWidth="20px"
                 className="w-50"
                 value={username}
-                validation={username === ''?'لطفا فیلد نام کاربری را پر کنید' : null}
+                validation={username === '' ? 'لطفا فیلد نام کاربری را پر کنید' : null}
                 onChange={(e) => setUsername(e.target.value)}
               />
               <Input
@@ -99,7 +99,7 @@ const Register = () => {
                 iconWidth="20px"
                 className="w-50"
                 value={phoneNumber}
-                validation={phoneNumber === '' ?'لطفا فیلد شماره تلفن را پر کنید' : null}
+                validation={phoneNumber === '' ? 'لطفا فیلد شماره تلفن را پر کنید' : null}
                 onChange={(e) => setPhoneNumber(e.target.value)}
               />
             </div>
@@ -110,7 +110,7 @@ const Register = () => {
               iconWidth="20px"
               className="w-100"
               value={email}
-              validation={email === '' ?'لطفا فیلد ایمیل را پر کنید' : null}
+              validation={email === '' ? 'لطفا فیلد ایمیل را پر کنید' : null}
               onChange={(e) => setEmail(e.target.value)}
             />
             <div className="d-flex gap-3">
@@ -122,7 +122,7 @@ const Register = () => {
                 width="w-100"
                 className="w-50"
                 value={password}
-                validation={password === '' ?'لطفا فیلد رمز عبور را پر کنید' : null}
+                validation={password === '' ? 'لطفا فیلد رمز عبور را پر کنید' : null}
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
               />
@@ -134,7 +134,7 @@ const Register = () => {
                 width="w-100"
                 className="w-50"
                 value={confirmPassword}
-                validation={password === '' ?'لطفا رمز عبور را تکرار کنید' : null}
+                validation={password === '' ? 'لطفا رمز عبور را تکرار کنید' : null}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 type="password"
               />
