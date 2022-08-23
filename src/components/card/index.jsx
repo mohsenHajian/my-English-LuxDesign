@@ -4,10 +4,11 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { setCartList } from "../../redux/slice/cartListSlice";
 import { setSinglePageData } from "../../redux/slice/dataToRenderSlice";
+import { textHandler } from "../../utils/textHandler";
 import AddToCartIcon from "../addToCartIcon";
 import "./card.style.scss";
 
-const Card = ({card , boxSh , width }) => {
+const Card = ({ card, boxSh, width }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -24,9 +25,11 @@ const Card = ({card , boxSh , width }) => {
 
   return (
     <section className="card-item" onClick={eventCardHandler} style={boxSh ? Dstyle : null}>
+      <div class="hoverBtn"></div>
+      <div class="hoverBtn-bottom"></div>
       <img src={card?.imgURL} alt="" />
       <div className="d-flex flex-column px-3 my-4">
-        <h6>{card?.title}</h6>
+        <h6>{textHandler(card?.title)}</h6>
         <div className="d-flex card-details justify-content-between align-items-center">
           <AddToCartIcon card={card} />
           <span className="fa-num">{card?.price} تومان</span>

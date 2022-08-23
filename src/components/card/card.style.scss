@@ -1,47 +1,174 @@
-.card-item {
-    width: 19%;
-    // width: 300px;
-    border-radius: 8px;
-    background-color: #fcfcfc;
-    margin: 15px 3%;
-    animation: cardRender 1s;
-    cursor: pointer;
-    img {
-        border-radius: 8px 8px 0 0;
-        width:  100%;
-    }
+$duration: 0.6s;
+$border-size: 2px;
+$border-color: #00bffe;
+$button-width: 100%;
+$button-height: 100%;
+$size-radius: 5px;
+
+//------------------------------------------------------------------
+
+@mixin border-radius($size-radius, $sideH) {
+  @if $sideH != "all" {
+    -webkit-border-top-#{$sideH}-radius: $size-radius;
+    -moz-border-top-#{$sideH}-radius: $size-radius;
+    border-top-#{$sideH}-radius: $size-radius;
+    -webkit-border-bottom-#{$sideH}-radius: $size-radius;
+    -moz-border-bottom-#{$sideH}-radius: $size-radius;
+    border-bottom-#{$sideH}-radius: $size-radius;
+  } @else if $sideH == "all" {
+    -webkit-border-radius: $size-radius;
+    -moz-border-radius: $size-radius;
+    border-radius: $size-radius;
+  }
 }
+
+@mixin sub-button {
+  position: absolute;
+  content: "";
+  height: 0;
+  width: 0;
+  display: block;
+  opacity: 0;
+}
+
+.card-item {
+  width: 19%;
+  border-radius: 8px;
+  background-color: #fcfcfc;
+  margin: 15px 3%;
+  animation: cardRender 1s;
+  cursor: pointer;
+
+  position: relative;
+//   border: solid 2px #cbd4d9;
+//   height: $button-height;
+  @include border-radius($size-radius, "all");
+
+  &:hover .hoverBtn:before,
+  &:hover .hoverBtn:after {
+    opacity: 1;
+    -webkit-animation: open $duration;
+    /* Chrome, Safari, Opera */
+    animation: open $duration;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+    animation-direction: normal;
+  }
+  &:hover .hoverBtn-bottom:before,
+  &:hover .hoverBtn-bottom:after {
+    opacity: 1;
+    -webkit-animation: openB $duration;
+    /* Chrome, Safari, Opera */
+    animation: openB $duration;
+    animation-delay: $duration;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+    animation-direction: normal;
+  }
+
+  .hoverBtn {
+    width: calc(100% + 1px);
+    height: $button-height;
+    position: absolute;
+    top: -1px;
+
+    &:before {
+      @include sub-button;
+      border-top: solid $border-size $border-color;
+      border-left: solid $border-size $border-color;
+      @include border-radius($size-radius, "left");
+      right: $button-width/2;
+    }
+    &:after {
+      @include sub-button;
+      border-top: solid $border-size $border-color;
+      border-right: solid $border-size $border-color;
+      @include border-radius($size-radius, "right");
+      left: $button-width/2;
+    }
+  }
+
+  .hoverBtn-bottom {
+    width: 100%;
+    height: $button-height;
+    position: absolute;
+
+    &:before {
+      @include sub-button;
+      height: $button-height;
+      border-bottom: solid $border-size $border-color;
+      @include border-radius($size-radius, "right");
+      right: 0;
+    }
+    &:after {
+      @include sub-button;
+      height: $button-height;
+      border-bottom: solid $border-size $border-color;
+      @include border-radius($size-radius, "left");
+      left: -1px;
+    }
+  }
+
+  img {
+    border-radius: 8px 8px 0 0;
+    width: 100%;
+  }
+}
+
 .card-details {
-    margin: 10px 0;
-    .card-btn {
-        border-radius: 8px;
-        background-color: aqua;
-        border: none;
-        color: #333;
-        padding: 5px 10px;
-    }
-    span {
-        font-size: 15px;
-        color: #333;
-    }
+  margin: 10px 0;
+  .card-btn {
+    border-radius: 8px;
+    background-color: aqua;
+    border: none;
+    color: #333;
+    padding: 5px 10px;
+  }
+  span {
+    font-size: 15px;
+    color: #333;
+  }
 }
 @keyframes cardRender {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 @media only screen and (max-width: 992px) {
-    .card-item {
-        width: 40%;
-    }
+  .card-item {
+    width: 40%;
   }
+}
 @media only screen and (max-width: 768px) {
-    .card-item {
-        width: 100%;
-    }
+  .card-item {
+    width: 100%;
   }
+}
+@keyframes open {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  50% {
+    width: $button-width/2;
+    height: 0;
+  }
+  100% {
+    width: $button-width/2;
+    height: $button-height;
+  }
+}
+
+@keyframes openB {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: $button-width/2;
+  }
+}

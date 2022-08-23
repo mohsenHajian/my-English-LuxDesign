@@ -162,7 +162,7 @@ const Main = () => {
         </div>
       </section>
 
-      <section className="popular-product d-flex align-items-center">
+      {/* <section className="popular-product d-flex align-items-center">
         <div className="d-flex flex-column justify-content-center align-items-center popular-product-info">
           <p>پیشنهادی لوکس دیزاین</p>
           <img src={popularImg} alt="" className="popularImg" />
@@ -175,7 +175,7 @@ const Main = () => {
         <div className="popular-product-control d-flex justify-content-center align-items-center">
           <Icon icon="ep:arrow-left" color="#333" width="35" cursor='pointer' />
         </div>
-      </section>
+      </section> */}
     </main>
   );
 };

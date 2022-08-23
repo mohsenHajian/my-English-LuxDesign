@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { setUserToken } from "../../redux/slice/userTokenSlice";
+import { BaceUrl, configAccess } from "../../servises/Urlservises";
 
 const Login = () => {
   const dispatch = useDispatch()
@@ -17,13 +18,13 @@ const Login = () => {
   const [admins, setAdmins] = useState()
 
   useEffect(() => {
-    axios.get('http://localhost:8000/users').then((data) => setUser(data.data))
-    axios.get('http://localhost:8000/admins').then((data) => setAdmins(data.data))
+    axios.get(`${BaceUrl}63035cd5a1610e638609ea9f`, configAccess).then((data) => setUser(data.data.record))
+    axios.get(`${BaceUrl}63035ca1e13e6063dc86cb1e` , configAccess).then((data) => setAdmins(data.data.record))
   }, [])
 
 
   const loginHandler = () => {
-    if (email && password && user) {
+    if (email && password) {
       let User = user.filter(user => user.email === email && user.password === password ? user : null)
       let Admin = admins.filter(user => user.email === email && user.password === password ? user : null)
       if (Admin.length > 0) {
