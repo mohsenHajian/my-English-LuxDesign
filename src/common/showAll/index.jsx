@@ -39,7 +39,8 @@ const ShowAll = () => {
       case "/pants":
         {
           setRootPath("فروشگاه لباس لوکس دیزاین / شلوار ها");
-          axios.get(`${BaceUrl}63035e0ae13e6063dc86ccaf`,configAccess).then(({ data }) => {
+          axios.get(`${BaceUrl}63035e31a1610e638609ec2c`,configAccess).then(({ data }) => {
+            console.log(data)
             setListOfCards(data.record.pants);
             dispatch(setDataRender(data.record.pants));
             dispatch(setPantsData(data.record.pants));
