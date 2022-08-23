@@ -25,7 +25,7 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState();
 
   useEffect(() => {
-    axios.get(`${BaceUrl}63035cd5a1610e638609ea9f`, configAccess).then(({ data }) => setAllUsers(data.record.users))
+    axios.get(`${BaceUrl}63035cd5a1610e638609ea9f`, configAccess).then(({ data }) => setAllUsers(data.record))
   }, [])
 
 
@@ -42,7 +42,7 @@ const Register = () => {
           password
         }
       ]
-      axios.put(`${BaceUrl}63035cd5a1610e638609ea9f`, configMaster, users);
+      axios.put(`${BaceUrl}63035cd5a1610e638609ea9f`, users , configMaster);
       dispatch(setUsersList({
         id: data,
         username,
