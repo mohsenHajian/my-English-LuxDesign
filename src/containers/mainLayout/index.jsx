@@ -6,6 +6,7 @@ import Footer from "../../common/footer";
 import Header from "../../common/header";
 import PageHeader from "../../common/pageHeader";
 import { setUserInfo, setUserToken } from "../../redux/slice/userTokenSlice";
+import { BaceUrl, configAccess } from "../../servises/Urlservises";
 
 const MainLayout = ({ children }) => {
   let location = useLocation();
@@ -20,8 +21,8 @@ const MainLayout = ({ children }) => {
     if (localStorage.getItem('token')) {
       dispatch(setUserToken(localStorage.getItem('token')))
     }
-    axios.get('http://localhost:8000/users').then(({ data }) => 
-      dispatch(setUserInfo(data.filter(user => `${user.username + user.id}` === localStorage.getItem('token') ? user : null)))
+    axios.get(`${BaceUrl}63035cd5a1610e638609ea9f`, configAccess).then(({ data }) => 
+      dispatch(setUserInfo(data.record.filter(user => `${user.username + user.id}` === localStorage.getItem('token') ? user : null)))
     )
   }, [usersList, userToken])
 
