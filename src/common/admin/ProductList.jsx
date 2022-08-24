@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import Input from '../../components/input';
 import ProductAdminCard from '../../components/productAdminCard';
+import { BaceUrl, configAccess, configMaster } from '../../servises/Urlservises';
 
 const ProductList = () => {
     const [productList, setProductList] = useState()
@@ -26,11 +27,15 @@ const ProductList = () => {
     const [selectedProduct, setSelectedProduct] = useState()
     const [editProduct, setEditProduct] = useState()
     const [addProductModal,setAddProductModal] = useState(false)
-    const [showProduct, setShowProduct] = useState()
+    const [showProduct,setShowProduct] = useState(false)
+    const [shirtData , setShirtData] = useState()
+    const [pantsData , setPantsData] = useState()
 
 
     useEffect(() => {
-        axios.get('http://localhost:8000/allProducts').then(({ data }) => { setProductList(data); setProductData(data) })
+        axios.get(`${BaceUrl}63035e0ae13e6063dc86ccaf`, configAccess).then(({ data }) => { setShirtData(data.record) })
+        axios.get(`${BaceUrl}63035e31a1610e638609ec2c`, configAccess).then(({ data }) => { setPantsData(data.record) })
+        axios.get(`${BaceUrl}63035de35c146d63ca7a4297`, configAccess).then(({ data }) => { setProductList(data.record); setProductData(data.record) })
     }, [selectedProduct])
 
     const cheapestList = () => {
@@ -75,6 +80,11 @@ const ProductList = () => {
     }
 
 
+    const objReplacer = (data,product) => {
+        let arr = data.map(card => card.id === product.id ? card = product : card)
+        return arr
+    }
+
 
     const addProductHandler = () => {
         if (title && price && brand && category && inventory && imgURL && material && size) {
@@ -116,8 +126,8 @@ const ProductList = () => {
                         }
                     ]
                 }
-                axios.post('http://localhost:8000/allProducts', product)
-                axios.post('http://localhost:8000/shirts', product)
+                axios.put(`${BaceUrl}63035de35c146d63ca7a4297` , [...productData , product] , configMaster)
+                axios.put(`${BaceUrl}63035e0ae13e6063dc86ccaf` , [...shirtData , product] , configMaster)
                 toast.success("محصول با موفقیت ثبت شد", {
                     position: "top-right",
                     closeOnClick: true,
@@ -163,8 +173,8 @@ const ProductList = () => {
                         }
                     ]
                 }
-                axios.post('http://localhost:8000/allProducts', product)
-                axios.post('http://localhost:8000/pants', product)
+                axios.put(`${BaceUrl}63035de35c146d63ca7a4297` , objReplacer(productData,product) , configMaster)
+                axios.put(`${BaceUrl}63035e31a1610e638609ec2c` , [...pantsData , objReplacer(productData,product)], configMaster)
                 toast.success("محصول با موفقیت ثبت شد", {
                     position: "top-right",
                     closeOnClick: true,
@@ -226,8 +236,9 @@ const ProductList = () => {
                     },
                     comments
                 }
-                axios.put(`http://localhost:8000/allProducts/${editProduct.id}`, product)
-                axios.put(`http://localhost:8000/shirts/${editProduct.id}`, product)
+                console.log(objReplacer(productData,product));
+                axios.put(`${BaceUrl}63035de35c146d63ca7a4297` , objReplacer(productData,product) , configMaster)
+                axios.put(`${BaceUrl}63035e0ae13e6063dc86ccaf` , objReplacer(shirtData,product) , configMaster)
                 toast.success("محصول با موفقیت ثبت شد", {
                     position: "top-right",
                     closeOnClick: true,
@@ -254,8 +265,9 @@ const ProductList = () => {
                     },
                     comments
                 }
-                axios.put(`http://localhost:8000/allProducts/${editProduct.id}`, product)
-                axios.put(`http://localhost:8000/pants/${editProduct.id}`, product)
+                console.log(product)
+                axios.put(`${BaceUrl}63035de35c146d63ca7a4297` , objReplacer(productData,product) , configMaster)
+                axios.put(`${BaceUrl}63035e31a1610e638609ec2c` , objReplacer(pantsData,product) , configMaster)
                 toast.success("محصول با موفقیت ثبت شد", {
                     position: "top-right",
                     closeOnClick: true,
@@ -291,7 +303,7 @@ const ProductList = () => {
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
                 <div class="modal-dialog border-0">
                     <div class="modal-content border-0">
-                        <h5 className='p-3 border-bottom' onClick={() => console.log(title)}>{editProduct ? 'ویرایش محصول' : 'اضافه کردن محصول'}</h5>
+                        <h5 className='p-3 border-bottom'>{editProduct ? 'ویرایش محصول' : 'اضافه کردن محصول'}</h5>
                         <div className="d-flex px-3 gap-3 pt-3">
                             <Input placeholder="عنوان محصول" className='w-50' validation={title === '' ? 'لطفا فیلد را پر کنید' : null} value={!title ? '' : title} onChangeFun={setTitle} icon='material-symbols:title-rounded' iconWidth='20' color='#666' />
                             <Input placeholder="قیمت محصول" className='w-50' validation={price === '' ? 'لطفا فیلد را پر کنید' : null} value={!price ? '' : price} onChangeFun={setPrice} icon='bi:coin' iconWidth='20' color='#666' />
@@ -368,7 +380,7 @@ const ProductList = () => {
                         <div className="col-1">نمایش</div>
                     </div>
                     <div className="product-border-bootom py-2">
-                        {paginate(productList, 5, pageNum)?.map(card => <ProductAdminCard key={card.id} card={card} editProductHandler={editProductHandler} setEditProduct={setEditProduct} setShowProduct={setShowProduct} />)}
+                        {paginate(productList, 6, pageNum)?.map(card => <ProductAdminCard key={card.id} card={card} editProductHandler={editProductHandler} setEditProduct={setEditProduct} setShowProduct={setShowProduct} />)}
                     </div>
                     <div className="d-flex justify-content-center pt-3 gap-3 align-items-center">
                         <Icon icon="ant-design:arrow-right-outlined" color="#666" width="25" cursor='pointer' onClick={() => Math.ceil(productList?.length / 5) > pageNum ? setPageNum(pageNum + 1) : null} />

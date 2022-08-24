@@ -30,9 +30,9 @@ const ShowAll = () => {
         {
           setRootPath("فروشگاه لباس لوکس دیزاین / پیراهن ها");
           axios.get(`${BaceUrl}63035e0ae13e6063dc86ccaf`,configAccess).then(({ data }) => {
-            setListOfCards(data.record.shirts);
-            dispatch(setDataRender(data.record.shirts));
-            dispatch(setShirtData(data.record.shirts));
+            setListOfCards(data.record);
+            dispatch(setDataRender(data.record));
+            dispatch(setShirtData(data.record));
           });
         }
         break;
@@ -41,9 +41,9 @@ const ShowAll = () => {
           setRootPath("فروشگاه لباس لوکس دیزاین / شلوار ها");
           axios.get(`${BaceUrl}63035e31a1610e638609ec2c`,configAccess).then(({ data }) => {
             console.log(data)
-            setListOfCards(data.record.pants);
-            dispatch(setDataRender(data.record.pants));
-            dispatch(setPantsData(data.record.pants));
+            setListOfCards(data.record);
+            dispatch(setDataRender(data.record));
+            dispatch(setPantsData(data.record));
           });
         }
         break;
@@ -125,7 +125,7 @@ const ShowAll = () => {
           </div>
           <div className="cards-container justify-content-end d-flex flex-wrap p-4">
             {paginate(dataRender, 8, pageNum)?.map((card) => (
-              <Card key={card.id} card={card} boxSh={true} />
+              <Card key={card.id} card={card} boxSh={true} length={20} />
             ))}
           </div>
           <div className="d-flex justify-content-center align-items-center gap-3 my-3">

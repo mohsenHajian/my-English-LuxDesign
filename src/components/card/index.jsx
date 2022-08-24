@@ -8,7 +8,7 @@ import { textHandler } from "../../utils/textHandler";
 import AddToCartIcon from "../addToCartIcon";
 import "./card.style.scss";
 
-const Card = ({ card, boxSh, width }) => {
+const Card = ({ card, boxSh, width , length }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -29,7 +29,7 @@ const Card = ({ card, boxSh, width }) => {
       <div class="hoverBtn-bottom"></div>
       <img src={card?.imgURL} alt="" />
       <div className="d-flex flex-column px-3 my-4">
-        <h6>{textHandler(card?.title)}</h6>
+        <h6>{textHandler(card?.title , length)}</h6>
         <div className="d-flex card-details justify-content-between align-items-center">
           <AddToCartIcon card={card} />
           <span className="fa-num">{card?.price} تومان</span>

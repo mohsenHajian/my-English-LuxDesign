@@ -1,6 +1,6 @@
-export const textHandler = (text) => {
-  let showText = text.split("").slice(0, 25).join("");
-  if (text.length < 25) {
+export const textHandler = (text,length) => {
+  let showText = text.split("").slice(0, length).join("");
+  if (text.length < length) {
     return text;
   } else {
     return `${showText}...`;
