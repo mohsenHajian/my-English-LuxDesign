@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import Input from '../../components/input';
 import { resetCartList } from '../../redux/slice/cartListSlice';
+import { BaceUrl, configAccess, configMaster } from '../../servises/Urlservises';
 import './checkout.style.scss'
 
 const Checkout = () => {
@@ -17,6 +18,7 @@ const Checkout = () => {
     const [totalPrice, setTotalPrice] = useState(0)
     const [address, setAddress] = useState()
     const [allDiscount, setAllDiscount] = useState([])
+    const [orderListData, setOrderListData] = useState([])
     const [validDiscount, setValidDiscount] = useState()
     const [discount, setDiscount] = useState('')
     const [deliveryTime, setDeliveryTime] = useState()
@@ -30,7 +32,8 @@ const Checkout = () => {
         setTotalPrice(total)
     }, [uniqueArr])
     useEffect(() => {
-        axios.get('http://localhost:8000/discountCodes').then(({ data }) => setAllDiscount(data))
+        axios.get(`${BaceUrl}63035e9aa1610e638609eca0` , configAccess).then(({ data }) => setOrderListData(data.record))
+        axios.get(`${BaceUrl}63035eb05c146d63ca7a438b` , configAccess).then(({ data }) => setAllDiscount(data.record))
     }, [])
 
 
@@ -59,7 +62,7 @@ const Checkout = () => {
                 deliveryPhoneNumber,
                 paymentMethod
             }
-            axios.post('http://localhost:8000/orderList', order)
+            axios.put(`${BaceUrl}63035e9aa1610e638609eca0` , [...orderListData , order], configMaster)
             navigate('/')
             setValidDiscount('')
             toast.success("سفارش شما با موفقیت ثبت شد", {
