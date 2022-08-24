@@ -1,6 +1,8 @@
 import React from 'react';
 import './product-admin-style.scss'
 
+
+
 const ProductAdminCard = ({card,editProductHandler,setEditProduct,setShowProduct}) => {
 
 

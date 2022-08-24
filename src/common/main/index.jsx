@@ -7,6 +7,10 @@ import "./main.style.scss";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import { BaceUrl, configAccess } from "../../servises/Urlservises";
+import UserSkeleton from "../../components/Skeleton/userCardSkeleton";
+import AdminSkeleton from "../../components/Skeleton/adminCardSkeleton";
+import Skeleton from "react-loading-skeleton";
+
 
 const Main = () => {
   const navigate = useNavigate();
@@ -18,12 +22,12 @@ const Main = () => {
   useEffect(() => {
 
     axios
-      .get(`${BaceUrl}63035e0ae13e6063dc86ccaf`,configAccess)
+      .get(`${BaceUrl}63035e0ae13e6063dc86ccaf`, configAccess)
       .then(({ data }) =>
         setMainShirtSection(data.record.reverse().slice(0, 4))
       );
     axios
-      .get(`${BaceUrl}63035e31a1610e638609ec2c`,configAccess)
+      .get(`${BaceUrl}63035e31a1610e638609ec2c`, configAccess)
       .then(({ data }) =>
         setMainPantsSection(data.record.reverse().slice(0, 4))
       );
@@ -47,7 +51,9 @@ const Main = () => {
 
   return (
     <main className="home-main">
+
       <section className="category-container">
+
         <p>دسته بندی محصولات</p>
         <div className="category-items d-flex flex-wrap">
           <CategoryIcon />
@@ -55,6 +61,7 @@ const Main = () => {
           <CategoryIcon />
           <CategoryIcon />
           <CategoryIcon />
+
         </div>
       </section>
 
@@ -132,18 +139,23 @@ const Main = () => {
         </div>
       </section>
 
+
+
       <section className="shirt-section">
+
         <div className="shirt-section-header">
+
           <p className="shirt-section-title">پیراهن ها</p>
           <div className="show-more" onClick={showMoreShirtsHandler}>
+
             <span>نمایش همه</span>
             <Icon icon="akar-icons:arrow-left" color="#00bffe" width="30" />
           </div>
         </div>
         <div className="card-container d-flex justify-content-center my-4 flex-wrap w-100">
-          {mainShirtSection?.map((card) => (
+          {mainShirtSection ? mainShirtSection.map((card) => (
             <Card card={card} boxSh={true} length={25} />
-          ))}
+          )) : <UserSkeleton />}
         </div>
       </section>
 
@@ -156,9 +168,9 @@ const Main = () => {
           </div>
         </div>
         <div className="card-container d-flex  justify-content-center my-4 flex-wrap w-100">
-          {mainPantsSection?.map((card) => (
+          {mainPantsSection ? mainPantsSection.map((card) => (
             <Card card={card} boxSh={true} length={25} />
-          ))}
+          )) : <UserSkeleton/>}
         </div>
       </section>
 
