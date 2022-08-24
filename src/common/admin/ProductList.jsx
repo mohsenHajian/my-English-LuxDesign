@@ -4,7 +4,9 @@ import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import Input from '../../components/input';
 import ProductAdminCard from '../../components/productAdminCard';
+import AdminSkeleton from '../../components/Skeleton/adminCardSkeleton';
 import { BaceUrl, configAccess, configMaster } from '../../servises/Urlservises';
+
 
 const ProductList = () => {
     const [productList, setProductList] = useState()
@@ -386,7 +388,7 @@ const ProductList = () => {
                         <div className="col-1">نمایش</div>
                     </div>
                     <div className="product-border-bootom py-2">
-                        {paginate(productList, 5, pageNum)?.map(card => <ProductAdminCard key={card.id} card={card} editProductHandler={editProductHandler} setEditProduct={setEditProduct} setShowProduct={setShowProduct} />)}
+                        {productList ? paginate(productList, 5, pageNum).map(card => <ProductAdminCard key={card.id} card={card} editProductHandler={editProductHandler} setEditProduct={setEditProduct} setShowProduct={setShowProduct} />) : <AdminSkeleton />}
                     </div>
                     <div className="d-flex justify-content-center pt-3 gap-3 align-items-center">
                         <Icon icon="ant-design:arrow-right-outlined" color="#666" width="25" cursor='pointer' onClick={() => Math.ceil(productList?.length / 5) > pageNum ? setPageNum(pageNum + 1) : null} />

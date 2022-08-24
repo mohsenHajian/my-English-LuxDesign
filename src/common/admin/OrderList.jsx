@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import FactureCard from '../../components/factureCard';
 import OrderAdminCard from '../../components/orderAdminCard';
+import AdminSkeleton from '../../components/Skeleton/adminCardSkeleton';
+import { BaceUrl, configAccess, configMaster } from '../../servises/Urlservises';
 import { miladi_be_shamsi } from '../../utils/dateConvert';
 
 const OrderList = () => {
@@ -19,7 +21,7 @@ const OrderList = () => {
 
 
     useEffect(() => {
-        axios.get('http://localhost:8000/orderList').then(({ data }) => { setOrderListData(data); setOrderList(data) })
+        axios.get(`${BaceUrl}63035e9aa1610e638609eca0`, configAccess).then(({ data }) => { setOrderListData(data.record); setOrderList(data.record) })
     }, [sccessfulDelivery])
 
 
@@ -79,8 +81,14 @@ const OrderList = () => {
     }
 
 
+    const objReplacer = (data,order) => {
+        let arr = data.map(card => card.id === order.id ? card = {...order,status:'delivered' } : card)
+        return arr
+    }
+
+
     const deliveryHandler = () => {
-        axios.put(`http://localhost:8000/orderList/${currentOrder.id}`,{...currentOrder,status:'delivered'})
+        axios.put(`${BaceUrl}63035e9aa1610e638609eca0`, objReplacer(orderListData,currentOrder) , configMaster)
         setSccessfulDelivery(sccessfulDelivery+1)
         toast.success("کالا با موفقیت تحویل داده شد", {
             position: "top-right",
@@ -89,7 +97,6 @@ const OrderList = () => {
     }
 
 
-    console.log(orderList)
 
     return (
         <>
@@ -153,7 +160,7 @@ const OrderList = () => {
                         </div>
                         <span className='col-2 text-center'>نمایش</span>
                     </div>
-                    {orderList?.map(order => <OrderAdminCard key={order.id} order={order} setCurrentOrder={setCurrentOrder} />)}
+                    {orderList ? orderList.map(order => <OrderAdminCard key={order.id} order={order} setCurrentOrder={setCurrentOrder} />) : <AdminSkeleton />}
                 </div>
             </div>
         </>
