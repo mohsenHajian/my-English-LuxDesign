@@ -38,6 +38,8 @@ const ProductList = () => {
         axios.get(`${BaceUrl}63035de35c146d63ca7a4297`, configAccess).then(({ data }) => { setProductList(data.record); setProductData(data.record) })
     }, [selectedProduct])
 
+
+
     const cheapestList = () => {
         let data = [...productData]
         let sortArr = data.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
@@ -82,6 +84,11 @@ const ProductList = () => {
 
     const objReplacer = (data,product) => {
         let arr = data.map(card => card.id === product.id ? card = product : card)
+        return arr
+    }
+    const objRemover = (data,product) => {
+        console.log(product);
+        let arr = data.filter(item => item.id !== product.id ? item : null)
         return arr
     }
 
@@ -236,7 +243,6 @@ const ProductList = () => {
                     },
                     comments
                 }
-                console.log(objReplacer(productData,product));
                 axios.put(`${BaceUrl}63035de35c146d63ca7a4297` , objReplacer(productData,product) , configMaster)
                 axios.put(`${BaceUrl}63035e0ae13e6063dc86ccaf` , objReplacer(shirtData,product) , configMaster)
                 toast.success("محصول با موفقیت ثبت شد", {
@@ -284,11 +290,11 @@ const ProductList = () => {
     }
 
 
-    const deleteHandler = (card) => {
-        axios.delete(`http://localhost:8000/allProducts/${editProduct.id}`)
-        if (card.category === 'shirt') axios.delete(`http://localhost:8000/shirts/${editProduct.id}`)
-        if (card.category === 'pants') axios.delete(`http://localhost:8000/pants/${editProduct.id}`)
-        let productList = productData.filter(item => item.card !== card.id ? item : null)
+
+    const deleteHandler = () => {
+        axios.put(`${BaceUrl}63035de35c146d63ca7a4297`, objRemover(productData,editProduct) , configMaster)
+        if (editProduct.category === 'shirt') axios.put(`${BaceUrl}63035e0ae13e6063dc86ccaf`, objRemover(shirtData,editProduct) , configMaster)
+        if (editProduct.category === 'pants') axios.put(`${BaceUrl}63035e31a1610e638609ec2c`, objRemover(pantsData,editProduct), configMaster)
         setSelectedProduct(productList)
         toast.success("محصول با موفقیت حذف شد", {
             position: "top-right",
@@ -335,20 +341,20 @@ const ProductList = () => {
                                 <Input placeholder="فاق شلوار" className='w-50' validation={crotch === '' ? 'لطفا فیلد را پر کنید' : null} value={!crotch ? '' : crotch} onChangeFun={setCrotch} icon='iconoir:pants-alt' iconWidth='20' color='#666' />
                             </div>
                         ) : null}
-                        <div class="modal-footer d-flex justify-content-between border-0">
-                            {editProduct || addProductModal ? <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={editProduct ? submitEditHandler : addProductHandler}>ذخیره</button> : null }
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={() => resetState(undefined)}>بستن</button>
+                        <div className="modal-footer d-flex justify-content-between border-0">
+                            {editProduct || addProductModal ? <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={editProduct ? submitEditHandler : addProductHandler}>ذخیره</button> : null }
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={() => resetState(undefined)}>بستن</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="exampleModalDelete" tabindex="-1" aria-labelledby="exampleModalLabelDelete" aria-hidden="true" >
-                <div class="modal-dialog modal-dialog-delete border-0">
-                    <div class="modal-content border-0">
+            <div className="modal fade" id="exampleModalDelete" tabindex="-1" aria-labelledby="exampleModalLabelDelete" aria-hidden="true" >
+                <div className="modal-dialog modal-dialog-delete border-0">
+                    <div className="modal-content border-0">
                         <h5 className='p-3'>آیا از حذف این محصول اطمینان دارید؟</h5>
-                        <div class="modal-footer d-flex justify-content-between border-0">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onClick={deleteHandler}>حذف</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={() => resetState(undefined)}>بستن</button>
+                        <div className="modal-footer d-flex justify-content-between border-0">
+                            <button type="button" className="btn btn-danger" data-bs-dismiss="modal" onClick={deleteHandler}>حذف</button>
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={() => resetState(undefined)}>بستن</button>
                         </div>
                     </div>
                 </div>
@@ -380,7 +386,7 @@ const ProductList = () => {
                         <div className="col-1">نمایش</div>
                     </div>
                     <div className="product-border-bootom py-2">
-                        {paginate(productList, 6, pageNum)?.map(card => <ProductAdminCard key={card.id} card={card} editProductHandler={editProductHandler} setEditProduct={setEditProduct} setShowProduct={setShowProduct} />)}
+                        {paginate(productList, 5, pageNum)?.map(card => <ProductAdminCard key={card.id} card={card} editProductHandler={editProductHandler} setEditProduct={setEditProduct} setShowProduct={setShowProduct} />)}
                     </div>
                     <div className="d-flex justify-content-center pt-3 gap-3 align-items-center">
                         <Icon icon="ant-design:arrow-right-outlined" color="#666" width="25" cursor='pointer' onClick={() => Math.ceil(productList?.length / 5) > pageNum ? setPageNum(pageNum + 1) : null} />
