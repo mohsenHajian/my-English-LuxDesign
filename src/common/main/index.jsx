@@ -20,16 +20,16 @@ const Main = () => {
     axios
       .get(`${BaceUrl}63035e0ae13e6063dc86ccaf`,configAccess)
       .then(({ data }) =>
-        setMainShirtSection(data.record.shirts.reverse().slice(0, 4))
+        setMainShirtSection(data.record.reverse().slice(0, 4))
       );
     axios
       .get(`${BaceUrl}63035e31a1610e638609ec2c`,configAccess)
       .then(({ data }) =>
-        setMainPantsSection(data.record.pants.reverse().slice(0, 4))
+        setMainPantsSection(data.record.reverse().slice(0, 4))
       );
-    axios
-      .get(`${BaceUrl}63035e735c146d63ca7a4347`,configAccess)
-      .then(({ data }) => setProposal(data.record.proposal.reverse().slice(0, 4)));
+    // axios
+    //   .get(`${BaceUrl}63035e735c146d63ca7a4347`,configAccess)
+    //   .then(({ data }) => setProposal(data.record.proposal.reverse().slice(0, 4)));
   }, []);
 
 
@@ -142,7 +142,7 @@ const Main = () => {
         </div>
         <div className="card-container d-flex justify-content-center my-4 flex-wrap w-100">
           {mainShirtSection?.map((card) => (
-            <Card card={card} boxSh={true} />
+            <Card card={card} boxSh={true} length={25} />
           ))}
         </div>
       </section>
@@ -157,7 +157,7 @@ const Main = () => {
         </div>
         <div className="card-container d-flex  justify-content-center my-4 flex-wrap w-100">
           {mainPantsSection?.map((card) => (
-            <Card card={card} boxSh={true} />
+            <Card card={card} boxSh={true} length={25} />
           ))}
         </div>
       </section>
