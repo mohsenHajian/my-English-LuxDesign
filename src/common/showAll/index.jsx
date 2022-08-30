@@ -124,7 +124,7 @@ const ShowAll = () => {
             <button className="btn-sort" onClick={newestList}>جدید ترین</button>
           </div>
           <div className="cards-container justify-content-end d-flex flex-wrap p-4">
-            {paginate(dataRender, 8, pageNum)?.map((card) => (
+            {paginate(dataRender, 8, pageNum).map((card) => (
               <Card key={card.id} card={card} boxSh={true} length={20} />
             ))}
           </div>

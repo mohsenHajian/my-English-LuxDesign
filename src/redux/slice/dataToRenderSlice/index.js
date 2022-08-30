@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const dataToRenderSlice = createSlice({
     name : 'dataRender',
     initialState : {
-        dataRender : [],
+        dataRender : [{},{},{},{},{},{},{},{}],
         shirtData : [],
         pantsData : [],
         singlePageData : {}

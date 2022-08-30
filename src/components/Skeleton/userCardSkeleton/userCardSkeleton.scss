@@ -1,0 +1,29 @@
+.card-item-loading {
+  width: 19%;
+}
+
+.card-details-loading {
+  margin: 10px 0;
+  .card-btn {
+    border-radius: 8px;
+    background-color: aqua;
+    border: none;
+    color: #333;
+    padding: 5px 10px;
+  }
+  span {
+    font-size: 15px;
+    color: #333;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .card-item-loading {
+    width: 40%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .card-item-loading {
+    width: 100%;
+  }
+}

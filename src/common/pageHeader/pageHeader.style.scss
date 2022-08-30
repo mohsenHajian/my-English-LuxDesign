@@ -2,6 +2,10 @@
   box-shadow: 0 0 5px 2px rgb(233, 233, 233);
   padding: 20px 5%;
   background-color: #fafafa;
+  position: sticky;
+  top : 0;
+  width: 100%;
+  z-index: 10;
   .logo {
     font-size: 22px;
     font-weight: bold;
