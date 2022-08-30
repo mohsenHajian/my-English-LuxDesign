@@ -8,6 +8,7 @@ import Card from '../../components/card'
 import axios from "axios";
 import "./single-page.style.scss";
 import { toast } from "react-toastify";
+import { priceHandler } from "../../utils/priceHandler";
 
 const SinglePage = () => {
   const dispatch = useDispatch()
@@ -179,7 +180,7 @@ const SinglePage = () => {
                   <span>گارانتی اصالت و سلامت فیزیکی کالا </span>
                 </div>
               </div>
-              <p className="fs-3 fa-num">{singlePageData.price}تومان </p>
+              <p className="fs-3 fa-num">{priceHandler(singlePageData.price)}تومان </p>
             </div>
             <div className="d-flex flex-column py-5 gap-3">
               <span>سایز ها:</span>

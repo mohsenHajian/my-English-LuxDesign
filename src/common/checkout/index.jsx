@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import Input from '../../components/input';
 import { resetCartList } from '../../redux/slice/cartListSlice';
 import { BaceUrl, configAccess, configMaster } from '../../servises/Urlservises';
+import { priceHandler } from '../../utils/priceHandler';
 import './checkout.style.scss'
 
 const Checkout = () => {
@@ -148,7 +149,7 @@ const Checkout = () => {
                 <div className="payment px-4">
                     <div className="d-flex justify-content-between align-items-center py-3">
                         <span className='text-secondary'>قیمت کالا ها ({uniqueArr.length})</span>
-                        <span className='text-secondary'>{totalPrice} تومان</span>
+                        <span className='text-secondary'>{priceHandler(totalPrice)} تومان</span>
                     </div>
                     {validDiscount ? (
                         <>
@@ -158,7 +159,7 @@ const Checkout = () => {
                             </div>
                             <div className="discount-price d-flex justify-content-between align-items-center py-3">
                                 <span>قیمت نهایی</span>
-                                <span>{Number(totalPrice) - Number(totalPrice) * validDiscount[0].discount / 100}تومان</span>
+                                <span>{priceHandler(Number(totalPrice) - Number(totalPrice) * validDiscount[0].discount / 100)}تومان</span>
                             </div>
                         </>
                     ) : null}
@@ -166,13 +167,13 @@ const Checkout = () => {
                     <div className="border-bottom">
                         <div className="d-flex justify-content-between align-items-center py-3">
                             <span>هزینه ارسال</span>
-                            <span>25000 تومان</span>
+                            <span>25,000 تومان</span>
                         </div>
                         <p>هزینه ارسال براساس آدرس، زمان تحویل، وزن و حجم مرسوله شما محاسبه شده</p>
                     </div>
                     <div className="d-flex justify-content-between align-items-center py-3">
                         <span>قابل پرداخت</span>
-                        <span>{validDiscount ? Number(totalPrice) - Number(totalPrice) * validDiscount[0].discount / 100 + 25000 :totalPrice + 25000} تومان</span>
+                        <span>{priceHandler(validDiscount ? Number(totalPrice) - Number(totalPrice) * validDiscount[0].discount / 100 + 25000 :totalPrice + 25000)} تومان</span>
                     </div>
                     <button className="payment-btn p-3 my-3 mb-4" onClick={peymentHandler}>
                         پرداخت

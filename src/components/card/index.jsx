@@ -25,7 +25,6 @@ const Card = ({ card, boxSh, width, length }) => {
     navigate('/single-page')
   }
 
-  console.log(priceHandler(card.price))
 
   return (
     <>
@@ -33,12 +32,12 @@ const Card = ({ card, boxSh, width, length }) => {
         <section className="card-item"  style={boxSh ? Dstyle : null} onClick={eventCardHandler}>
           <div class="hoverBtn"></div>
           <div class="hoverBtn-bottom"></div>
-          <img src={card?.imgURL} alt="" />
+          <img src={card.imgURL} alt="" />
           <div className="d-flex flex-column px-3 my-4">
-            <h6>{textHandler(card?.title, length)}</h6>
+            <h6>{textHandler(card.title, length)}</h6>
             <div className="d-flex card-details justify-content-between align-items-center">
               <AddToCartIcon card={card} />
-              <span className="fa-num">{card?.price} تومان</span>
+              <span className="fa-num">{priceHandler(card.price)} تومان</span>
             </div>
           </div>
         </section>
