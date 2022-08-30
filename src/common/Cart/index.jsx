@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router';
 import CartCard from '../../components/cartCard';
 import { setUniqueArr } from '../../redux/slice/cartListSlice';
+import { priceHandler } from '../../utils/priceHandler';
 import './cart.style.scss'
 
 const Cart = () => {
@@ -64,7 +65,7 @@ const Cart = () => {
                 </div>
                 <div className="d-flex justify-content-between my-3">
                     <span>جمع سبد خرید</span>
-                    <span className='fa-num'>{totalPrice} تومان</span>
+                    <span className='fa-num'>{priceHandler(totalPrice)} تومان</span>
                 </div>
                 <p className='text-secondary my-3'>هزینه ارسال براساس آدرس، زمان تحویل، وزن و حجم مرسوله شما محاسبه می‌شود</p>
                 <button className="cart-continuation w-100 p-3 mt-4" onClick={continuation}>
