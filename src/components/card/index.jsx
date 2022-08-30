@@ -8,6 +8,8 @@ import { textHandler } from "../../utils/textHandler";
 import AddToCartIcon from "../addToCartIcon";
 import Skeleton from 'react-loading-skeleton'
 import "./card.style.scss";
+import UserSkeleton from "../Skeleton/userCardSkeleton";
+import { priceHandler } from "../../utils/priceHandler";
 
 const Card = ({ card, boxSh, width, length }) => {
   const dispatch = useDispatch()
@@ -23,11 +25,12 @@ const Card = ({ card, boxSh, width, length }) => {
     navigate('/single-page')
   }
 
+  console.log(priceHandler(card.price))
 
   return (
     <>
-      {card ? (
-        <section className="card-item" onClick={eventCardHandler} style={boxSh ? Dstyle : null}>
+      {card.title ? (
+        <section className="card-item"  style={boxSh ? Dstyle : null} onClick={eventCardHandler}>
           <div class="hoverBtn"></div>
           <div class="hoverBtn-bottom"></div>
           <img src={card?.imgURL} alt="" />
@@ -39,7 +42,7 @@ const Card = ({ card, boxSh, width, length }) => {
             </div>
           </div>
         </section>
-      ) : <span>rdhyguird</span>}
+      ) : <UserSkeleton />}
     </>
 
   );

@@ -9,6 +9,7 @@ const AddToCartIcon = ({ card }) => {
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
         dispatch(setCartList(card))
+        console.log('llllllllllllllll');
     }
     return (
         <Icon icon="carbon:add-alt" color="#6c63ff" width='30px' cursor='pointer' onClick={addTocart} />

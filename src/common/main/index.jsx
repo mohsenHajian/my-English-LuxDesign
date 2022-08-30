@@ -14,8 +14,8 @@ import Skeleton from "react-loading-skeleton";
 
 const Main = () => {
   const navigate = useNavigate();
-  let [mainShirtSection, setMainShirtSection] = useState([]);
-  let [mainPantsSection, setMainPantsSection] = useState([]);
+  let [mainShirtSection, setMainShirtSection] = useState([{},{},{},{}]);
+  let [mainPantsSection, setMainPantsSection] = useState([{},{},{},{}]);
   let [proposal, setProposal] = useState([]);
 
 
@@ -153,9 +153,9 @@ const Main = () => {
           </div>
         </div>
         <div className="card-container d-flex justify-content-center my-4 flex-wrap w-100">
-          {mainShirtSection ? mainShirtSection.map((card) => (
+          {mainShirtSection.map((card) => (
             <Card card={card} boxSh={true} length={25} />
-          )) : <UserSkeleton />}
+          ))}
         </div>
       </section>
 
