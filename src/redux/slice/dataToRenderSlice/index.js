@@ -4,13 +4,17 @@ export const dataToRenderSlice = createSlice({
     name : 'dataRender',
     initialState : {
         dataRender : [{},{},{},{},{},{},{},{}],
-        shirtData : [],
-        pantsData : [],
+        allData : [],
+        shirtData : [{},{},{},{}],
+        pantsData : [{},{},{},{}],
         singlePageData : {}
     },
     reducers : {
         setDataRender : (state,{payload}) => {
             state.dataRender = payload
+        },
+        setAllData : (state,{payload}) => {
+            state.allData = payload
         },
         setShirtData : (state,{payload}) => {
             state.shirtData = payload
@@ -24,5 +28,5 @@ export const dataToRenderSlice = createSlice({
     }
 })
 
-export const {setDataRender , setPantsData , setShirtData , setSinglePageData} = dataToRenderSlice.actions
+export const {setDataRender , setPantsData , setShirtData , setSinglePageData , setAllData} = dataToRenderSlice.actions
 export default dataToRenderSlice.reducer

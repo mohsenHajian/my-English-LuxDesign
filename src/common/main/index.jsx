@@ -8,35 +8,20 @@ import { useNavigate } from "react-router";
 import axios from "axios";
 import { BaceUrl, configAccess } from "../../servises/Urlservises";
 import UserSkeleton from "../../components/Skeleton/userCardSkeleton";
-import AdminSkeleton from "../../components/Skeleton/adminCardSkeleton";
-import Skeleton from "react-loading-skeleton";
+import { useSelector } from "react-redux";
 
 
 const Main = () => {
   const navigate = useNavigate();
-  let [mainShirtSection, setMainShirtSection] = useState([{},{},{},{}]);
-  let [mainPantsSection, setMainPantsSection] = useState([{},{},{},{}]);
-  let [proposal, setProposal] = useState([]);
+
+  // let [proposal, setProposal] = useState([]);
 
 
-  useEffect(() => {
-
-    axios
-      .get(`${BaceUrl}63035e0ae13e6063dc86ccaf`, configAccess)
-      .then(({ data }) =>
-        setMainShirtSection(data.record.reverse().slice(0, 4))
-      );
-    axios
-      .get(`${BaceUrl}63035e31a1610e638609ec2c`, configAccess)
-      .then(({ data }) =>
-        setMainPantsSection(data.record.reverse().slice(0, 4))
-      );
-    // axios
-    //   .get(`${BaceUrl}63035e735c146d63ca7a4347`,configAccess)
-    //   .then(({ data }) => setProposal(data.record.proposal.reverse().slice(0, 4)));
-  }, []);
+  const {shirtData} = useSelector(state=>state.shirtData)
+  const {pantsData} = useSelector(state=>state.pantsData)
 
 
+  
 
 
   const showMoreShirtsHandler = () => {
@@ -47,7 +32,7 @@ const Main = () => {
   };
 
 
-
+  
 
   return (
     <main className="home-main">
@@ -153,7 +138,7 @@ const Main = () => {
           </div>
         </div>
         <div className="card-container d-flex justify-content-center my-4 flex-wrap w-100">
-          {mainShirtSection.map((card) => (
+          {[...shirtData].reverse().slice(0,4).map((card) => (
             <Card card={card} boxSh={true} length={25} />
           ))}
         </div>
@@ -168,9 +153,9 @@ const Main = () => {
           </div>
         </div>
         <div className="card-container d-flex  justify-content-center my-4 flex-wrap w-100">
-          {mainPantsSection ? mainPantsSection.map((card) => (
+          {[...pantsData].reverse().slice(0,4).map((card) => (
             <Card card={card} boxSh={true} length={25} />
-          )) : <UserSkeleton/>}
+          ))}
         </div>
       </section>
 

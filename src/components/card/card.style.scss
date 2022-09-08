@@ -40,8 +40,8 @@ $size-radius: 5px;
   cursor: pointer;
 
   position: relative;
-//   border: solid 2px #cbd4d9;
-//   height: $button-height;
+  //   border: solid 2px #cbd4d9;
+  //   height: $button-height;
   @include border-radius($size-radius, "all");
 
   &:hover .hoverBtn:before,
@@ -71,7 +71,8 @@ $size-radius: 5px;
     height: $button-height;
     position: absolute;
     top: -1px;
-    pointer-events: none; 
+    right: -1px;
+    pointer-events: none;
 
     &:before {
       @include sub-button;
@@ -93,7 +94,8 @@ $size-radius: 5px;
     width: 100%;
     height: $button-height;
     position: absolute;
-    pointer-events: none; 
+    pointer-events: none;
+    right: -1px;
 
     &:before {
       @include sub-button;

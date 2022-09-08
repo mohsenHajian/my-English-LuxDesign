@@ -3,9 +3,15 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setUserInfo, setUserToken } from '../../redux/slice/userTokenSlice';
 import './user-profile-style.scss'
+import { withCookies, Cookies } from 'react-cookie';
+import PropTypes from 'prop-types'
+import { memo } from "react";
 
-const UserProfile = ({ user, theme }) => {
+const UserProfile = ({ cookies, theme }) => {
     const dispatch = useDispatch()
+
+    let user = cookies.get('token')
+
     function getRandomColor() {
         const letters = '0123456789ABCDEF';
         let color = '#';
@@ -15,7 +21,7 @@ const UserProfile = ({ user, theme }) => {
         return color;
     }
 
-    
+
 
     const profileImageStyle = {
         backgroundColor: `${getRandomColor()}`
@@ -24,7 +30,7 @@ const UserProfile = ({ user, theme }) => {
 
 
     const logoutHandler = () => {
-        localStorage.removeItem('token')
+        cookies.remove('token')
         dispatch(setUserToken(''))
         dispatch(setUserInfo([]))
     }
@@ -38,7 +44,7 @@ const UserProfile = ({ user, theme }) => {
     return (
         <div className="d-flex align-items-center user-profile gap-1">
             <div className="profile-image d-flex justify-content-center align-items-center" style={profileImageStyle}>
-                <span>{user[0].username.split('')[0]}</span>
+            <span>{user?.split('')[0]}</span>
             </div>
             <div class="dropdown">
                 <div type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,10 +55,18 @@ const UserProfile = ({ user, theme }) => {
                 </ul>
             </div>
             <span style={theme === 'dark' ? { color: '#666' } : null}>
-                {user[0].username}
+            {user?.replace(/[0-9]/g, '')}
             </span>
         </div>
     );
 }
 
-export default UserProfile;
+UserProfile.propTypes = {
+    cookies: PropTypes.instanceOf(Cookies)
+};
+
+export default memo(withCookies(UserProfile));
+
+
+
+
