@@ -8,54 +8,54 @@ import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { setUserToken } from "../../redux/slice/userTokenSlice";
 import { BaceUrl, configAccess } from "../../servises/Urlservises";
+import { hideLoading, showLoading } from "react-redux-loading-bar";
+import { setProgress } from "../../redux/slice/loadingbarSlice";
+import { withCookies, Cookies } from 'react-cookie';
+import PropTypes from 'prop-types'
 
-const Login = () => {
+const Login = ({ cookies }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
-  const [user, setUser] = useState()
-  const [admins, setAdmins] = useState()
-
-  useEffect(() => {
-    axios.get(`${BaceUrl}63035cd5a1610e638609ea9f`, configAccess).then((data) => setUser(data.data.record))
-    axios.get(`${BaceUrl}63035ca1e13e6063dc86cb1e` , configAccess).then((data) => setAdmins(data.data.record))
-  }, [])
 
 
   const loginHandler = () => {
     if (email && password) {
-      let User = user.filter(user => user.email === email && user.password === password ? user : null)
-      let Admin = admins.filter(user => user.email === email && user.password === password ? user : null)
-      if (Admin.length > 0) {
-        localStorage.setItem('token', `${Admin[0].username + Admin[0].id}`)
-        dispatch(setUserToken(`${Admin[0].username + Admin[0].id}`))
-        navigate('/admin')
-        setAdmins(undefined)
-        toast.success("ورود موفقیت آمیز بود", {
-          position: "top-right",
-          closeOnClick: true,
-        });
-      } else if (User.length > 0) {
-        localStorage.setItem('token', `${User[0].username + User[0].id}`)
-        dispatch(setUserToken(`${User[0].username + User[0].id}`))
-        navigate('/')
-        setUser(undefined)
-        toast.success("ورود موفقیت آمیز بود", {
-          position: "top-right",
-          closeOnClick: true,
-        });
-      } else {
-        toast.error("مشکلی پیش آمده.", {
-          position: "top-right",
-          closeOnClick: true,
-        });
-      }
+      dispatch(setProgress(20))
+      axios.get(`${BaceUrl}63035cd5a1610e638609ea9f`, configAccess).then((data) => {
+        if (data.status === 200) {
+          dispatch(setProgress(70))
+          let User = data.data.record.filter(user => user.email === email && user.password === password ? user : null)
+          if (User.length > 0) {
+            cookies.set('token', `${User[0].username + User[0].id}`, { path: '/' , expires: new Date(Date.now() + 12 * 60 * 60 * 1000)})
+            // cookies.set('token', `${User[0].username + User[0].id}`, { path: '/', expires: new Date(1662554949321 + 12 * 60 * 60 * 1000) })
+            dispatch(setUserToken(`${User[0].username + User[0].id}`))
+            dispatch(setProgress(100))
+            if (User.isAdmin) {
+              navigate('/admin')
+            } else {
+              navigate('/')
+            }
+            toast.success("ورود موفقیت آمیز بود", {
+              position: "top-right",
+              closeOnClick: true,
+            });
+          } else {
+            dispatch(setProgress(0))
+            toast.error("نام کاربری یا رمز عبور اشتباه است", {
+              position: "top-right",
+              closeOnClick: true,
+            })
+          }
+        }
+      })
     } else {
-      toast.error("مشکلی پیش آمده.", {
+      dispatch(setProgress(0))
+      toast.error("لطفا فیلد ها را پر کنید", {
         position: "top-right",
         closeOnClick: true,
-      });
+      })
     }
   }
 
@@ -116,4 +116,8 @@ const Login = () => {
   );
 };
 
-export default Login;
+Login.propTypes = {
+  cookies: PropTypes.instanceOf(Cookies)
+};
+
+export default withCookies(Login);

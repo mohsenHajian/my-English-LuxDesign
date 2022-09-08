@@ -13,6 +13,7 @@ const Cart = () => {
     const { pathname } = location
     const { cartList } = useSelector(state => state.cartList)
     const {uniqueArr} = useSelector(state=>state.uniqueArr)
+    const { userToken } = useSelector(state => state.userToken)
     const [totalPrice, setTotalPrice] = useState(0)
     const [totalProduct, settotalProduct] = useState(0)
 
@@ -45,7 +46,7 @@ const Cart = () => {
 
 
     const continuation = () => {
-        if (localStorage.getItem('token')) {
+        if (userToken) {
             navigate(`${pathname}/checkout`)
         } else {
             navigate('/login')

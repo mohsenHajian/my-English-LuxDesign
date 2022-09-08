@@ -10,6 +10,7 @@ import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { setUsersList } from "../../redux/slice/usersListSlice";
 import { BaceUrl, configAccess, configMaster } from "../../servises/Urlservises";
+import { setProgress } from "../../redux/slice/loadingbarSlice";
 
 
 const Register = () => {
@@ -31,8 +32,8 @@ const Register = () => {
 
   const registerHandler = () => {
     if (username && phoneNumber && email && password && password === confirmPassword) {
+      dispatch(setProgress(20))
       let data = Date.now()
-      console.log(allUsers);
       const users = [
         ...allUsers, {
           id: data,
@@ -42,21 +43,28 @@ const Register = () => {
           password
         }
       ]
-      axios.put(`${BaceUrl}63035cd5a1610e638609ea9f`, users , configMaster);
-      dispatch(setUsersList({
-        id: data,
-        username,
-        phoneNumber,
-        email,
-        password
-      }))
-      toast.success("ثبت نام موفقیت آمیز بود.", {
-        position: "top-right",
-        closeOnClick: true,
-      });
-      navigate("/");
+      axios.put(`${BaceUrl}63035cd5a1610e638609ea9f`, users, configMaster).then(
+        (data) => { 
+          if(data.status === 200){
+            dispatch(setProgress(70))
+            dispatch(setUsersList({
+              id: data,
+              username,
+              phoneNumber,
+              email,
+              password
+            }))
+            toast.success("ثبت نام موفقیت آمیز بود.", {
+              position: "top-right",
+              closeOnClick: true,
+            });
+            navigate("/");
+            dispatch(setProgress(100))
+          }
+        }
+      )     
     } else {
-      toast.error("مشکلی پیش آمده.", {
+      toast.error("لطفا فیلد ها را پر کنید", {
         position: "top-right",
         closeOnClick: true,
       });

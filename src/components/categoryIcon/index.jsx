@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import React from "react";
 import "./categoryIcon.style.scss";
+import { memo } from "react";
 
 const CategoryIcon = () => {
   return (
@@ -12,4 +13,4 @@ const CategoryIcon = () => {
   );
 };
 
-export default CategoryIcon;
+export default memo(CategoryIcon);

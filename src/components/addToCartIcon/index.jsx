@@ -2,6 +2,7 @@ import { Icon } from '@iconify/react';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setCartList } from '../../redux/slice/cartListSlice';
+import { memo } from 'react';
 
 const AddToCartIcon = ({ card }) => {
     const dispatch = useDispatch()
@@ -9,11 +10,10 @@ const AddToCartIcon = ({ card }) => {
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
         dispatch(setCartList(card))
-        console.log('llllllllllllllll');
     }
     return (
         <Icon icon="carbon:add-alt" color="#6c63ff" width='30px' cursor='pointer' onClick={addTocart} />
     );
 }
 
-export default AddToCartIcon;
+export default memo(AddToCartIcon);

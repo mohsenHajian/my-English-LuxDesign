@@ -15,6 +15,7 @@ const SinglePage = () => {
   const { singlePageData } = useSelector(state => state.singlePageData)
   const { shirtData } = useSelector(state => state.shirtData)
   const { pantsData } = useSelector(state => state.pantsData)
+  const { userInfo } = useSelector(state => state.userInfo)
   const [recomendedList, setRecomendedList] = useState()
   const [comment, setComment] = useState()
 
@@ -43,7 +44,7 @@ const SinglePage = () => {
         id: Date.now(),
         date: Date.now(),
         text: comment,
-        arthor: localStorage.getItem('token')
+        arthor: userInfo.username
       }]
       if (singlePageData.category === 'pants') {
         axios.put(`http://localhost:8000/pants/${singlePageData.id}`,{...singlePageData,comments})

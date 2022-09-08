@@ -24,6 +24,7 @@ const ShowAll = () => {
   const { searchSubmit } = useSelector((state) => state.searchSubmit);
   const { searchValue } = useSelector((state) => state.searchValue);
 
+
   useEffect(() => {
     switch (pathname) {
       case "/shirts":
@@ -40,7 +41,6 @@ const ShowAll = () => {
         {
           setRootPath("فروشگاه لباس لوکس دیزاین / شلوار ها");
           axios.get(`${BaceUrl}63035e31a1610e638609ec2c`,configAccess).then(({ data }) => {
-            console.log(data)
             setListOfCards(data.record);
             dispatch(setDataRender(data.record));
             dispatch(setPantsData(data.record));
