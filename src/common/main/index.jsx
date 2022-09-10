@@ -9,6 +9,8 @@ import axios from "axios";
 import { BaceUrl, configAccess } from "../../servises/Urlservises";
 import UserSkeleton from "../../components/Skeleton/userCardSkeleton";
 import { useSelector } from "react-redux";
+import { scrollTop } from "../../utils/scrollTop";
+import pantsCategory from '../../assets/ripped-jeans-png-trendy-ripped-jeans-for-wome-11563008442nexteelelb-removebg-preview-removebg-preview.png'
 
 
 const Main = () => {
@@ -21,7 +23,9 @@ const Main = () => {
   const {pantsData} = useSelector(state=>state.pantsData)
 
 
-  
+  useEffect(()=>{
+    scrollTop()
+  },[])
 
 
   const showMoreShirtsHandler = () => {
@@ -31,7 +35,7 @@ const Main = () => {
     navigate("/pants");
   };
 
-
+  
   
 
   return (
@@ -41,11 +45,11 @@ const Main = () => {
 
         <p>دسته بندی محصولات</p>
         <div className="category-items d-flex flex-wrap">
-          <CategoryIcon />
-          <CategoryIcon />
-          <CategoryIcon />
-          <CategoryIcon />
-          <CategoryIcon />
+          <CategoryIcon path='/shirts' img='https://cdn11.bigcommerce.com/s-ogof3dhe/images/stencil/original/products/1004/2557/large_Anderson-School-Bobcat-Longsleeve-tShirt-Red__50073.1591037606.jpg?c=2' />
+          <CategoryIcon path='/shirts' img={pantsCategory} />
+          <CategoryIcon path='/pants' img='https://media.istockphoto.com/photos/running-shoes-picture-id1249496770?k=20&m=1249496770&s=170667a&w=0&h=UXzm1OKZBbi3fvJHnnIJisz8CRgwNNsAG4jl_KL_LmI=' />
+          <CategoryIcon path='/shirts' img='https://dkstatics-public.digikala.com/digikala-products/a4a9d5f2fe68138420262859c9a939966f424ea8_1655723481.jpg?x-oss-process=image/resize,w_1600/quality,q_80' />
+          <CategoryIcon path='/shirts' img='https://us.123rf.com/450wm/pixelrobot/pixelrobot1504/pixelrobot150401393/38286012-red-baseball-hat-with-copy-space-isolated-on-white-background-.jpg' />
 
         </div>
       </section>

@@ -32,7 +32,7 @@ const Login = ({ cookies }) => {
             // cookies.set('token', `${User[0].username + User[0].id}`, { path: '/', expires: new Date(1662554949321 + 12 * 60 * 60 * 1000) })
             dispatch(setUserToken(`${User[0].username + User[0].id}`))
             dispatch(setProgress(100))
-            if (User.isAdmin) {
+            if (User[0].isAdmin) {
               navigate('/admin')
             } else {
               navigate('/')

@@ -2,12 +2,14 @@ import { Icon } from "@iconify/react";
 import React from "react";
 import "./categoryIcon.style.scss";
 import { memo } from "react";
+import { useNavigate } from "react-router";
 
-const CategoryIcon = () => {
+const CategoryIcon = ({img,path}) => {
+  const navigate = useNavigate()
   return (
-    <div className="col-m-4">
+    <div className="col-m-4" onClick={()=>navigate(`${path}`)}>
       <button className="spin circle category-btn ">
-        <Icon icon="emojione-monotone:t-shirt" color="#b6b6b6" width="70" />
+        <img src={img} alt="" />
       </button>
     </div>
   );

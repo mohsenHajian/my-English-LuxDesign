@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setDataRender, setPantsData, setShirtData } from "../../redux/slice/dataToRenderSlice";
 import { Icon } from "@iconify/react";
 import { BaceUrl, configAccess } from "../../servises/Urlservises";
+import { scrollTop } from "../../utils/scrollTop";
 
 const ShowAll = () => {
   let location = useLocation();
@@ -30,21 +31,17 @@ const ShowAll = () => {
       case "/shirts":
         {
           setRootPath("فروشگاه لباس لوکس دیزاین / پیراهن ها");
-          axios.get(`${BaceUrl}63035e0ae13e6063dc86ccaf`,configAccess).then(({ data }) => {
-            setListOfCards(data.record);
-            dispatch(setDataRender(data.record));
-            dispatch(setShirtData(data.record));
-          });
+          setListOfCards(shirtData);
+          dispatch(setDataRender(shirtData));
+          dispatch(setShirtData(shirtData));
         }
         break;
       case "/pants":
         {
           setRootPath("فروشگاه لباس لوکس دیزاین / شلوار ها");
-          axios.get(`${BaceUrl}63035e31a1610e638609ec2c`,configAccess).then(({ data }) => {
-            setListOfCards(data.record);
-            dispatch(setDataRender(data.record));
-            dispatch(setPantsData(data.record));
-          });
+          setListOfCards(pantsData);
+          dispatch(setDataRender(pantsData));
+          dispatch(setPantsData(pantsData));
         }
         break;
     }
@@ -108,6 +105,7 @@ const ShowAll = () => {
   }
 
 
+  scrollTop()
 
 
   return (
