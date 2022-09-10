@@ -23,7 +23,9 @@ const Main = () => {
   const {pantsData} = useSelector(state=>state.pantsData)
 
 
-  
+  useEffect(()=>{
+    scrollTop()
+  },[])
 
 
   const showMoreShirtsHandler = () => {
@@ -33,7 +35,7 @@ const Main = () => {
     navigate("/pants");
   };
 
-  scrollTop()
+  
   
 
   return (

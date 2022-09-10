@@ -16,7 +16,6 @@ import OrderList from '../../common/admin/OrderList'
 const Layout = () => {
   return (
     <>
-      {/* <MainLayout> */}
       <Routes>
         <Route path="" element={<MainLayout />}>
           <Route path="" element={<Main />} />
@@ -33,7 +32,6 @@ const Layout = () => {
           <Route path="orders" element={<OrderList />} />
         </Route>
       </Routes>
-      {/* </MainLayout> */}
     </>
   );
 };
