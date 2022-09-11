@@ -19,7 +19,7 @@ const PageHeader = ({ user }) => {
   const { userToken } = useSelector(state => state.userToken)
   const { userInfo } = useSelector(state => state.userInfo)
   const { cartList } = useSelector(state => state.cartList)
-  const {uniqueArr} = useSelector(state=>state.uniqueArr)
+  const { uniqueArr } = useSelector(state => state.uniqueArr)
   const [userProfile, setUserProfile] = useState()
 
 
@@ -53,41 +53,41 @@ const PageHeader = ({ user }) => {
 
 
   return (
-    <div className="d-flex page-header justify-content-between align-items-center mb-4">
+    <div className="d-flex page-header justify-content-between align-items-center flex-wrap mb-4">
       <div className="d-flex align-items-center w-50 gap-4 flex-grow-1">
         <span className="logo text-center" onClick={() => navigate('/')}>LUX DESIGN</span>
-        <Input
-          className="w-50"
-          placeholder="جستجو"
-          color="#808080"
-          icon="carbon:search"
-          iconWidth="25px"
-          bgColor="#f5f5f5"
-          value={searchValue}
-          onChangeFun={searchHandler}
-          onKeypressFun={searchSubmit}
-          noValidation='true'
-        />
+        <div className="search-input w-50">
+          <Input
+            className="w-100"
+            placeholder="جستجو"
+            color="#808080"
+            icon="carbon:search"
+            iconWidth="25px"
+            bgColor="#f5f5f5"
+            value={searchValue}
+            onChangeFun={searchHandler}
+            onKeypressFun={searchSubmit}
+            noValidation='true'
+          />
+        </div>
       </div>
       <div className="d-flex align-items-center gap-3">
-        <div className="profile d-flex px-4 gap-2 d-xl-flex d-lg-flex d-m-flex d-none">
-          {userToken && userProfile?.length > 0 ? <UserProfile theme='dark' user={userProfile} /> : <>
-            <button className="login-btn" onClick={loginHandle}>
-              ورود
-            </button>
-            <button className="register-btn" onClick={registerHandle}>
-              ثبت نام
-            </button>
-          </>}
-
-        </div>
-        <div className="login-icon px-3 d-xl-none d-lg-none d-m-none d-flex">
-          {userToken && userProfile?.length > 0 ? (
-            <div className="d-flex">
-              <Icon icon="ic:baseline-arrow-drop-down" color="#666" width="25" />
-              <Icon icon="bi:person-fill" color="#666" width="25" />
-            </div>
-          ) : <Icon icon="heroicons-solid:login" color="#666" width='25px' cursor='pointer' onClick={() => navigate('/login')} />}
+        <div className="profile d-flex px-4 gap-2">
+          {userToken && userProfile?.length > 0 ? <UserProfile theme='dark' user={userProfile} /> : (
+            <>
+              <div className="profile-btns-header d-flex gap-2">
+                <button className="login-btn" onClick={loginHandle}>
+                  ورود
+                </button>
+                <button className="register-btn" onClick={registerHandle}>
+                  ثبت نام
+                </button>
+              </div>
+              <div className="login-icon h-100">
+                <Icon icon="simple-line-icons:login" color="#666" width='20px' cursor='pointer' onClick={()=>navigate('/login')} />
+              </div>
+            </>
+          )}
 
         </div>
         <div className="cart-icon">
@@ -98,6 +98,20 @@ const PageHeader = ({ user }) => {
           ) : null}
           <Icon icon="clarity:shopping-cart-line" color="#666" width="25" onClick={() => navigate('/cart')} cursor='pointer' />
         </div>
+      </div>
+      <div className="search-input-xs w-100 mt-3">
+        <Input
+          className="w-100"
+          placeholder="جستجو"
+          color="#808080"
+          icon="carbon:search"
+          iconWidth="25px"
+          bgColor="#f5f5f5"
+          value={searchValue}
+          onChangeFun={searchHandler}
+          onKeypressFun={searchSubmit}
+          noValidation='true'
+        />
       </div>
     </div>
   );

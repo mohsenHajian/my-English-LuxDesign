@@ -98,10 +98,14 @@ const ShowAll = () => {
 
 
   const nextPage = () => {
-    setPageNum(pageNum + 1)
+    if((dataRender.length/8) > pageNum){
+      setPageNum(pageNum + 1)
+    }
   }
   const prevPage = () => {
-    setPageNum(pageNum - 1)
+    if(pageNum > 1){
+      setPageNum(pageNum - 1)
+    }
   }
 
 
@@ -127,11 +131,11 @@ const ShowAll = () => {
             ))}
           </div>
           <div className="d-flex justify-content-center align-items-center gap-3 my-3">
-            <button className="paginate-btn" onClick={nextPage}>
+            <button className="paginate-btn-showAll" onClick={nextPage} style={Math.ceil(dataRender?.length/8) === pageNum ? {backgroundColor : '#eee' , cursor : 'auto'} : null} >
               <Icon icon="ooui:next-ltr" color="#00bffe" />
             </button>
-            <span className="paginate-num"> {pageNum}</span>
-            <button className="paginate-btn" onClick={prevPage}>
+            <span className="paginate-num fa-num"> {pageNum}</span>
+            <button className="paginate-btn-showAll" onClick={prevPage} style={pageNum === 1 ? {backgroundColor : '#eee' , cursor : 'auto'} : null} >
               <Icon icon="ooui:next-rtl" color="#00bffe" />
             </button>
 

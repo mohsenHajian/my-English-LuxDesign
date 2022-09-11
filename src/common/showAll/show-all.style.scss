@@ -19,12 +19,13 @@
     .btn-sort:focus {
         box-shadow: 0 0 5px 2px #00bffe;
     }
-    .paginate-btn {
+    .paginate-btn-showAll {
         padding: 7px 10px;
         border: none;
         background-color: #fdfdfd;
         box-shadow: 0 0 5px 2px #d8d8d8;
         outline: none;
+        border-radius: 100%;
     }
     .paginate-num {
         font-size: 20px;

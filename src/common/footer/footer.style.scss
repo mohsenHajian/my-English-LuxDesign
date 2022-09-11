@@ -1,20 +1,45 @@
 footer {
-    background-color: #242424;
-    padding: 50px 20%;
-    color: #f8f8f8;
-    p {
-        color: #cfcfcf;
-    }
+  background-color: #242424;
+  padding: 50px 20%;
+  color: #f8f8f8;
+  p {
+    color: #cfcfcf;
+  }
 }
 
 .footer-header {
-    border-bottom: 1px solid #f8f8f8;
-    padding: 0 30px 50px;
+  border-bottom: 1px solid #f8f8f8;
+  padding: 0 30px 50px;
+}
+
+.footer-item {
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 0;
+}
+
+.footer-item:hover {
+    color: aqua;
+    transform: translateY(-1px);
 }
 
 @media only screen and (max-width: 992px) {
-    .footer {
-      flex-direction: column;
-      gap: 50px;
+  .footer img {
+    width: 120px;
+    height: 120px;
+  }
+  .footer-details {
+    flex-direction: column;
+    gap: 50px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    gap: 50px;
+    img {
+      width: 120px;
+      height: 120px;
     }
   }
+}

@@ -99,8 +99,8 @@ const Header = () => {
             <img src={logo} alt="" /></div>
         </div>
         <div className="header-title">
-          <p>بزرگ ترین و متنوع ترین فروشگاه لباس</p>
-          <h3>لوکس دیزاین</h3>
+          <p className="header-title-details">بزرگ ترین و متنوع ترین فروشگاه لباس</p>
+          <p className="header-title-name">لوکس دیزاین</p>
         </div>
         <div className="search-bar col-xl-7 col-lg-10 col-m-12 col-sm-12 col-12">
           <input type="text" placeholder="دنبال چی میگردی؟" onChange={(e)=>dispatch(setSearchValue(e.target.value))} />
