@@ -89,7 +89,6 @@ const ProductList = () => {
         return arr
     }
     const objRemover = (data,product) => {
-        console.log(product);
         let arr = data.filter(item => item.id !== product.id ? item : null)
         return arr
     }
@@ -273,7 +272,6 @@ const ProductList = () => {
                     },
                     comments
                 }
-                console.log(product)
                 axios.put(`${BaceUrl}63035de35c146d63ca7a4297` , objReplacer(productData,product) , configMaster)
                 axios.put(`${BaceUrl}63035e31a1610e638609ec2c` , objReplacer(pantsData,product) , configMaster)
                 toast.success("محصول با موفقیت ثبت شد", {

@@ -6,6 +6,7 @@ import allData from "../slice/dataToRenderSlice";
 import shirtData from "../slice/dataToRenderSlice";
 import pantsData from "../slice/dataToRenderSlice";
 import singlePageData from "../slice/dataToRenderSlice";
+import commentStatus from "../slice/dataToRenderSlice";
 import usersList from "../slice/usersListSlice";
 import userToken from "../slice/userTokenSlice";
 import userInfo from "../slice/userTokenSlice";
@@ -31,7 +32,8 @@ export const store = configureStore({
     cartList,
     uniqueArr,
     allData,
-    loadingbar
+    loadingbar,
+    commentStatus
   },
   // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
   // devTools: process.env.NODE_ENV !== "production",
