@@ -54,7 +54,7 @@ const UserProfile = ({ cookies, theme }) => {
                     <li><a class="dropdown-item" href="#" onClick={()=>logoutHandler()}>خروج از حساب کاربری</a></li>
                 </ul>
             </div>
-            <span style={theme === 'dark' ? { color: '#666' } : null}>
+            <span className='user-profile-name' style={theme === 'dark' ? { color: '#666' } : null}>
             {user?.replace(/[0-9]/g, '')}
             </span>
         </div>

@@ -35,11 +35,11 @@ const MainLayout = ({ cookies }) => {
   const { loadingbar } = useSelector(state => state.loadingbar)
   const { usersList } = useSelector(state => state.usersList)
   const { userToken } = useSelector(state => state.userToken)
+  const { commentStatus } = useSelector(state => state.commentStatus)
 
 
 
   useEffect(() => {
-    console.log(cookies.get('token'));
     if (cookies.get('token')) {
       dispatch(setUserToken(cookies.get('token')))
     }
@@ -57,7 +57,7 @@ const MainLayout = ({ cookies }) => {
     // axios
     //   .get(`${BaceUrl}63035e735c146d63ca7a4347`,configAccess)
     //   .then(({ data }) => setProposal(data.record.proposal.reverse().slice(0, 4)));
-  }, []);
+  }, [commentStatus]);
 
 
   const dynamicHeader = () => {

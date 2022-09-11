@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import Comment from "../../components/comment";
 import { setCartList } from "../../redux/slice/cartListSlice";
 import Card from '../../components/card'
@@ -9,19 +9,27 @@ import axios from "axios";
 import "./single-page.style.scss";
 import { toast } from "react-toastify";
 import { priceHandler } from "../../utils/priceHandler";
+import { BaceUrl, configMaster } from "../../servises/Urlservises";
+import { setCommentStatus, setPantsData, setShirtData, setSinglePageData } from "../../redux/slice/dataToRenderSlice";
+import { scrollTop } from "../../utils/scrollTop";
+import { setProgress } from "../../redux/slice/loadingbarSlice";
 
 const SinglePage = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const { singlePageData } = useSelector(state => state.singlePageData)
+  const { allData } = useSelector(state => state.allData)
   const { shirtData } = useSelector(state => state.shirtData)
   const { pantsData } = useSelector(state => state.pantsData)
   const { userInfo } = useSelector(state => state.userInfo)
+  const { userToken } = useSelector(state => state.userToken)
+  const { commentStatus } = useSelector(state => state.commentStatus)
   const [recomendedList, setRecomendedList] = useState()
   const [comment, setComment] = useState()
 
 
   const progressStyle = {
-    width : `${(Number(singlePageData.star)/5)*100}%`
+    width: `${(Number(singlePageData.star) / 5) * 100}%`
   }
 
 
@@ -32,38 +40,61 @@ const SinglePage = () => {
     if (singlePageData.category === 'shirt') {
       setRecomendedList(shirtData)
     }
+    scrollTop()
   }, [])
 
   const addToCart = () => {
     dispatch(setCartList(singlePageData))
   }
 
-  const addCommentHandler = () => {
-    if(comment){
-      const comments = [...singlePageData.comments, {
-        id: Date.now(),
-        date: Date.now(),
-        text: comment,
-        arthor: userInfo.username
-      }]
-      if (singlePageData.category === 'pants') {
-        axios.put(`http://localhost:8000/pants/${singlePageData.id}`,{...singlePageData,comments})
-      }
-      if (singlePageData.category === 'shirt') {
-        axios.put(`http://localhost:8000/shirts/${singlePageData.id}`,{...singlePageData,comments})
-      }
-      toast.success("نظر شما با موفقیت ثبت شد", {
-        position: "top-right",
-        closeOnClick: true,
-    });
-      setComment('')
-    }else {
-      toast.error("مشکلی پیش آمده.", {
-        position: "top-right",
-        closeOnClick: true,
-    });
-    }
+  const arrayUpdater = (array, oldObj, newObj) => {
+    let newData = array.map(item => item.id === oldObj.id ? item = newObj : item)
+    return newData
   }
+
+  const addCommentHandler = () => {
+    if (userToken) {
+      if (comment) {
+        dispatch(setProgress(20))
+        dispatch(setCommentStatus('pending'))
+        const comments = [{
+          id: Date.now(),
+          date: Date.now(),
+          text: comment,
+          arthor: userInfo[0].username
+        }, ...singlePageData.comments]
+        if (singlePageData.category === 'pants') {
+          axios.put(`${BaceUrl}63035e31a1610e638609ec2c`, arrayUpdater(pantsData, { ...singlePageData }, { ...singlePageData, comments }), configMaster)
+        }
+        if (singlePageData.category === 'shirt') {
+          axios.put(`${BaceUrl}63035e0ae13e6063dc86ccaf`, arrayUpdater(shirtData, { ...singlePageData }, { ...singlePageData, comments }), configMaster)
+        }
+        axios.put(`${BaceUrl}63035de35c146d63ca7a4297`, arrayUpdater(allData, { ...singlePageData }, { ...singlePageData, comments }), configMaster).then((data) => {
+          if (data.status === 200) {
+            toast.success("نظر شما با موفقیت ثبت شد", {
+              position: "top-right",
+              closeOnClick: true,
+            });
+            dispatch(setSinglePageData({ ...singlePageData, comments }))
+            dispatch(setProgress(100))
+            dispatch(setCommentStatus(''))
+            setComment('')
+          }
+        })
+      } else {
+        toast.error("لطفا نظر خود را بنویسید", {
+          position: "top-right",
+          closeOnClick: true,
+        });
+      }
+    } else {
+      navigate('/login')
+    }
+
+  }
+
+
+
 
   return (
     <>
@@ -283,7 +314,13 @@ const SinglePage = () => {
         <div className="add-comment d-flex flex-column p-3">
           <div className="d-flex justify-content-between mb-3">
             <span className="fs-5">ثبت نظر</span>
-            <button className="add-comment-btn p-1 px-3" onClick={addCommentHandler}>ثبت</button>
+            <button className="add-comment-btn p-1 px-3" onClick={addCommentHandler}>ثبت {commentStatus === 'pending' ? (
+              <div className="add-comment-loading w-100 d-flex justify-content-center align-items-center">
+                <div className="spinner-border" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            ) : null}</button>
           </div>
           <textarea className="p-2" placeholder="نظر خود را تایپ کنید..." value={comment} onChange={(e) => setComment(e.target.value)} />
         </div>

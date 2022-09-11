@@ -7,17 +7,19 @@ const Footer = () => {
   return (
     <footer className="d-flex w-100 flex-column">
       <div className="footer d-flex justify-content-between w-100 footer-header">
+        <div className="d-flex gap-4 footer-details">
         <div className="d-flex flex-column gap-2">
-          <span>مشاوره و رفع مشکل آنلاین</span>
-          <span>درخواست همکاری با لوکس دیزاین</span>
-          <span>فروشگاه های لوکس دیزاین</span>
-          <span>درباره ما</span>
+          <p className="footer-item">مشاوره و رفع مشکل آنلاین</p>
+          <p className="footer-item">درخواست همکاری با لوکس دیزاین</p>
+          <p className="footer-item">فروشگاه های لوکس دیزاین</p>
+          <p className="footer-item">درباره ما</p>
         </div>
         <div className="d-flex flex-column gap-2">
-          <span>جدیدترین کالاهای لوکس دیزاین</span>
-          <span>دوره های پیشنهادی</span>
-          <span>دوره های محبوب</span>
-          <span>مدارک</span>
+          <p className="footer-item">جدیدترین کالاهای لوکس دیزاین</p>
+          <p className="footer-item">دوره های پیشنهادی</p>
+          <p className="footer-item">دوره های محبوب</p>
+          <p className="footer-item">مدارک</p>
+        </div>  
         </div>
         <img src={logo} alt="" />
       </div>

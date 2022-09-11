@@ -85,12 +85,12 @@
     color: #f8f8f8;
     text-align: center;
     margin-top: 17vh;
-    p {
+    .header-title-details {
       font-family: "IranSansLight";
       font-size: 35px;
       word-spacing: 10px;
     }
-    h3 {
+    .header-title-name {
       margin: 20px 0 15vh 0;
       font-size: 50px;
     }
@@ -136,14 +136,14 @@
 
 @media only screen and (max-width: 992px) {
   .header-title {
-    p {
+    .header-title-details {
       font-size: 25px !important;
     }
   }
 }
 @media only screen and (max-width: 768px) {
   .header-title {
-    p {
+    .header-title-details {
       font-size: 20px !important;
     }
   }
@@ -151,6 +151,16 @@
     img {
       height: 80%;
       width: 80%;
+    }
+  }
+}
+@media only screen and (max-width: 576px) {
+  .header-title {
+    .header-title-details {
+      font-size: 16px !important;
+    }
+    .header-title-name {
+      font-size: 30px !important;
     }
   }
 }

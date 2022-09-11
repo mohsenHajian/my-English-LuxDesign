@@ -38,7 +38,9 @@
   }
 }
 .login-icon {
-  border-left: 1px solid #252525;
+  // border-left: 1px solid #252525;
+  padding: 10px;
+  display: none;
 }
 .cart-icon {
   position: relative;
@@ -55,5 +57,25 @@
     font-size: 10px;
     color: white;
     background-color: red;
+  }
+}
+.search-input-xs {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .profile-btns-header {
+    display: none !important;
+  }
+  .login-icon {
+    display: flex;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .search-input {
+    display: none;
+  }
+  .search-input-xs {
+    display: block;
   }
 }

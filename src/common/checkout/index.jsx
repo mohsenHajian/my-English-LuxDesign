@@ -148,18 +148,18 @@ const Checkout = () => {
                 </div>
                 <div className="payment px-4">
                     <div className="d-flex justify-content-between align-items-center py-3">
-                        <span className='text-secondary'>قیمت کالا ها ({uniqueArr.length})</span>
-                        <span className='text-secondary'>{priceHandler(totalPrice)} تومان</span>
+                        <span className='fa-num text-secondary'>قیمت کالا ها ({uniqueArr.length})</span>
+                        <span className='fa-num text-secondary'>{priceHandler(totalPrice)} تومان</span>
                     </div>
                     {validDiscount ? (
                         <>
                             <div className="discount-text d-flex justify-content-between align-items-center">
                                 <span>کد تخفیف</span>
-                                <span>{validDiscount[0].discount} درصد</span>
+                                <span className='fa-num'>{validDiscount[0].discount} درصد</span>
                             </div>
                             <div className="discount-price d-flex justify-content-between align-items-center py-3">
                                 <span>قیمت نهایی</span>
-                                <span>{priceHandler(Number(totalPrice) - Number(totalPrice) * validDiscount[0].discount / 100)}تومان</span>
+                                <span className='fa-num'>{priceHandler(Number(totalPrice) - Number(totalPrice) * validDiscount[0].discount / 100)}تومان</span>
                             </div>
                         </>
                     ) : null}
@@ -167,13 +167,13 @@ const Checkout = () => {
                     <div className="border-bottom">
                         <div className="d-flex justify-content-between align-items-center py-3">
                             <span>هزینه ارسال</span>
-                            <span>25,000 تومان</span>
+                            <span className='fa-num'>25,000 تومان</span>
                         </div>
                         <p>هزینه ارسال براساس آدرس، زمان تحویل، وزن و حجم مرسوله شما محاسبه شده</p>
                     </div>
                     <div className="d-flex justify-content-between align-items-center py-3">
                         <span>قابل پرداخت</span>
-                        <span>{priceHandler(validDiscount ? Number(totalPrice) - Number(totalPrice) * validDiscount[0].discount / 100 + 25000 :totalPrice + 25000)} تومان</span>
+                        <span className='fa-num'>{priceHandler(validDiscount ? Number(totalPrice) - Number(totalPrice) * validDiscount[0].discount / 100 + 25000 :totalPrice + 25000)} تومان</span>
                     </div>
                     <button className="payment-btn p-3 my-3 mb-4" onClick={peymentHandler}>
                         پرداخت
