@@ -17,6 +17,7 @@
 
 .carousel {
   width: 100%;
+  direction: rtl !important;
   img {
     width: 100%;
   }
@@ -88,21 +89,21 @@
     }
   }
 }
-.shirt-section-title::after,
-.pants-section-title::after {
+.shirt-section-title::before,
+.pants-section-title::before {
   content: "";
   position: absolute;
   transition: 0.6s;
   width: 50%;
   height: 3px;
   bottom: 0;
-  right: 0;
+  left: 0;
   border-radius: 8px;
   background-color: rgb(140, 0, 255);
 }
 
-.shirt-section-title:hover::after,
-.pants-section-title:hover::after {
+.shirt-section-title:hover::before,
+.pants-section-title:hover::before {
   width: 100%;
 }
 

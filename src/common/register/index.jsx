@@ -3,7 +3,6 @@ import Input from "../../components/input";
 import registerSvg from "./register.svg";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-// import { Sugar } from "react-preloaders";
 import "react-toastify/dist/ReactToastify.css";
 import "./register.style.scss";
 import { useNavigate } from "react-router";
@@ -44,8 +43,8 @@ const Register = () => {
         }
       ]
       axios.put(`${BaceUrl}63035cd5a1610e638609ea9f`, users, configMaster).then(
-        (data) => { 
-          if(data.status === 200){
+        (data) => {
+          if (data.status === 200) {
             dispatch(setProgress(70))
             dispatch(setUsersList({
               id: data,
@@ -54,18 +53,18 @@ const Register = () => {
               email,
               password
             }))
-            toast.success("ثبت نام موفقیت آمیز بود.", {
-              position: "top-right",
+            toast.success("Registration was successful.", {
+              position: "top-left",
               closeOnClick: true,
             });
             navigate("/");
             dispatch(setProgress(100))
           }
         }
-      )     
+      )
     } else {
-      toast.error("لطفا فیلد ها را پر کنید", {
-        position: "top-right",
+      toast.error("Please fill in the fields", {
+        position: "top-left",
         closeOnClick: true,
       });
     }
@@ -82,88 +81,88 @@ const Register = () => {
         <div className="register-container">
           <div className="rotate-box"></div>
           <div className="register d-flex flex-column align-items-center p-4">
-            <h3 className="mb-3">ثبت نام در سایت</h3>
+            <h3 className="mb-3">Register</h3>
             <p className="register-title">
-              با ورود به حساب کاربری خود از مزایای کاربران ساین بهره مند شوید
+              Benefit from the benefits of Sign users by logging into your account
             </p>
             <div className="register-avatar d-flex justify-content-center align-items-center mt-2 mb-5">
               <img src={registerSvg} alt="" />
             </div>
             <div className="d-flex gap-3 w-100">
               <Input
-                placeholder="نام کاربری"
+                placeholder="Username"
                 icon="bi:person-fill"
                 color="#808080"
                 iconWidth="20px"
                 className="w-50"
                 value={username}
-                validation={username === '' ? 'لطفا فیلد نام کاربری را پر کنید' : null}
+                validation={username === '' ? 'Please fill in the Username field' : null}
                 onChange={(e) => setUsername(e.target.value)}
               />
               <Input
-                placeholder="موبایل"
+                placeholder="Phone"
                 icon="carbon:phone-filled"
                 color="#808080"
                 iconWidth="20px"
                 className="w-50"
                 value={phoneNumber}
-                validation={phoneNumber === '' ? 'لطفا فیلد شماره تلفن را پر کنید' : null}
+                validation={phoneNumber === '' ? 'Please fill in the Phone Number field' : null}
                 onChange={(e) => setPhoneNumber(e.target.value)}
               />
             </div>
             <Input
-              placeholder="ایمیل"
+              placeholder="Email"
               icon="dashicons:email-alt"
               color="#808080"
               iconWidth="20px"
               className="w-100"
               value={email}
-              validation={email === '' ? 'لطفا فیلد ایمیل را پر کنید' : null}
+              validation={email === '' ? 'Please fill in the Email field' : null}
               onChange={(e) => setEmail(e.target.value)}
             />
             <div className="d-flex gap-3">
               <Input
-                placeholder="رمز عبور"
+                placeholder="Password"
                 icon="bxs:lock-alt"
                 color="#808080"
                 iconWidth="20px"
                 width="w-100"
                 className="w-50"
                 value={password}
-                validation={password === '' ? 'لطفا فیلد رمز عبور را پر کنید' : null}
+                validation={password === '' ? 'Please fill in the Password field' : null}
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
               />
               <Input
-                placeholder="تکرار رمز عبور"
+                placeholder="Confirm Password"
                 icon="bxs:lock-alt"
                 color="#808080"
                 iconWidth="20px"
                 width="w-100"
                 className="w-50"
                 value={confirmPassword}
-                validation={password === '' ? 'لطفا رمز عبور را تکرار کنید' : null}
+                validation={password === '' ? 'Please fill in the Password field' : null}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 type="password"
               />
             </div>
             <div className="d-flex checkBox-container flex-column">
-              <div className="checkBox d-flex">
+              <div className="checkBox d-flex gap-2">
                 <input type="checkbox" />
-                <span>مرا به خاطر بسپار</span>
+                <span>Remember me</span>
               </div>
-              <div className="checkBox d-flex">
-                <input type="checkbox" />
-                <span>
-                  <i className="blue-text">شرایط و قوانین</i> استفاده از سرویس
-                  های لوکس دیزاین را مطالعه کردم و آن را میپذیرم
-                </span>
-              </div>
+              <div className="checkBox d-flex gap-2">
+              <input type="checkbox" />
+              <span>
+              I have read the 
+                <i className="blue-text">terms and conditions</i>  of using Lux design services and I accept them
+              </span>
+            </div>
             </div>
             <button className="register-btn" onClick={registerHandler}>
-              ورود
+              Register
             </button>
-            <span className="blue-text my-3">رمز عبور را فراموش کرده ام</span>
+            <span className="blue-text my-3" onClick={()=>navigate('/login')}>I already have an account</span>
           </div>
         </div>
       </div>

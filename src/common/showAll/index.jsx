@@ -30,7 +30,7 @@ const ShowAll = () => {
     switch (pathname) {
       case "/shirts":
         {
-          setRootPath("فروشگاه لباس لوکس دیزاین / پیراهن ها");
+          setRootPath('Lux design clothing store / shirts');
           setListOfCards(shirtData);
           dispatch(setDataRender(shirtData));
           dispatch(setShirtData(shirtData));
@@ -38,7 +38,7 @@ const ShowAll = () => {
         break;
       case "/pants":
         {
-          setRootPath("فروشگاه لباس لوکس دیزاین / شلوار ها");
+          setRootPath('Lux design clothing store / pants');
           setListOfCards(pantsData);
           dispatch(setDataRender(pantsData));
           dispatch(setPantsData(pantsData));
@@ -121,22 +121,22 @@ const ShowAll = () => {
         </div>
         <div className="d-flex flex-column col-xl-9 col-lg-12 gap-2">
           <div className="d-flex gap-3">
-            <button className="btn-sort" onClick={cheapestList}>ارزان ترین</button>
-            <button className="btn-sort" onClick={expensiveList}>گران ترین</button>
-            <button className="btn-sort" onClick={newestList}>جدید ترین</button>
+            <button className="btn-sort" onClick={cheapestList}>cheapest</button>
+            <button className="btn-sort" onClick={expensiveList}>most expensive</button>
+            <button className="btn-sort" onClick={newestList}>newest</button>
           </div>
           <div className="cards-container justify-content-end d-flex flex-wrap p-4">
             {paginate(dataRender, 8, pageNum).map((card) => (
-              <Card key={card.id} card={card} boxSh={true} length={20} />
+              <Card key={card.id} card={card} boxSh={true} length={15} />
             ))}
           </div>
           <div className="d-flex justify-content-center align-items-center gap-3 my-3">
-            <button className="paginate-btn-showAll" onClick={nextPage} style={Math.ceil(dataRender?.length/8) === pageNum ? {backgroundColor : '#eee' , cursor : 'auto'} : null} >
-              <Icon icon="ooui:next-ltr" color="#00bffe" />
-            </button>
-            <span className="paginate-num fa-num"> {pageNum}</span>
             <button className="paginate-btn-showAll" onClick={prevPage} style={pageNum === 1 ? {backgroundColor : '#eee' , cursor : 'auto'} : null} >
               <Icon icon="ooui:next-rtl" color="#00bffe" />
+            </button>
+            <span className="paginate-num fa-num"> {pageNum}</span>
+            <button className="paginate-btn-showAll" onClick={nextPage} style={Math.ceil(dataRender?.length/8) === pageNum ? {backgroundColor : '#eee' , cursor : 'auto'} : null} >
+              <Icon icon="ooui:next-ltr" color="#00bffe" />
             </button>
 
           </div>

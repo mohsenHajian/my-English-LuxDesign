@@ -117,6 +117,11 @@ $size-radius: 5px;
     border-radius: 8px 8px 0 0;
     width: 100%;
   }
+
+  h6 {
+    max-width: 60%;
+    white-space: nowrap;
+  }
 }
 
 .card-details {

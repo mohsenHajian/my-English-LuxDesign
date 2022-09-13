@@ -51,7 +51,7 @@ const UserProfile = ({ cookies, theme }) => {
                     <Icon icon="ic:baseline-arrow-drop-down" color={theme === 'dark' ? '#666' : '#f8f8f8'} width='20px' />
                 </div>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#" onClick={()=>logoutHandler()}>خروج از حساب کاربری</a></li>
+                    <li><a class="dropdown-item" href="#" onClick={()=>logoutHandler()}>Logout</a></li>
                 </ul>
             </div>
             <span className='user-profile-name' style={theme === 'dark' ? { color: '#666' } : null}>

@@ -50,9 +50,9 @@ const MainLayout = ({ cookies }) => {
 
 
   useEffect(() => {
-    axios.get(`${BaceUrl}63035de35c146d63ca7a4297`, configAccess).then(({ data }) => { dispatch(setAllData(data.record)) })
-    axios.get(`${BaceUrl}63035e0ae13e6063dc86ccaf`, configAccess).then(({ data }) => { dispatch(setShirtData(data.record)) })
-    axios.get(`${BaceUrl}63035e31a1610e638609ec2c`, configAccess).then(({ data }) => { dispatch(setPantsData(data.record)) })
+    axios.get(`${BaceUrl}631f8033e13e6063dca5854e`, configAccess).then(({ data }) => { dispatch(setAllData(data.record)) })
+    axios.get(`${BaceUrl}631f81be5c146d63ca98fd3e`, configAccess).then(({ data }) => { dispatch(setShirtData(data.record)) })
+    axios.get(`${BaceUrl}631f8258e13e6063dca58719`, configAccess).then(({ data }) => { dispatch(setPantsData(data.record)) })
 
     // axios
     //   .get(`${BaceUrl}63035e735c146d63ca7a4347`,configAccess)

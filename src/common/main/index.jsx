@@ -2,15 +2,14 @@ import { Icon } from "@iconify/react";
 import React, { useEffect, useState } from "react";
 import Card from "../../components/card";
 import CategoryIcon from "../../components/categoryIcon";
-import popularImg from "./popular.svg";
 import "./main.style.scss";
 import { useNavigate } from "react-router";
-import axios from "axios";
-import { BaceUrl, configAccess } from "../../servises/Urlservises";
-import UserSkeleton from "../../components/Skeleton/userCardSkeleton";
 import { useSelector } from "react-redux";
 import { scrollTop } from "../../utils/scrollTop";
 import pantsCategory from '../../assets/ripped-jeans-png-trendy-ripped-jeans-for-wome-11563008442nexteelelb-removebg-preview-removebg-preview.png'
+import sliderOne from '../../assets/sliders/SA.jpg'
+import sliderTwo from '../../assets/sliders/SA2.jpg'
+import sliderthree from '../../assets/sliders/SA3.jpg'
 
 
 const Main = () => {
@@ -43,13 +42,13 @@ const Main = () => {
 
       <section className="category-container">
 
-        <p>دسته بندی محصولات</p>
+        <p>Categories</p>
         <div className="category-items d-flex flex-wrap">
-          <CategoryIcon path='/shirts' img='https://cdn11.bigcommerce.com/s-ogof3dhe/images/stencil/original/products/1004/2557/large_Anderson-School-Bobcat-Longsleeve-tShirt-Red__50073.1591037606.jpg?c=2' />
-          <CategoryIcon path='/shirts' img={pantsCategory} />
-          <CategoryIcon path='/pants' img='https://media.istockphoto.com/photos/running-shoes-picture-id1249496770?k=20&m=1249496770&s=170667a&w=0&h=UXzm1OKZBbi3fvJHnnIJisz8CRgwNNsAG4jl_KL_LmI=' />
-          <CategoryIcon path='/shirts' img='https://dkstatics-public.digikala.com/digikala-products/a4a9d5f2fe68138420262859c9a939966f424ea8_1655723481.jpg?x-oss-process=image/resize,w_1600/quality,q_80' />
           <CategoryIcon path='/shirts' img='https://us.123rf.com/450wm/pixelrobot/pixelrobot1504/pixelrobot150401393/38286012-red-baseball-hat-with-copy-space-isolated-on-white-background-.jpg' />
+          <CategoryIcon path='/shirts' img='https://dkstatics-public.digikala.com/digikala-products/a4a9d5f2fe68138420262859c9a939966f424ea8_1655723481.jpg?x-oss-process=image/resize,w_1600/quality,q_80' />
+          <CategoryIcon path='/pants' img='https://media.istockphoto.com/photos/running-shoes-picture-id1249496770?k=20&m=1249496770&s=170667a&w=0&h=UXzm1OKZBbi3fvJHnnIJisz8CRgwNNsAG4jl_KL_LmI=' />
+          <CategoryIcon path='/shirts' img={pantsCategory} />
+          <CategoryIcon path='/shirts' img='https://cdn11.bigcommerce.com/s-ogof3dhe/images/stencil/original/products/1004/2557/large_Anderson-School-Bobcat-Longsleeve-tShirt-Red__50073.1591037606.jpg?c=2' />
 
         </div>
       </section>
@@ -63,12 +62,13 @@ const Main = () => {
           <button
             type="button"
             data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="2"
+            data-bs-slide-to="0"
             className="active dot"
             aria-current="true"
-            aria-label="Slide 3"
+            aria-label="Slide 1"
           ></button>
           <button
+
             type="button"
             className="dot"
             data-bs-target="#carouselExampleIndicators"
@@ -79,28 +79,28 @@ const Main = () => {
             type="button"
             className="dot"
             data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="0"
-            aria-label="Slide 1"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
           ></button>
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
             <img
-              src="https://dkstatics-public.digikala.com/digikala-adservice-banners/6566605f496b4ba69dcd96ae0e591860aef4d024_1657954040.jpg?x-oss-process=image/quality,q_95"
+              src={sliderOne}
               className="d-block w-100"
               alt="..."
             />
           </div>
           <div className="carousel-item">
             <img
-              src="https://dkstatics-public.digikala.com/digikala-adservice-banners/ee5ae34a08b3cb6c5035adf89eff8472aba3246b_1657953346.jpg?x-oss-process=image/quality,q_95"
+              src={sliderTwo}
               className="d-block w-100"
               alt="..."
             />
           </div>
           <div className="carousel-item">
             <img
-              src="https://dkstatics-public.digikala.com/digikala-adservice-banners/36bf4f495c87e13ec707d5c0f9a8d598adb6a66b_1657954357.jpg?x-oss-process=image/quality,q_95"
+              src={sliderthree}
               className="d-block w-100"
               alt="..."
             />
@@ -112,17 +112,17 @@ const Main = () => {
               className="carousel-arrow"
               type="button"
               data-bs-target="#carouselExampleIndicators"
-              data-bs-slide="next"
+              data-bs-slide="prev"
             >
-              <Icon icon="ep:arrow-right" color="#333" width="30" />
+              <Icon icon="ep:arrow-left" color="#333" width="30" />
             </div>
             <div
               className="carousel-arrow"
               type="button"
               data-bs-target="#carouselExampleIndicators"
-              data-bs-slide="prev"
+              data-bs-slide="next"
             >
-              <Icon icon="ep:arrow-left" color="#333" width="30" />
+              <Icon icon="ep:arrow-right" color="#333" width="30" />
             </div>
           </div>
         </div>
@@ -134,11 +134,10 @@ const Main = () => {
 
         <div className="shirt-section-header">
 
-          <p className="shirt-section-title">پیراهن ها</p>
-          <div className="show-more" onClick={showMoreShirtsHandler}>
-
-            <span>نمایش همه</span>
-            <Icon icon="akar-icons:arrow-left" color="#00bffe" width="30" />
+          <p className="shirt-section-title">Shirts</p>
+          <div className="show-more d-flex gap-2 align-items-center" onClick={showMoreShirtsHandler}>
+            <span>More</span>
+            <Icon icon="carbon:arrow-right" color="#00bffe" width="30" />
           </div>
         </div>
         <div className="card-container d-flex justify-content-center my-4 flex-wrap w-100">
@@ -150,10 +149,10 @@ const Main = () => {
 
       <section className="pants-section">
         <div className="pants-section-header">
-          <p className="pants-section-title">شلوار ها</p>
-          <div className="show-more" onClick={showMorePantsHandler}>
-            <span>نمایش همه</span>
-            <Icon icon="akar-icons:arrow-left" color="#00bffe" width="30" />
+          <p className="pants-section-title">Pants</p>
+          <div className="show-more d-flex gap-2 align-items-center" onClick={showMorePantsHandler}>
+            <span>More</span>
+            <Icon icon="carbon:arrow-right" color="#00bffe" width="30" />
           </div>
         </div>
         <div className="card-container d-flex  justify-content-center my-4 flex-wrap w-100">

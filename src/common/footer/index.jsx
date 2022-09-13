@@ -7,18 +7,18 @@ const Footer = () => {
   return (
     <footer className="d-flex w-100 flex-column">
       <div className="footer d-flex justify-content-between w-100 footer-header">
-        <div className="d-flex gap-4 footer-details">
+        <div className="d-flex gap-5 footer-details">
         <div className="d-flex flex-column gap-2">
-          <p className="footer-item">مشاوره و رفع مشکل آنلاین</p>
-          <p className="footer-item">درخواست همکاری با لوکس دیزاین</p>
-          <p className="footer-item">فروشگاه های لوکس دیزاین</p>
-          <p className="footer-item">درباره ما</p>
+          <p className="footer-item">Online consultation and troubleshooting</p>
+          <p className="footer-item">Request for cooperation with Lux Design</p>
+          <p className="footer-item">Lux Design stores</p>
+          <p className="footer-item">about us</p>
         </div>
         <div className="d-flex flex-column gap-2">
-          <p className="footer-item">جدیدترین کالاهای لوکس دیزاین</p>
-          <p className="footer-item">دوره های پیشنهادی</p>
-          <p className="footer-item">دوره های محبوب</p>
-          <p className="footer-item">مدارک</p>
+          <p className="footer-item">The latest Lux design products</p>
+          <p className="footer-item">Suggested products</p>
+          <p className="footer-item">Popular products</p>
+          <p className="footer-item">documents</p>
         </div>  
         </div>
         <img src={logo} alt="" />
@@ -30,7 +30,7 @@ const Footer = () => {
           <Icon icon="ph:telegram-logo-thin" color="#f6f6f6" width="40px" />
           <Icon icon="uit:facebook-f" color="#f6f6f6" width="40px" />
         </div>
-        <p className="text-center">بزرگترین فروشگاه لباس با متنوع ترین طرح های جدید لوکس دیزاین</p>
+        <p className="text-center">The largest clothing store with the most diverse new designs</p>
       </div>
     </footer>
   );

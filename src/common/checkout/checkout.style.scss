@@ -113,3 +113,20 @@
     }
   }
 }
+
+
+@media only screen and (max-width: 768px) {
+  .checkout-header-text {
+    justify-content: center !important;
+    .responsive-icon {
+      display: none !important;
+    }
+  }
+}
+@media only screen and (max-width: 500px) {
+  .checkout-header-text {
+    .checkout-header-text-master {
+      font-size: 14px;
+    }
+  }
+}

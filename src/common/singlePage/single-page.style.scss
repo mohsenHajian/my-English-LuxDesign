@@ -4,7 +4,7 @@
   box-shadow: 0 0 5px 2px #e0e0e0;
   border-radius: 16px;
   img {
-    border-radius: 0 16px 16px 0;
+    border-radius: 16px 0 0 16px;
   }
   .carousel-indicators-image {
     // width: 60px;
@@ -65,7 +65,6 @@
 .comments {
   width: 70%;
   max-height: 70vh;
-  margin-right: 2%;
   background-color: white;
   box-shadow: 0 0 5px 2px #e0e0e0;
   border-radius: 16px;

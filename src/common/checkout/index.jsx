@@ -66,14 +66,14 @@ const Checkout = () => {
             axios.put(`${BaceUrl}63035e9aa1610e638609eca0` , [...orderListData , order], configMaster)
             navigate('/')
             setValidDiscount('')
-            toast.success("سفارش شما با موفقیت ثبت شد", {
-                position: "top-right",
+            toast.success("Your order has been successfully placed", {
+                position: "top-left",
                 closeOnClick: true,
             });
             dispatch(resetCartList([]))
         } else {
-            toast.error("مشکلی پیش آمده.", {
-                position: "top-right",
+            toast.error("There is something wrong", {
+                position: "top-left",
                 closeOnClick: true,
             });
         }
@@ -84,17 +84,17 @@ const Checkout = () => {
             <div className="checkout-header d-flex align-items-center p-3 flex-column mb-3">
                 <span className='fs-2 checkout-title'>LUX DISIGN</span>
                 <div className="checkout-header-text d-flex justify-content-between w-100 my-4">
-                    <div className="d-flex align-items-center opacity active-color befor-borde position-relative gap-1">
+                    <div className="d-flex align-items-center responsive-icon opacity active-color befor-borde position-relative gap-1">
                         <Icon icon="clarity:shopping-cart-line" color="#00bffe" width="25" />
-                        <span>سبد خرید</span>
+                        <span>Cart</span>
                     </div>
-                    <div className="d-flex align-items-center active-color active-size position-relative gap-1">
+                    <div className="d-flex align-items-center checkout-header-text-master  active-color active-size position-relative gap-1">
                         <Icon icon="clarity:shopping-cart-line" color="#00bffe" width="30" />
-                        <span>زمان و نحوه ارسال</span>
+                        <span>Time and method of sending</span>
                     </div>
-                    <div className="d-flex align-items-center opacity position-relative gap-1">
+                    <div className="d-flex align-items-center responsive-icon opacity position-relative gap-1">
                         <Icon icon="entypo:wallet" color="#666" width="25" />
-                        <span>پرداخت</span>
+                        <span>Payment</span>
                     </div>
                 </div>
             </div>
@@ -102,81 +102,81 @@ const Checkout = () => {
                 <div className="address-time p-3 py-4">
                     <div className="d-flex align-items-center gap-1">
                         <Icon icon="ep:location" color="#666" width="25" />
-                        <span className='text-secondary'>آدرس تحویل سفارش *</span>
+                        <span className='text-secondary'>Order delivery address *</span>
                     </div>
-                    <Input placeholder="آدرس خود را درج کنید" className='my-2' value={address} onChangeFun={setAddress} validation={address === '' ? 'لطفا فیلد آدرس را پر کنید' : null} />
+                    <Input placeholder="Enter your address" className='my-2' value={address} onChangeFun={setAddress} validation={address === '' ? 'Please fill in the address field' : null} />
 
                     <div className="details-row d-flex w-100 gap-3 align-items-center">
                         <div className="w-50 w-res-100">
                             <div className="d-flex align-items-center gap-1">
                                 <Icon icon="teenyicons:discount-outline" color="#666" width="25" />
                                 <div className="d-flex justify-content-between w-100">
-                                    <span className='text-secondary'>کد تخفیف</span>
-                                    <button className='discount-btn' onClick={discountHandler}>ثبت</button>
+                                    <span className='text-secondary'>discount code</span>
+                                    <button className='discount-btn' onClick={discountHandler}>submit</button>
                                 </div>
                             </div>
-                            <Input placeholder=" کد تخفیف خود را درج کنید" className='my-2 w-100' value={discount} onChangeFun={setDiscount} />
+                            <Input placeholder=" Enter your discount code" className='my-2 w-100' value={discount} onChangeFun={setDiscount} />
                         </div>
                         <div className="w-50 w-res-100">
                             <div className="d-flex align-items-center gap-1">
                                 <Icon icon="ion:time-outline" color="#666" width="25" />
-                                <span className='text-secondary'>انتخاب زمان ارسال *</span>
+                                <span className='text-secondary'>Choose a time to send *</span>
                             </div>
-                            <Input placeholder="زمان تحویل کالا را درج کنید" className='my-2 w-100' value={deliveryTime} onChangeFun={setDeliveryTime} validation={deliveryTime === '' ? 'لطفا فیلد زمان تحویل را پر کنید' : null} />
+                            <Input placeholder="Enter the delivery time" className='my-2 w-100' value={deliveryTime} onChangeFun={setDeliveryTime} validation={deliveryTime === '' ? 'Please fill in the delivery time field' : null} />
                         </div>
                     </div>
                     <div className="details-row d-flex w-100 gap-3 align-items-center">
                         <div className="w-50 w-res-100">
                             <div className="d-flex align-items-center gap-1">
                                 <Icon icon="carbon:phone" color="#666" width="25" />
-                                <span className='text-secondary'>شماره تلفت تحویل گیرنده *</span>
+                                <span className='text-secondary'>Phone number of the recipient *</span>
                             </div>
-                            <Input placeholder=" شماره تلفت تحویل گیرنده خود را درج کنید" className='my-2 w-100' value={deliveryPhoneNumber} onChangeFun={setDeliveryPhoneNumber} validation={deliveryPhoneNumber === '' ? 'لطفا فیلد شماره تلفن تحویل گیرنده را پر کنید' : null} />
+                            <Input placeholder=" Enter your recipient's phone number" className='my-2 w-100' value={deliveryPhoneNumber} onChangeFun={setDeliveryPhoneNumber} validation={deliveryPhoneNumber === '' ? "Please fill in the recipient's phone number field" : null} />
                         </div>
                         <div className="w-50 w-res-100" style={{ alignSelf: 'flex-start' }}>
                             <div className="d-flex align-items-center gap-1">
                                 <Icon icon="fluent:payment-28-regular" color="#666" width="25" />
-                                <span className='text-secondary'>روش پرداخت *</span>
+                                <span className='text-secondary'>Payment Method *</span>
                             </div>
                             <div className="d-flex gap-3">
-                                <button className='payment-method-btn p-2 px-3 my-2' value='internet' onClick={(e) => setPaymentMethod(e.target.value)}>اینترنتی</button>
-                                <button className='payment-method-btn p-2 px-3 my-2' value='cash' onClick={(e) => setPaymentMethod(e.target.value)}>نقدی</button>
-                                <button className='payment-method-btn p-2 px-3 my-2' value='score' onClick={(e) => setPaymentMethod(e.target.value)}>امتیاز لوکس دیزاین</button>
+                                <button className='payment-method-btn p-2 px-3 my-2' value='internet' onClick={(e) => setPaymentMethod(e.target.value)}>internet</button>
+                                <button className='payment-method-btn p-2 px-3 my-2' value='cash' onClick={(e) => setPaymentMethod(e.target.value)}>cash</button>
+                                <button className='payment-method-btn p-2 px-3 my-2' value='score' onClick={(e) => setPaymentMethod(e.target.value)}>Lux score</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="payment px-4">
                     <div className="d-flex justify-content-between align-items-center py-3">
-                        <span className='fa-num text-secondary'>قیمت کالا ها ({uniqueArr.length})</span>
-                        <span className='fa-num text-secondary'>{priceHandler(totalPrice)} تومان</span>
+                        <span className='fa-num text-secondary'>commodity prices ({uniqueArr.length})</span>
+                        <span className='fa-num text-secondary'>{priceHandler(totalPrice)} $</span>
                     </div>
                     {validDiscount ? (
                         <>
                             <div className="discount-text d-flex justify-content-between align-items-center">
-                                <span>کد تخفیف</span>
-                                <span className='fa-num'>{validDiscount[0].discount} درصد</span>
+                                <span>discount code</span>
+                                <span className='fa-num'>{validDiscount[0].discount} percent</span>
                             </div>
                             <div className="discount-price d-flex justify-content-between align-items-center py-3">
-                                <span>قیمت نهایی</span>
-                                <span className='fa-num'>{priceHandler(Number(totalPrice) - Number(totalPrice) * validDiscount[0].discount / 100)}تومان</span>
+                                <span>The final price</span>
+                                <span className='fa-num'>{priceHandler(Number(totalPrice) - Number(totalPrice) * validDiscount[0].discount / 100)} $</span>
                             </div>
                         </>
                     ) : null}
                     <hr />
                     <div className="border-bottom">
                         <div className="d-flex justify-content-between align-items-center py-3">
-                            <span>هزینه ارسال</span>
-                            <span className='fa-num'>25,000 تومان</span>
+                            <span>shipping cost</span>
+                            <span className='fa-num'>25 $</span>
                         </div>
-                        <p>هزینه ارسال براساس آدرس، زمان تحویل، وزن و حجم مرسوله شما محاسبه شده</p>
+                        <p>The shipping cost is calculated based on the address, delivery time, weight and volume of your shipment</p>
                     </div>
                     <div className="d-flex justify-content-between align-items-center py-3">
-                        <span>قابل پرداخت</span>
-                        <span className='fa-num'>{priceHandler(validDiscount ? Number(totalPrice) - Number(totalPrice) * validDiscount[0].discount / 100 + 25000 :totalPrice + 25000)} تومان</span>
+                        <span>Payable</span>
+                        <span className='fa-num'>{priceHandler(validDiscount ? Number(totalPrice) - Number(totalPrice) * validDiscount[0].discount / 100 + 25000 :totalPrice + 25000)} $</span>
                     </div>
                     <button className="payment-btn p-3 my-3 mb-4" onClick={peymentHandler}>
-                        پرداخت
+                        Payment
                     </button>
                 </div>
             </div>
