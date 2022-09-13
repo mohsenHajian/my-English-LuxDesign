@@ -76,7 +76,7 @@ const Sidebar = () => {
   return (
     <aside className="aside d-flex flex-column">
       <div className="boxSh p-4 d-flex flex-column">
-        <h4>فیلتر ها</h4>
+        <h4>Filters</h4>
         {pathname === "/shirts" ? (
           <>
             <select
@@ -85,10 +85,10 @@ const Sidebar = () => {
               className="select"
             >
               <option value="allSleeve" selected>
-                همه مدل
+                Styles
               </option>
-              <option value="بلند">آستین بلند</option>
-              <option value="کوتاه">آستین کوتاه</option>
+              <option value="Tall">Long Sleeve</option>
+              <option value="Short">Short Sleeve</option>
             </select>
             <select
               value={shirtBrand}
@@ -96,11 +96,11 @@ const Sidebar = () => {
               className="select"
             >
               <option value="allBrand" selected>
-                همه برند
+                Brands
               </option>
-              <option value="ایران لباس">ایران لباس</option>
-              <option value="ال سی من">ال سی من</option>
-              <option value="زیسا">زیسا</option>
+              <option value="London Market">London Market</option>
+              <option value="LC Man">LC Man</option>
+              <option value="Zisa">Zisa</option>
             </select>
           </>
         ) : null}
@@ -112,31 +112,31 @@ const Sidebar = () => {
               className="select"
             >
               <option value="allSleeve" selected>
-                همه مدل
+                Styles
               </option>
-              <option value="راسته">راسته</option>
-              <option value="جذب">جذب</option>
+              <option value="straight">straight pants</option>
+              <option value="tight-fitting">tight pants</option>
             </select>
             <select value={pantsBrand} onChange={(e) => brandHandler(e.target.value)} className="select">
-              <option value='allBrand' selected>همه برند ها</option>
-              <option value="اکزاترس">اکزاترس</option>
-              <option value="ال سی من">ال سی من</option>
-              <option value="سیدونا">سیدونا</option>
-              <option value="راکی">راکی</option>
-              <option value="پاتن">پاتن</option>
-              <option value="دیان">دیان</option>
+              <option value='allBrand' selected>Brands</option>
+              <option value="Exatres">Exatres</option>
+              <option value="LC Man">LC Man</option>
+              <option value="Sidona">Sidona</option>
+              <option value="Reiki">Reiki</option>
+              <option value="patten">patten</option>
+              <option value="Dian">Dian</option>
             </select>
           </>
         ) : null}
-        <div className="form-check form-switch py-4 border-bottom">
+        <div className="form-check form-switch px-0 py-4 d-flex justify-content-between border-bottom">
+          <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+          Only available products
+          </label>
           <input
             className="form-check-input"
             type="checkbox"
             id="flexSwitchCheckDefault"
           />
-          <label className="form-check-label" for="flexSwitchCheckDefault">
-            فقط کالا های موجود
-          </label>
         </div>
         {/* <PriceInput /> */}
       </div>

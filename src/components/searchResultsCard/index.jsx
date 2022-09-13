@@ -18,7 +18,7 @@ const SearchResultsCard = ({card}) => {
             <img src={card.imgURL} alt="" /> 
             <div className="d-flex flex-column justify-content-around">
                 <p>{card.title}</p>    
-                <p className='fa-num'>قیمت : {priceHandler(card.price)} تومان</p>    
+                <p className='fa-num'>Price : {priceHandler(card.price)} $</p>    
             </div>   
         </div>
      );

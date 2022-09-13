@@ -59,7 +59,7 @@ const PageHeader = ({ user }) => {
         <div className="search-input w-50">
           <Input
             className="w-100"
-            placeholder="جستجو"
+            placeholder="Search"
             color="#808080"
             icon="carbon:search"
             iconWidth="25px"
@@ -72,15 +72,23 @@ const PageHeader = ({ user }) => {
         </div>
       </div>
       <div className="d-flex align-items-center gap-3">
+        <div className="cart-icon">
+          {cartList.length !== 0 ? (
+            <div className="cart-length">
+              {cartList.length}
+            </div>
+          ) : null}
+          <Icon icon="clarity:shopping-cart-line" color="#666" width="25" onClick={() => navigate('/cart')} cursor='pointer' />
+        </div>
         <div className="profile d-flex px-4 gap-2">
           {userToken && userProfile?.length > 0 ? <UserProfile theme='dark' user={userProfile} /> : (
             <>
               <div className="profile-btns-header d-flex gap-2">
                 <button className="login-btn" onClick={loginHandle}>
-                  ورود
+                  Login
                 </button>
                 <button className="register-btn" onClick={registerHandle}>
-                  ثبت نام
+                  Register
                 </button>
               </div>
               <div className="login-icon h-100">
@@ -89,14 +97,6 @@ const PageHeader = ({ user }) => {
             </>
           )}
 
-        </div>
-        <div className="cart-icon">
-          {cartList.length !== 0 ? (
-            <div className="cart-length">
-              {cartList.length}
-            </div>
-          ) : null}
-          <Icon icon="clarity:shopping-cart-line" color="#666" width="25" onClick={() => navigate('/cart')} cursor='pointer' />
         </div>
       </div>
       <div className="search-input-xs w-100 mt-3">

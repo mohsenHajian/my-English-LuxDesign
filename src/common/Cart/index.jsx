@@ -61,14 +61,14 @@ const Cart = () => {
             </div>
             <div className="total p-3 px-4">
                 <div className="d-flex justify-content-between my-3">
-                    <span className='text-secondary'>تعداد کالا ها</span>
-                    <span className='text-secondary fa-num'>{totalProduct} عدد</span>
+                    <span className='text-secondary'>Number of products</span>
+                    <span className='text-secondary fa-num'>{totalProduct} products</span>
                 </div>
                 <div className="d-flex justify-content-between my-3">
-                    <span>جمع سبد خرید</span>
-                    <span className='fa-num'>{priceHandler(totalPrice)} تومان</span>
+                    <span>Total shopping cart</span>
+                    <span className='fa-num'>{priceHandler(totalPrice)} $</span>
                 </div>
-                <p className='text-secondary my-3'>هزینه ارسال براساس آدرس، زمان تحویل، وزن و حجم مرسوله شما محاسبه می‌شود</p>
+                <p className='text-secondary my-3'>The shipping cost is calculated based on the address, delivery time, weight and volume of your shipment</p>
                 <button className="cart-continuation w-100 p-3 mt-4" onClick={continuation}>
                     ادامه
                 </button>

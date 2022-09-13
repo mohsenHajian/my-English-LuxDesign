@@ -36,8 +36,8 @@ const Card = ({ card, boxSh, width, length }) => {
           <div className="d-flex flex-column px-3 my-4">
             <h6>{textHandler(card.title, length)}</h6>
             <div className="d-flex card-details justify-content-between align-items-center">
+              <span className="fa-num">{priceHandler(card.price)} $</span>
               <AddToCartIcon card={card} />
-              <span className="fa-num">{priceHandler(card.price)} تومان</span>
             </div>
           </div>
         </section>

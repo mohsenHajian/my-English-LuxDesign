@@ -71,8 +71,8 @@ const SinglePage = () => {
         }
         axios.put(`${BaceUrl}63035de35c146d63ca7a4297`, arrayUpdater(allData, { ...singlePageData }, { ...singlePageData, comments }), configMaster).then((data) => {
           if (data.status === 200) {
-            toast.success("نظر شما با موفقیت ثبت شد", {
-              position: "top-right",
+            toast.success("Your comment has been successfully registered", {
+              position: "top-left",
               closeOnClick: true,
             });
             dispatch(setSinglePageData({ ...singlePageData, comments }))
@@ -82,8 +82,8 @@ const SinglePage = () => {
           }
         })
       } else {
-        toast.error("لطفا نظر خود را بنویسید", {
-          position: "top-right",
+        toast.error("Please write your comment", {
+          position: "top-left",
           closeOnClick: true,
         });
       }
@@ -195,7 +195,7 @@ const SinglePage = () => {
               <div className="d-flex gap-2">
                 <span className="fa-num">{singlePageData.comments?.length}</span>
                 <Icon icon="bi:chat" color="#333" width="25px" />
-                <span className="fa-num me-4">{singlePageData.star}</span>
+                <span className="fa-num ms-4">{singlePageData.star}</span>
                 <Icon icon="bi:star" color="#333" width="25px" />
               </div>
               <Icon icon="ei:share-google" color="#333" width="25" />
@@ -205,40 +205,40 @@ const SinglePage = () => {
               <div className="d-flex flex-column gap-2">
                 <div className="d-flex align-items-center gap-2">
                   <Icon icon="clarity:truck-line" color="#666" width='25px' />
-                  <span>ارسال از ۲ روز کاری</span>
+                  <span>Shipping from 2 working days</span>
                 </div>
                 <div className="d-flex align-items-center gap-2">
                   <Icon icon="ant-design:safety-outlined" color="#666" width='25px' />
-                  <span>گارانتی اصالت و سلامت فیزیکی کالا </span>
+                  <span>Guarantee of authenticity and physical health of products</span>
                 </div>
               </div>
-              <p className="fs-3 fa-num">{priceHandler(singlePageData.price)}تومان </p>
+              <p className="fs-3 fa-num">{priceHandler(singlePageData.price)} $</p>
             </div>
             <div className="d-flex flex-column py-5 gap-3">
-              <span>سایز ها:</span>
+              <span>Sizes:</span>
 
               <div className="d-flex gap-3">
                 {singlePageData.property.size.map(size => <button className="size-box p-2 px-3">{size}</button>)}
               </div>
             </div>
             <div className="d-flex flex-column propertys gap-3">
-              <h5 className="mb-4">ویژگی ها</h5>
+              <h5 className="mb-4">Property</h5>
               <div className="d-flex propertys-row">
-                <span className="col-5 text-secondary">جنس</span>
+                <span className="col-5 text-secondary">material</span>
                 <span className="col-6">{singlePageData.property.material}</span>
               </div>
               <div className="d-flex propertys-row">
-                <span className="col-5 text-secondary">برند</span>
+                <span className="col-5 text-secondary">brand</span>
                 <span className="col-6">{singlePageData.property.brand}</span>
               </div>
               {singlePageData.category === 'shirt' ? (
                 <>
                   <div className="d-flex propertys-row">
-                    <span className="col-5 text-secondary">آستین</span>
+                    <span className="col-5 text-secondary">sleeve</span>
                     <span className="col-6">{singlePageData.property.sleeve}</span>
                   </div>
                   <div className="d-flex propertys-row">
-                    <span className="col-5 text-secondary">قد</span>
+                    <span className="col-5 text-secondary">height</span>
                     <span className="col-6">{singlePageData.property.height}</span>
                   </div>
                 </>
@@ -246,22 +246,22 @@ const SinglePage = () => {
               {singlePageData.category === 'pants' ? (
                 <>
                   <div className="d-flex propertys-row">
-                    <span className="col-5 text-secondary">استایل</span>
+                    <span className="col-5 text-secondary">style</span>
                     <span className="col-6">{singlePageData.property.style}</span>
                   </div>
                   <div className="d-flex propertys-row">
-                    <span className="col-5 text-secondary">فاق</span>
+                    <span className="col-5 text-secondary">crotch</span>
                     <span className="col-6">{singlePageData.property.crotch}</span>
                   </div>
                   <div className="d-flex propertys-row">
-                    <span className="col-5 text-secondary">بسته شدن</span>
+                    <span className="col-5 text-secondary">HowToClose</span>
                     <span className="col-6">{singlePageData.property.HowToClose}</span>
                   </div>
                 </>
               ) : null}
 
             </div>
-            <button className="buy mt-5 w-100 p-3" onClick={addToCart}>افزودن به سبد خرید</button>
+            <button className="buy mt-5 w-100 p-3" onClick={addToCart}>Add to Cart</button>
           </div>
 
 
@@ -269,43 +269,43 @@ const SinglePage = () => {
       </div>
       <div className="d-flex comments-container justify-content-between w-100">
         <div className="d-flex flex-column card-score p-4 gap-2">
-          <h4>دیدگاه کاربران</h4>
+          <h4>User opinion</h4>
           <div className="d-flex align-items-center gap-2">
-            <span className="fa-num">{singlePageData.star} از 5</span>
+            <span className="fa-num">{singlePageData.star} from 5</span>
             <Icon icon="emojione:star" width='20px' /></div>
           <div className="score-progress d-flex flex-column my-2 gap-1">
-            <span>کیفیت موارد به کار رفته</span>
+            <span>The quality of the items used</span>
             <div className="progress-container">
               <div className="progress" style={progressStyle}></div>
             </div>
           </div>
           <div className="score-progress d-flex flex-column my-2 gap-1">
-            <span>کیفیت دوخت</span>
+            <span>Sewing quality</span>
             <div className="progress-container">
               <div className="progress" style={progressStyle}></div>
             </div>
           </div>
           <div className="score-progress d-flex flex-column my-2 gap-1">
-            <span>طراحی</span>
+            <span>Designing</span>
             <div className="progress-container">
               <div className="progress" style={progressStyle}></div>
             </div>
           </div>
           <div className="score-progress d-flex flex-column my-2 gap-1">
-            <span>فرم لباس روی بدن</span>
+            <span>The form of clothing on the body</span>
             <div className="progress-container">
               <div className="progress" style={progressStyle}></div>
             </div>
           </div>
           <div className="score-progress d-flex flex-column my-2 gap-1">
-            <span>ارزش خرید نسبت به قیمت</span>
+            <span>Value for money compared to the price</span>
             <div className="progress-container">
               <div className="progress" style={progressStyle}></div>
             </div>
           </div>
         </div>
         <div className="comments p-4 px-5 d-flex flex-column gap-4">
-          <h4>نظرات کاربران</h4>
+          <h4>Comments</h4>
           {singlePageData.comments?.map(comment => <Comment comment={comment} />)}
 
         </div>
@@ -313,8 +313,8 @@ const SinglePage = () => {
       <div className="d-flex py-3 container-add-comments justify-content-between">
         <div className="add-comment d-flex flex-column p-3">
           <div className="d-flex justify-content-between mb-3">
-            <span className="fs-5">ثبت نظر</span>
-            <button className="add-comment-btn p-1 px-3" onClick={addCommentHandler}>ثبت {commentStatus === 'pending' ? (
+            <span className="fs-5">Add Comments</span>
+            <button className="add-comment-btn p-1 px-3" onClick={addCommentHandler}>Submit{commentStatus === 'pending' ? (
               <div className="add-comment-loading w-100 d-flex justify-content-center align-items-center">
                 <div className="spinner-border" role="status">
                   <span className="visually-hidden">Loading...</span>
@@ -322,10 +322,10 @@ const SinglePage = () => {
               </div>
             ) : null}</button>
           </div>
-          <textarea className="p-2" placeholder="نظر خود را تایپ کنید..." value={comment} onChange={(e) => setComment(e.target.value)} />
+          <textarea className="p-2" placeholder="Type your comment..." value={comment} onChange={(e) => setComment(e.target.value)} />
         </div>
         <div className="recomended d-flex">
-          {recomendedList?.slice(0, 4).map(card => <Card card={card} />)}
+          {recomendedList?.slice(0, 4).map(card => <Card card={card} length={15} />)}
         </div>
       </div>
     </>

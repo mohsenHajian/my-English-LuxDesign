@@ -28,8 +28,7 @@ const Login = ({ cookies }) => {
           dispatch(setProgress(70))
           let User = data.data.record.filter(user => user.email === email && user.password === password ? user : null)
           if (User.length > 0) {
-            cookies.set('token', `${User[0].username + User[0].id}`, { path: '/' , expires: new Date(Date.now() + 12 * 60 * 60 * 1000)})
-            // cookies.set('token', `${User[0].username + User[0].id}`, { path: '/', expires: new Date(1662554949321 + 12 * 60 * 60 * 1000) })
+            cookies.set('token', `${User[0].username + User[0].id}`, { path: '/', expires: new Date(Date.now() + 12 * 60 * 60 * 1000) })
             dispatch(setUserToken(`${User[0].username + User[0].id}`))
             dispatch(setProgress(100))
             if (User[0].isAdmin) {
@@ -37,14 +36,14 @@ const Login = ({ cookies }) => {
             } else {
               navigate('/')
             }
-            toast.success("ورود موفقیت آمیز بود", {
-              position: "top-right",
+            toast.success("Login was successful", {
+              position: "top-left",
               closeOnClick: true,
             });
           } else {
             dispatch(setProgress(0))
-            toast.error("نام کاربری یا رمز عبور اشتباه است", {
-              position: "top-right",
+            toast.error("The username or password is incorrect", {
+              position: "top-left",
               closeOnClick: true,
             })
           }
@@ -52,7 +51,7 @@ const Login = ({ cookies }) => {
       })
     } else {
       dispatch(setProgress(0))
-      toast.error("لطفا فیلد ها را پر کنید", {
+      toast.error("Please fill in the fields", {
         position: "top-right",
         closeOnClick: true,
       })
@@ -64,25 +63,25 @@ const Login = ({ cookies }) => {
       <div className="login-container">
         <div className="rotate-box"></div>
         <div className="login d-flex flex-column align-items-center p-4">
-          <h3 className="mb-3">ورود به سایت</h3>
+          <h3 className="mb-3">Login</h3>
           <p className="login-title">
-            با ورود به حساب کاربری خود از مزایای کاربران ساین بهره مند شوید
+            Benefit from the benefits of Sign users by logging into your account
           </p>
           <div className="login-avatar d-flex justify-content-center align-items-center mt-2 mb-5">
             <img src={loginSvg} alt="" />
           </div>
           <Input
-            placeholder="ایمیل"
+            placeholder="Email"
             icon="dashicons:email-alt"
             color="#808080"
             iconWidth="25px"
             className="w-100"
             value={email}
-            validation={email === '' ? 'لطفا فیلد ایمیل را پر کنید' : null}
+            validation={email === '' ? 'Please fill in the email field' : null}
             onChangeFun={setEmail}
           />
           <Input
-            placeholder="پسوورد"
+            placeholder="Password"
             icon="bxs:lock-alt"
             color="#808080"
             iconWidth="25px"
@@ -90,26 +89,19 @@ const Login = ({ cookies }) => {
             className="w-100"
             type='password'
             value={password}
-            validation={password === '' ? 'لطفا فیلد رمز عبور را پر کنید' : null}
+            validation={password === '' ? 'Please fill in the Password field' : null}
             onChangeFun={setPassword}
           />
-          <div className="d-flex checkBox-container flex-column">
-            <div className="checkBox d-flex">
+          <div className="d-flex checkBox-container w-100">
+            <div className="checkBox d-flex gap-2">
               <input type="checkbox" />
-              <span>مرا به خاطر بسپار</span>
-            </div>
-            <div className="checkBox d-flex">
-              <input type="checkbox" />
-              <span>
-                <i className="blue-text">شرایط و قوانین</i> استفاده از سرویس های لوکس دیزاین را مطالعه کردم و
-                آن را میپذیرم
-              </span>
+              <span>Remember me</span>
             </div>
           </div>
           <button className="login-btn" onClick={loginHandler}>
-            ورود
+            Login
           </button>
-          <span className="blue-text my-3">رمز عبور را فراموش کرده ام</span>
+          <span className="blue-text my-3">I forgot the password</span>
         </div>
       </div>
     </div>
